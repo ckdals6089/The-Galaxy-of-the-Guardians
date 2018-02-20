@@ -1,11 +1,31 @@
 {
   "name": "thegalaxyoftheguardians",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WanDongKim/The-Galaxy-of-the-Guardians.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WanDongKim/The-Galaxy-of-the-Guardians/issues"
+  },
+  "homepage": "https://github.com/WanDongKim/The-Galaxy-of-the-Guardians#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0"
+  },
+  "dependencies": {
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^0.6.27",
+    "easeljs": "^1.0.2",
+    "preloadjs": "^1.0.1",
+    "soundjs": "^1.0.1",
+    "tweenjs": "^1.0.2"
+  }
 }
