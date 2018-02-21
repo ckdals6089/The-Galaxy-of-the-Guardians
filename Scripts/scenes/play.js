@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
+    Version : v1.1
     Last_modification : Feb 20, 2018
-    Description : Created first pages
+    Description : Set background object in playScene
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -18,7 +18,6 @@ var scenes;
 (function (scenes) {
     var playScene = /** @class */ (function (_super) {
         __extends(playScene, _super);
-        //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
         function playScene(assetManager) {
@@ -29,12 +28,14 @@ var scenes;
         //PRIVATE METHODS
         //PUBLIC METHODS
         playScene.prototype.Start = function () {
+            this._background = new objects.Background(this.assetManager);
+            this.Main();
         };
         playScene.prototype.Update = function () {
+            this._background.Update();
         };
         playScene.prototype.Main = function () {
-        };
-        playScene.prototype.Init = function () {
+            this.addChild(this._background);
         };
         return playScene;
     }(objects.Scene));
