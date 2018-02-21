@@ -16,33 +16,28 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var openingScene = /** @class */ (function (_super) {
-        __extends(openingScene, _super);
+    var playScene = /** @class */ (function (_super) {
+        __extends(playScene, _super);
+        //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function openingScene(assetManager) {
+        function playScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
             _this.Start();
             return _this;
         }
         //PRIVATE METHODS
-        openingScene.prototype._btnStartClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
-        };
         //PUBLIC METHODS
-        openingScene.prototype.Start = function () {
-            this._btnStart = new objects.Button(this.assetManager, "btnStart", 320, 340);
-            this.Main();
-            console.log("start");
+        playScene.prototype.Start = function () {
         };
-        openingScene.prototype.Update = function () {
+        playScene.prototype.Update = function () {
         };
-        openingScene.prototype.Main = function () {
-            this.addChild(this._btnStart);
-            this._btnStart.on("click", this._btnStartClick);
+        playScene.prototype.Main = function () {
         };
-        return openingScene;
+        playScene.prototype.Init = function () {
+        };
+        return playScene;
     }(objects.Scene));
-    scenes.openingScene = openingScene;
+    scenes.playScene = playScene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=opening.js.map
+//# sourceMappingURL=play.js.map
