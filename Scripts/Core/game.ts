@@ -18,7 +18,8 @@
 
     assetManifest = [
         {id: "btnStart", src:"./Assets/images/btnStart_temporary.png"}, //TODO: Change the button image
-        {id:"background", src:"./Assets/images/background_temporary.png"}  //TODO: Change the background image
+        {id: "background", src:"./Assets/images/background_temporary.png"},  //TODO: Change the background image
+        {id: "plane", src:"./Assets/images/plane_temporary.png"}
     ];
 
     //preload Assets

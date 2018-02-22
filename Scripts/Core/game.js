@@ -15,7 +15,8 @@
     var currentState;
     assetManifest = [
         { id: "btnStart", src: "./Assets/images/btnStart_temporary.png" },
-        { id: "background", src: "./Assets/images/background_temporary.png" } //TODO: Change the background image
+        { id: "background", src: "./Assets/images/background_temporary.png" },
+        { id: "plane", src: "./Assets/images/plane_temporary.png" }
     ];
     //preload Assets
     function Init() {

@@ -29,13 +29,16 @@ var scenes;
         //PUBLIC METHODS
         playScene.prototype.Start = function () {
             this._background = new objects.Background(this.assetManager);
+            this._plane = new objects.Plane(this.assetManager);
             this.Main();
         };
         playScene.prototype.Update = function () {
             this._background.Update();
+            this._plane.Update();
         };
         playScene.prototype.Main = function () {
             this.addChild(this._background);
+            this.addChild(this._plane);
         };
         return playScene;
     }(objects.Scene));

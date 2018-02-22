@@ -5,6 +5,8 @@
 /// <reference path="../../Scripts/objects/scene.ts"/>
 /// <reference path="../../Scripts/objects/button.ts"/>
 /// <reference path="../../Scripts/objects/background.ts"/>
+/// <reference path="../../Scripts/objects/gameobject.ts"/>
+/// <reference path="../../Scripts/objects/plane.ts"/>
 
 
 
