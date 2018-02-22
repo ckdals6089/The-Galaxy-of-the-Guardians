@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.3
+    Version : v1.4
     Last_modification : Feb 21, 2018
-    Description : Added background in play scene
+    Description : Added two buttons for choose game mode
 */
 
 /// <reference path="_reference.ts"/>
@@ -19,6 +19,8 @@
     assetManifest = [
         {id: "btnStart", src:"./Assets/images/btnStart_temporary.png"}, //TODO: Change the button image
         {id: "background", src:"./Assets/images/background_temporary.png"},  //TODO: Change the background image
+        {id: "btnNormal", src:"./Assets/images/btnNormal_temp.png"},
+        {id: "btnHell", src:"./Assets/images/btnHell_temp.png"},
         {id: "plane", src:"./Assets/images/plane_temporary.png"}
     ];
 
@@ -56,6 +58,9 @@
         switch(objects.Game.currentScene){
             case config.Scene.OPENING:
                 currentScene = new scenes.openingScene(assetManager);
+                break;
+            case config.Scene.CHOOSEMODE:
+                currentScene = new scenes.chooseModeScene(assetManager);
                 break;
             case config.Scene.PLAY:
                 currentScene = new scenes.playScene(assetManager);

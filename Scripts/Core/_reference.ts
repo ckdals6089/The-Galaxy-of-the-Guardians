@@ -11,4 +11,5 @@
 
 
 /// <reference path="../../Scripts/scenes/opening.ts"/>
+/// <reference path="../../Scripts/scenes/choosemode.ts"/>
 /// <reference path="../../Scripts/scenes/play.ts"/>

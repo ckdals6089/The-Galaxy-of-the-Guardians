@@ -6,5 +6,6 @@
 /// <reference path="../../Scripts/objects/gameobject.ts"/>
 /// <reference path="../../Scripts/objects/plane.ts"/>
 /// <reference path="../../Scripts/scenes/opening.ts"/>
+/// <reference path="../../Scripts/scenes/choosemode.ts"/>
 /// <reference path="../../Scripts/scenes/play.ts"/>
 //# sourceMappingURL=_reference.js.map

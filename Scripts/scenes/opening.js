@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 20, 2018
-    Description : Created first pages
+    Version : v1.1
+    Last_modification : Feb 21, 2018
+    Description : reset the button click event
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -27,7 +27,7 @@ var scenes;
         }
         //PRIVATE METHODS
         openingScene.prototype._btnStartClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            objects.Game.currentScene = config.Scene.CHOOSEMODE;
         };
         //PUBLIC METHODS
         openingScene.prototype.Start = function () {

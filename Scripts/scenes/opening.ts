@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 20, 2018
-    Description : Created first pages
+    Version : v1.1
+    Last_modification : Feb 21, 2018
+    Description : reset the button click event
 */
 
 module scenes{
@@ -18,7 +18,7 @@ module scenes{
         }
         //PRIVATE METHODS
         private _btnStartClick():void{
-            objects.Game.currentScene = config.Scene.PLAY;
+            objects.Game.currentScene = config.Scene.CHOOSEMODE;
         }
         //PUBLIC METHODS
         public Start():void{
