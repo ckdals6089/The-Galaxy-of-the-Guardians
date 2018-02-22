@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 20, 2018
-    Description : Set background object in playScene
+    Version : v1.2
+    Last_modification : Feb 21, 2018
+    Description : Added missile object to play scene
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -30,14 +30,17 @@ var scenes;
         playScene.prototype.Start = function () {
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
+            this._missile = new objects.Missile(this.assetManager);
             this.Main();
         };
         playScene.prototype.Update = function () {
             this._background.Update();
             this._plane.Update();
+            this._missile.Update();
         };
         playScene.prototype.Main = function () {
             this.addChild(this._background);
+            this.addChild(this._missile);
             this.addChild(this._plane);
         };
         return playScene;

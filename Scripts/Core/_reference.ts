@@ -7,6 +7,8 @@
 /// <reference path="../../Scripts/objects/background.ts"/>
 /// <reference path="../../Scripts/objects/gameobject.ts"/>
 /// <reference path="../../Scripts/objects/plane.ts"/>
+/// <reference path="../../Scripts/objects/missile.ts"/>
+
 
 
 

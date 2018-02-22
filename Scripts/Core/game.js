@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.4
+    Version : v1.5
     Last_modification : Feb 21, 2018
-    Description : Added two buttons for choose game mode
+    Description : Added temporary missile image
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -18,7 +18,8 @@
         { id: "background", src: "./Assets/images/background_temporary.png" },
         { id: "btnNormal", src: "./Assets/images/btnNormal_temp.png" },
         { id: "btnHell", src: "./Assets/images/btnHell_temp.png" },
-        { id: "plane", src: "./Assets/images/plane_temporary.png" }
+        { id: "missile", src: "./Assets/images/missile.png" },
+        { id: "plane", src: "./Assets/images/plane_temp.png" }
     ];
     //preload Assets
     function Init() {
