@@ -51,7 +51,7 @@ var scenes;
             this.addChild(this._btnBack);
             this._btnNormal.on("click", this._btnNormalClick);
             this._btnHell.on("click", this._btnHellClick);
-            this._btnBack.on("Click", this._btnBackClick);
+            this._btnBack.on("click", this._btnBackClick);
         };
         return chooseModeScene;
     }(objects.Scene));

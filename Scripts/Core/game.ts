@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.6
-    Last_modification : Feb 22, 2018
-    Description : Changed the button images 
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.7
+    Last_modification : Feb 23, 2018
+    Description : Added Button Back
 */
 
 /// <reference path="_reference.ts"/>
@@ -21,6 +21,7 @@
         {id: "background", src:"./Assets/images/background_temporary.png"},  
         {id: "btnNormal", src:"./Assets/images/normal_Button.png"},
         {id: "btnHell", src:"./Assets/images/ULTIMATE_Button.png"},
+        {id: "btnBack", src:"./Assets/images/btnBack.png"},
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/plane_temp.png"}
     ];
