@@ -33,6 +33,7 @@ var objects;
             this.centerY = this.height * 0.5;
             this.regX = this.centerX;
             this.regY = this.centerY;
+            this.position = new createjs.Point(this.x, this.y);
         };
         //PUBLIC METHODS
         GameObject.prototype.Reset = function () {

@@ -16,6 +16,7 @@ module objects{
         public height:number;
         public centerX:number;
         public centerY:number;
+        public position:createjs.Point;
 
         //CONSTRUTORS
         constructor(assetManager:createjs.LoadQueue, imageString:string){
@@ -31,6 +32,8 @@ module objects{
             this.centerY = this.height * 0.5;
             this.regX = this.centerX;
             this.regY = this.centerY;
+            this.position = new createjs.Point(this.x,this.y);
+
         }
         //PUBLIC METHODS
         public Reset():void {
@@ -52,5 +55,6 @@ module objects{
         public Update():void {
     
         }
+
     }
 }

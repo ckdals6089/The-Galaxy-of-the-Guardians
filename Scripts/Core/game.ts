@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.5
-    Last_modification : Feb 21, 2018
-    Description : Added temporary missile image
+    Version : v1.6
+    Last_modification : Feb 22, 2018
+    Description : Changed the button images 
 */
 
 /// <reference path="_reference.ts"/>
@@ -17,10 +17,10 @@
     let currentState:number;
 
     assetManifest = [ //TODO: Must change the temporary images
-        {id: "btnStart", src:"./Assets/images/btnStart_temporary.png"}, 
+        {id: "btnStart", src:"./Assets/images/Start_button.png"}, 
         {id: "background", src:"./Assets/images/background_temporary.png"},  
-        {id: "btnNormal", src:"./Assets/images/btnNormal_temp.png"},
-        {id: "btnHell", src:"./Assets/images/btnHell_temp.png"},
+        {id: "btnNormal", src:"./Assets/images/normal_Button.png"},
+        {id: "btnHell", src:"./Assets/images/ULTIMATE_Button.png"},
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/plane_temp.png"}
     ];

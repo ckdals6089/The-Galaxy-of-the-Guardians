@@ -29,7 +29,7 @@ var objects;
         //PRIVATE METHODS
         Missile.prototype._reset = function () {
             this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY;
+            this.y = objects.Game.stage.mouseY; //TODO: + plane top
         };
         Missile.prototype._checkBounds = function () {
             if (this.y <= 0) {
@@ -40,14 +40,20 @@ var objects;
             this.y -= this._dy;
             this._checkBounds();
         };
+        Missile.prototype._updatePosition = function () {
+            this.position.x = this.x;
+            this.position.y = this.y;
+        };
         //PUBLIC METHODS
         Missile.prototype.Start = function () {
-            console.log("missile shooting");
             this._dy = 15;
             this._reset();
         };
         Missile.prototype.Update = function () {
-            this._move();
+            if (this.y > 0) {
+                this._updatePosition();
+                this._move();
+            }
         };
         return Missile;
     }(objects.GameObject));

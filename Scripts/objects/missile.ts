@@ -11,33 +11,40 @@ module objects{
 
         //CONSTRUTOR
         constructor(assetManager:createjs.LoadQueue){
-            super(assetManager,"missile");
+            super(assetManager,"missile");    
             this.Start();
         }
         //PRIVATE METHODS
         private _reset():void{
             this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY;
+            this.y = objects.Game.stage.mouseY; //TODO: + plane top
+
         }
         private _checkBounds():void{
-            if(this.y <= 0){
+            if(this.y <= 0 ){
                 this._reset();
             }
+            
         }
         private _move():void{
             this.y -= this._dy;
             this._checkBounds();
         }
+        private _updatePosition():void{
+            this.position.x = this.x;
+            this.position.y = this.y;
+        }
         //PUBLIC METHODS
         public Start():void{
-            console.log("missile shooting");
             this._dy = 15;
             this._reset();
-
-            
         }
         public Update():void{
-            this._move();
+            if(this.y >0){
+                this._updatePosition();
+                this._move();
+
+            }
         }
 
     }
