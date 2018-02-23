@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 20, 2018
-    Description : Created chooseModeScene
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.1
+    Last_modification : Feb 22, 2018
+    Description : Added Back Button
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -32,10 +32,14 @@ var scenes;
         chooseModeScene.prototype._btnHellClick = function () {
             objects.Game.currentScene = config.Scene.PLAY;
         };
+        chooseModeScene.prototype._btnBackClick = function () {
+            objects.Game.currentScene = config.Scene.OPENING;
+        };
         //PUBLIC METHODS
         chooseModeScene.prototype.Start = function () {
             this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 340);
             this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 340);
+            this._btnBack = new objects.Button(this.assetManager, "btnBack", 500, 100);
             this.Main();
             console.log("start");
         };
@@ -44,8 +48,10 @@ var scenes;
         chooseModeScene.prototype.Main = function () {
             this.addChild(this._btnNormal);
             this.addChild(this._btnHell);
+            this.addChild(this._btnBack);
             this._btnNormal.on("click", this._btnNormalClick);
             this._btnHell.on("click", this._btnHellClick);
+            this._btnBack.on("Click", this._btnBackClick);
         };
         return chooseModeScene;
     }(objects.Scene));
