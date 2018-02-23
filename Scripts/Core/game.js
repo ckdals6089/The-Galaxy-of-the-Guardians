@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.7
+    Version : v1.8
     Last_modification : Feb 23, 2018
-    Description : Added Button Back
+    Description : Added Game Over Scene
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -58,6 +58,9 @@
                 break;
             case config.Scene.PLAY:
                 currentScene = new scenes.playScene(assetManager);
+                break;
+            case config.Scene.GAMEOVER:
+                currentScene = new scenes.GameOverScene(assetManager);
                 break;
         }
         currentState = objects.Game.currentScene;
