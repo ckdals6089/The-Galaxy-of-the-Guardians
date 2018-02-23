@@ -1,8 +1,8 @@
 /*
     Name : Jowon Shin
-    Version : v1.0
+    Version : v1.1
     Last_modification : Feb 23, 2018
-    Description : created gameover scene
+    Description : added label and changed the button
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -18,7 +18,6 @@ var scenes;
 (function (scenes) {
     var GameOverScene = /** @class */ (function (_super) {
         __extends(GameOverScene, _super);
-        //private _lblGameOver: objects.Label; // need to create a label object
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
         function GameOverScene(assetManager) {
@@ -27,20 +26,22 @@ var scenes;
             return _this;
         }
         //PRIVATE METHODS
-        GameOverScene.prototype._btnBackClick = function () {
+        GameOverScene.prototype._btnPlayAgainClick = function () {
             objects.Game.currentScene = config.Scene.OPENING;
         };
         //PUBLIC METHODS
         GameOverScene.prototype.Start = function () {
-            this._btnBack = new objects.Button(this.assetManager, "btnBack", 320, 340);
+            this._btnPlayAgain = new objects.Button(this.assetManager, "btnPlayAgain", 320, 360);
+            this._lblGameOver = new objects.Label("Game Over", "40px", "Consolas", "#FF0000", 320, 240, true);
             this.Main();
             console.log("game over");
         };
         GameOverScene.prototype.Update = function () {
         };
         GameOverScene.prototype.Main = function () {
-            this.addChild(this._btnBack);
-            this._btnBack.on("click", this._btnBackClick);
+            this.addChild(this._lblGameOver);
+            this.addChild(this._btnPlayAgain);
+            this._btnPlayAgain.on("click", this._btnPlayAgainClick);
         };
         return GameOverScene;
     }(objects.Scene));

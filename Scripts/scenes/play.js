@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.3
-    Last_modification : Feb 21, 2018
-    Description : Added missile object to play scene
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added enemy array
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||

@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.7
+    Version : v1.9
     Last_modification : Feb 23, 2018
-    Description : Added Button Back
+    Description : Added Play Again Button
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -19,6 +19,7 @@
         { id: "btnNormal", src: "./Assets/images/normal_Button.png" },
         { id: "btnHell", src: "./Assets/images/ULTIMATE_Button.png" },
         { id: "btnBack", src: "./Assets/images/btnBack.png" },
+        { id: "btnPlayAgain", src: "./Assets/images/btnPlayAgain.png" },
         { id: "missile", src: "./Assets/images/missile.png" },
         { id: "plane", src: "./Assets/images/plane_temp.png" },
         { id: "enemy", src: "./Assets/images/enemy.png" }
@@ -59,6 +60,9 @@
                 break;
             case config.Scene.PLAY:
                 currentScene = new scenes.playScene(assetManager);
+                break;
+            case config.Scene.GAMEOVER:
+                currentScene = new scenes.GameOverScene(assetManager);
                 break;
         }
         currentState = objects.Game.currentScene;

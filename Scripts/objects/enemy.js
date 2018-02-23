@@ -8,6 +8,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+    Name : Dongwan Kim
+    Version : v1.0
+    Last_modification : Feb 23, 2018
+    Description : Added Enemy objects
+*/
 var objects;
 (function (objects) {
     var Enemy = /** @class */ (function (_super) {
