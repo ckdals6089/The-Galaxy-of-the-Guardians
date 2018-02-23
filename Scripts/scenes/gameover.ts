@@ -1,15 +1,15 @@
 /*
     Name : Jowon Shin
-    Version : v1.0
+    Version : v1.1
     Last_modification : Feb 23, 2018
-    Description : created gameover scene
+    Description : added label and changed the button
 */
 
 module scenes{
     export class GameOverScene extends objects.Scene{
         //PRIVATE VARIABLES
-        private _btnBack: objects.Button;
-        //private _lblGameOver: objects.Label; // need to create a label object
+        private _btnPlayAgain: objects.Button;
+        private _lblGameOver: objects.Label;
 
         //PUBLIC PROPERTIES
 
@@ -20,13 +20,14 @@ module scenes{
         }
 
         //PRIVATE METHODS
-        private _btnBackClick():void{
+        private _btnPlayAgainClick():void{
             objects.Game.currentScene = config.Scene.OPENING;
         }
 
         //PUBLIC METHODS
         public Start():void{
-            this._btnBack = new objects.Button(this.assetManager, "btnBack", 320, 340);
+            this._btnPlayAgain = new objects.Button(this.assetManager, "btnPlayAgain", 320, 360);
+            this._lblGameOver = new objects.Label("Game Over", "40px", "Consolas", "#FF0000", 320, 240, true);
             this.Main();
             console.log("game over");
         }
@@ -36,9 +37,10 @@ module scenes{
         }
 
         public Main():void{
-            this.addChild(this._btnBack);
+            this.addChild(this._lblGameOver);
+            this.addChild(this._btnPlayAgain);
     
-            this._btnBack.on("click", this._btnBackClick);
+            this._btnPlayAgain.on("click", this._btnPlayAgainClick);
         }
 
         // public Init():void{
