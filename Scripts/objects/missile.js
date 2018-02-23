@@ -18,7 +18,6 @@ var objects;
 (function (objects) {
     var Missile = /** @class */ (function (_super) {
         __extends(Missile, _super);
-        //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUTOR
         function Missile(assetManager) {
