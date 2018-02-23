@@ -18,25 +18,46 @@ var objects;
 (function (objects) {
     var Plane = /** @class */ (function (_super) {
         __extends(Plane, _super);
-        //PRIVATE VARIABLES
-        //PUBLIC PROPERTIES
         //CONSTRUTOR
         function Plane(assetManager) {
             var _this = _super.call(this, assetManager, "plane") || this;
+            _this._centerX = _this.centerX;
             _this.Start();
             return _this;
         }
+        Object.defineProperty(Plane.prototype, "CenterX", {
+            //PUBLIC PROPERTIES
+            get: function () {
+                return this._centerX;
+            },
+            enumerable: true,
+            configurable: true
+        });
         //PRIVATE METHODS
         //PUBLIC METHODS
         Plane.prototype.Reset = function () {
         };
         Plane.prototype.CheckBounds = function () {
+            if (this.x >= 640 - this.centerX) {
+                this.x = 640 - this.centerX;
+            }
+            if (this.x < this.centerX) {
+                this.x = this.centerX;
+            }
+            if (this.y >= 480 - this.centerY) {
+                this.y = 480 - this.centerY;
+            }
+            if (this.y < this.centerY) {
+                this.y = this.centerY;
+            }
         };
         Plane.prototype.Move = function () {
             this.x = objects.Game.stage.mouseX;
             this.y = objects.Game.stage.mouseY;
         };
         Plane.prototype.Start = function () {
+            this._centerX = this.width * 0.5;
+            this.y = 430;
         };
         Plane.prototype.Update = function () {
             this.Move();

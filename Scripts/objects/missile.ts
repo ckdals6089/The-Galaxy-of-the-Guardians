@@ -7,6 +7,7 @@
 module objects{
     export class Missile extends objects.GameObject{
         //PRIVATE VARIABLES
+        private _plane:objects.Plane;
         //PUBLIC PROPERTIES
 
         //CONSTRUTOR
