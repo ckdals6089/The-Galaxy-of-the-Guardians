@@ -4,6 +4,7 @@
 /// <reference path="../../Scripts/objects/game.ts"/>
 /// <reference path="../../Scripts/objects/scene.ts"/>
 /// <reference path="../../Scripts/objects/button.ts"/>
+/// <reference path="../../Scripts/objects/label.ts"/>
 /// <reference path="../../Scripts/objects/background.ts"/>
 /// <reference path="../../Scripts/objects/gameobject.ts"/>
 /// <reference path="../../Scripts/objects/plane.ts"/>
@@ -15,3 +16,4 @@
 /// <reference path="../../Scripts/scenes/opening.ts"/>
 /// <reference path="../../Scripts/scenes/choosemode.ts"/>
 /// <reference path="../../Scripts/scenes/play.ts"/>
+/// <reference path="../../Scripts/scenes/gameover.ts"/>
