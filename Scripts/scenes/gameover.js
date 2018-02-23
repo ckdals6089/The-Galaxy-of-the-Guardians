@@ -18,7 +18,7 @@ var scenes;
 (function (scenes) {
     var GameOverScene = /** @class */ (function (_super) {
         __extends(GameOverScene, _super);
-        //private _lblGameOver: objects.Label; // need to create a label
+        //private _lblGameOver: objects.Label; // need to create a label object
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
         function GameOverScene(assetManager) {
@@ -28,7 +28,7 @@ var scenes;
         }
         //PRIVATE METHODS
         GameOverScene.prototype._btnBackClick = function () {
-            objects.Game.currentScene = config.Scene.CHOOSEMODE;
+            objects.Game.currentScene = config.Scene.OPENING;
         };
         //PUBLIC METHODS
         GameOverScene.prototype.Start = function () {

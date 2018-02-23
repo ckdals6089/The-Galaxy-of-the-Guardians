@@ -9,7 +9,7 @@ module scenes{
     export class GameOverScene extends objects.Scene{
         //PRIVATE VARIABLES
         private _btnBack: objects.Button;
-        //private _lblGameOver: objects.Label; // need to create a label
+        //private _lblGameOver: objects.Label; // need to create a label object
 
         //PUBLIC PROPERTIES
 
@@ -21,9 +21,9 @@ module scenes{
 
         //PRIVATE METHODS
         private _btnBackClick():void{
-            objects.Game.currentScene = config.Scene.CHOOSEMODE;
+            objects.Game.currentScene = config.Scene.OPENING;
         }
-        
+
         //PUBLIC METHODS
         public Start():void{
             this._btnBack = new objects.Button(this.assetManager, "btnBack", 320, 340);
