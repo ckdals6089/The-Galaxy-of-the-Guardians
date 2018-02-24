@@ -1,3 +1,9 @@
+/*
+    Name : Dongwan Kim
+    Version : v1.0
+    Last_modification : Feb 23, 2018
+    Description : Added Collision module
+*/
 module managers {
     export class Collision {
         constructor() {
@@ -17,7 +23,7 @@ module managers {
             //check to see if object is colliding
 
             //console.log(plane.position);
-            console.log(objects.Vector2.distance(plane.position, other.position);
+            console.log(objects.Vector2.distance(plane.position, other.position));
             if (objects.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY)) {
                 if (!other.isColliding) {
                     other.isColliding = true;

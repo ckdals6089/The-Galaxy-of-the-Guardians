@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
+    Version : v1.1
     Last_modification : Feb 21, 2018
-    Description : Created plane object
+    Description : Created check bound
 */
 module objects{
     export class Plane extends objects.GameObject{

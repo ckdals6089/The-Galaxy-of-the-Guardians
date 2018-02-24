@@ -1,3 +1,9 @@
+/*
+    Name : Jowon Shin
+    Version : v1.5
+    Last_modification : Feb 23, 2018
+    Description : Created a vector object
+*/
 module objects {
     /**
      * This class extends the CreateJS Point class

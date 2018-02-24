@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.9
+    Version : v2.0
     Last_modification : Feb 23, 2018
-    Description : Added Play Again Button
+    Description : Changed some images 
 */
 
 /// <reference path="_reference.ts"/>

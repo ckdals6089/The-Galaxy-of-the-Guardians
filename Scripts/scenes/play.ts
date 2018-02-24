@@ -50,17 +50,14 @@ export class playScene extends objects.Scene{
     public Update():void{
         this._background.Update();
         this._plane.Update();
-        //console.log("Plane : " + this._plane.centerX);
         this._enemy.forEach(enemy =>{
             enemy.Update();
-            //console.log(enemy.x);
-            //this._crash(this._plane,enemy);
+
             console.log(enemy.isColliding);
             this._collision.check(this._plane, enemy);
 
             if(enemy.isColliding){
                 objects.Game.currentScene = config.Scene.GAMEOVER;
-                //core.scene.changeScene();
             }
         });
         this._missile.forEach(missile =>{
