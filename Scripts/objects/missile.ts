@@ -5,7 +5,7 @@
     Description : Created missile objects
 */
 module objects{
-    export class Missile extends objects.GameObject{
+    export class Missile extends objects.GameObject {
         //PRIVATE VARIABLES
         private _plane:objects.Plane;
         //PUBLIC PROPERTIES
@@ -13,12 +13,13 @@ module objects{
         //CONSTRUTOR
         constructor(assetManager:createjs.LoadQueue){
             super(assetManager,"missile");    
+            
             this.Start();
         }
         //PRIVATE METHODS
         private _reset():void{
-            this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY; //TODO: + plane top
+             this.x = objects.Game.stage.mouseX;
+             this.y = objects.Game.stage.mouseY; //TODO: + plane top
 
         }
         private _checkBounds():void{
@@ -38,15 +39,19 @@ module objects{
         //PUBLIC METHODS
         public Start():void{
             this._dy = 15;
-            this._reset();
+            
         }
         public Update():void{
             if(this.y >0){
                 this._updatePosition();
                 this._move();
-
             }
         }
+        public ResetValue(value1:number, value2:number):void{
+            this.x = value1;
+            this.y = value2;
+        }
+
 
     }
 }

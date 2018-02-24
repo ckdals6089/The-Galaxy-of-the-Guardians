@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.0
+    Version : v1.1
     Last_modification : Feb 21, 2018
-    Description : Created plane object
+    Description : Added life value and set 3 lives
 */
 var objects;
 (function (objects) {
@@ -22,13 +22,14 @@ var objects;
         function Plane(assetManager) {
             var _this = _super.call(this, assetManager, "plane") || this;
             _this._centerX = _this.centerX;
+            _this._life = 3;
             _this.Start();
             return _this;
         }
-        Object.defineProperty(Plane.prototype, "CenterX", {
+        Object.defineProperty(Plane.prototype, "Life", {
             //PUBLIC PROPERTIES
             get: function () {
-                return this._centerX;
+                return this._life;
             },
             enumerable: true,
             configurable: true
@@ -63,6 +64,9 @@ var objects;
             this.position = new objects.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
+        };
+        Plane.prototype.MinusLife = function () {
+            this._life -= 1;
         };
         return Plane;
     }(objects.GameObject));

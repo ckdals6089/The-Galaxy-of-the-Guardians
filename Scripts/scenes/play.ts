@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.4
+    Version : v1.5
     Last_modification : Feb 23, 2018
-    Description : Added enemy array
+    Description : Added life feature to player
 */
 
 module scenes{
@@ -56,7 +56,7 @@ export class playScene extends objects.Scene{
             console.log(enemy.isColliding);
             this._collision.check(this._plane, enemy);
 
-            if(enemy.isColliding){
+            if(this._plane.Life == 0){
                 objects.Game.currentScene = config.Scene.GAMEOVER;
             }
         });

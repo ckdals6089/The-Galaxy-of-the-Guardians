@@ -8,6 +8,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/*
+    Name : Jowon Shin
+    Version : v1.5
+    Last_modification : Feb 23, 2018
+    Description : Created a vector object
+*/
 var objects;
 (function (objects) {
     /**
