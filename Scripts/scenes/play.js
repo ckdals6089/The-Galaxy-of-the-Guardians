@@ -32,7 +32,7 @@ var scenes;
             this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
-            this._enemyNum = 10;
+            this._enemyNum = 3;
             this._enemy = new Array();
             this._missile = new Array();
             this._bulletFire = this._bulletFire.bind(this);
