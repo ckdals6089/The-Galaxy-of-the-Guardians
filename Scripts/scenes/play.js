@@ -32,23 +32,31 @@ var scenes;
             this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
-            this._enemyNum = 10;
+            this._enemyNum = 3;
             this._enemy = new Array();
             this._missile = new Array();
             this._bulletFire = this._bulletFire.bind(this);
             for (var count = 0; count < this._enemyNum; count++) {
                 this._enemy[count] = new objects.Enemy(this.assetManager);
             }
+            this._collision = new managers.Collision();
             this.Main();
         };
         playScene.prototype.Update = function () {
+            var _this = this;
             this._background.Update();
             this._plane.Update();
-            //onsole.log("Plane : " + this._plane.centerX);
+            //console.log("Plane : " + this._plane.centerX);
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
-                console.log(enemy.x);
+                //console.log(enemy.x);
                 //this._crash(this._plane,enemy);
+                console.log(enemy.isColliding);
+                _this._collision.check(_this._plane, enemy);
+                if (enemy.isColliding) {
+                    objects.Game.currentScene = config.Scene.GAMEOVER;
+                    //core.scene.changeScene();
+                }
             });
             this._missile.forEach(function (missile) {
                 missile.Update();

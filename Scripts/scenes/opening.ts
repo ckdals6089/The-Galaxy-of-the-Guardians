@@ -33,7 +33,6 @@ module scenes{
         public Main():void{
             this.addChild(this._btnStart);
     
-
             this._btnStart.on("click", this._btnStartClick);
         }
         // public Init():void{

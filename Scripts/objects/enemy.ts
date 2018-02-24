@@ -38,6 +38,8 @@ module objects{
             }
         }
         public Update():void{
+            this.position = new Vector2(this.x, this.y);
+
             this.Move();
             this.CheckBounds();
         }

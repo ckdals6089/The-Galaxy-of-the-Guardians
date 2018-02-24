@@ -24,8 +24,8 @@
         {id: "btnBack", src:"./Assets/images/btnBack.png"},
         {id: "btnPlayAgain", src:"./Assets/images/btnPlayAgain.png"},
         {id: "missile", src:"./Assets/images/missile.png"},
-        {id: "plane", src:"./Assets/images/plane_temp.png"},
-        {id: "enemy", src:"./Assets/images/enemy.png"}
+        {id: "plane", src:"./Assets/images/PlayerShip.png"},
+        {id: "enemy", src:"./Assets/images/enemyA.png"}
     ];
 
     //preload Assets
