@@ -1,3 +1,9 @@
+/*
+    Name : Dongwan Kim
+    Version : v1.1
+    Last_modification : Feb 23, 2018
+    Description : Changed the value to make it play smoothly
+*/
 var managers;
 (function (managers) {
     var Collision = /** @class */ (function () {
@@ -12,12 +18,12 @@ var managers;
             //check to see if object is colliding
             //console.log(plane.position);
             console.log(objects.Vector2.distance(plane.position, other.position));
-            if (objects.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY)) {
+            if (objects.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if plane collides with enemy
                     if (other.name === "enemy") {
-                        console.log("fins");
+                        plane.MinusLife();
                     }
                 }
             }

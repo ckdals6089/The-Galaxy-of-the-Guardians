@@ -46,13 +46,16 @@ var objects;
         //PUBLIC METHODS
         Missile.prototype.Start = function () {
             this._dy = 15;
-            this._reset();
         };
         Missile.prototype.Update = function () {
             if (this.y > 0) {
                 this._updatePosition();
                 this._move();
             }
+        };
+        Missile.prototype.ResetValue = function (value1, value2) {
+            this.x = value1;
+            this.y = value2;
         };
         return Missile;
     }(objects.GameObject));

@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.4
+    Version : v1.5
     Last_modification : Feb 23, 2018
-    Description : Added enemy array
+    Description : Added life feature to player
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -46,16 +46,12 @@ var scenes;
             var _this = this;
             this._background.Update();
             this._plane.Update();
-            //console.log("Plane : " + this._plane.centerX);
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
-                //console.log(enemy.x);
-                //this._crash(this._plane,enemy);
                 console.log(enemy.isColliding);
                 _this._collision.check(_this._plane, enemy);
-                if (enemy.isColliding) {
+                if (_this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
-                    //core.scene.changeScene();
                 }
             });
             this._missile.forEach(function (missile) {

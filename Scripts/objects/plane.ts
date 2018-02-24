@@ -2,20 +2,22 @@
     Name : Dongwan Kim
     Version : v1.1
     Last_modification : Feb 21, 2018
-    Description : Created check bound
+    Description : Added life value and set 3 lives
 */
 module objects{
     export class Plane extends objects.GameObject{
         //PRIVATE VARIABLES
             private _centerX:number;
+            private _life:number;
         //PUBLIC PROPERTIES
-            public get CenterX():number{
-                return this._centerX;
+            public get Life():number{
+                return this._life;
             }
         //CONSTRUTOR
         constructor(assetManager:createjs.LoadQueue){
             super(assetManager,"plane");
             this._centerX = this.centerX;
+            this._life = 3;
             this.Start();
         }
         //PRIVATE METHODS
@@ -52,6 +54,10 @@ module objects{
             this.Move();
             this.CheckBounds();
         }
+        public MinusLife():void{
+            this._life -= 1;
+        }
+
 
     }
 }
