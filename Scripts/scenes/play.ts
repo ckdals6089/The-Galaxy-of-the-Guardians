@@ -15,6 +15,7 @@ module scenes{
             private _missile:objects.Missile[];
             private _missileNum:number;
             private _missileCount:number;
+            private _collision: managers.Collision;
             //PUBLIC PROPERTIES
     
             //CONSTRUCTOR
@@ -41,6 +42,7 @@ module scenes{
                 for(let count = 0; count < this._enemyNum; count++){
                     this._enemy[count] = new objects.Enemy(this.assetManager);
                 }
+                this._collision = new managers.Collision();
 
                 this.Main();
             }
@@ -48,15 +50,22 @@ module scenes{
             public Update():void{
                 this._background.Update();
                 this._plane.Update();
-                //onsole.log("Plane : " + this._plane.centerX);
+                //console.log("Plane : " + this._plane.centerX);
                 this._enemy.forEach(enemy =>{
                     enemy.Update();
-                    console.log(enemy.x);
+                    //console.log(enemy.x);
                     //this._crash(this._plane,enemy);
-                })
+                    console.log(enemy.isColliding);
+                    this._collision.check(this._plane, enemy);
+
+                    if(enemy.isColliding){
+                        objects.Game.currentScene = config.Scene.GAMEOVER;
+                        //core.scene.changeScene();
+                    }
+                });
                 this._missile.forEach(missile =>{
                     missile.Update();
-                })
+                });
             }
             public Main():void{
                 this.addChild(this._background);
@@ -73,9 +82,8 @@ module scenes{
                 this.addChild(this._plane);
                 this._enemy.forEach(enemy =>{
                     this.addChild(enemy);
-                })
 
-            
+                });
             }
 
             private _bulletFire(back:number):void{

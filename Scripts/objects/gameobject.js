@@ -25,6 +25,37 @@ var objects;
             _this._init();
             return _this;
         }
+        Object.defineProperty(GameObject.prototype, "name", {
+            //public position:createjs.Point;
+            get: function () {
+                return this._name;
+            },
+            set: function (newName) {
+                this._name = newName;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(GameObject.prototype, "position", {
+            get: function () {
+                return this._position;
+            },
+            set: function (newPosition) {
+                this._position = newPosition;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(GameObject.prototype, "isColliding", {
+            get: function () {
+                return this._isColliding;
+            },
+            set: function (newState) {
+                this._isColliding = newState;
+            },
+            enumerable: true,
+            configurable: true
+        });
         //PRIVATE METHODS
         GameObject.prototype._init = function () {
             this.width = this.getBounds().width;
@@ -33,7 +64,9 @@ var objects;
             this.centerY = this.height * 0.5;
             this.regX = this.centerX;
             this.regY = this.centerY;
-            this.position = new createjs.Point(this.x, this.y);
+            //this.position = new createjs.Point(this.x,this.y);
+            this.position = new objects.Vector2(this.x, this.y);
+            this.isColliding = false;
         };
         //PUBLIC METHODS
         GameObject.prototype.Reset = function () {

@@ -60,6 +60,7 @@ var objects;
             this.y = 430;
         };
         Plane.prototype.Update = function () {
+            this.position = new objects.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
         };
