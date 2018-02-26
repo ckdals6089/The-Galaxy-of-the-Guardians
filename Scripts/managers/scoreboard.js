@@ -48,7 +48,7 @@ var managers;
         // private methods
         ScoreBoard.prototype._initialize = function () {
             this.LivesLabel = new objects.Label("Lives: 0", "20px", "Consolas", "#FFFFFF", 10, 10, false);
-            this.ScoreLabel = new objects.Label("Score: 99999", "20px", "Consolas", "#FFFFFF", 500, 10, false);
+            this.ScoreLabel = new objects.Label("Score: 99999", "20px", "Consolas", "#FFFF00", 500, 10, false);
             this.HighScoreLabel = new objects.Label("High Score: 99999", "40px", "Consolas", "#FFFFFF", 320, 140, true);
             this.Score = 0;
             this.Lives = 3;

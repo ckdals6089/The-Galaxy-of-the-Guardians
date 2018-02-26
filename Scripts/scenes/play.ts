@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v1.9
+    Version : v2.0
     Last_modification : Feb 26, 2018
-    Description : Fix the error 
+    Description : Made the missile sound looping
 */
 
 module scenes{
@@ -17,6 +17,7 @@ export class playScene extends objects.Scene{
     private _missileCount:number;
     private _collision: managers.Collision;
     private _backgroundSound:createjs.AbstractSoundInstance;
+    private _missileSound:createjs.AbstractSoundInstance;
     private _scoreBoard: managers.ScoreBoard;
     //PUBLIC PROPERTIES
 
@@ -34,6 +35,7 @@ export class playScene extends objects.Scene{
         this._missileNum = 5;
         this._missileCount = 0;
         this._background = new objects.Background(this.assetManager);
+        
         this._plane = new objects.Plane(this.assetManager);
 
         this._enemyNum=3;
@@ -80,6 +82,7 @@ export class playScene extends objects.Scene{
         if(this._scoreBoard.Lives <= 0){
             objects.Game.currentScene = config.Scene.GAMEOVER;
             this._backgroundSound.stop();
+            this._missileSound.stop();
           }
           
     }
@@ -114,7 +117,9 @@ export class playScene extends objects.Scene{
             this._missileCount++;
             if(this._missileCount >= this._missileNum -1){
                 this._missileCount = 0;
-                createjs.Sound.play("missileSound");
+                //createjs.Sound.play("missileSound");
+                this._missileSound = createjs.Sound.play("missileSound");
+                this._missileSound.loop = -1;
         }
     }
 }

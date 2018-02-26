@@ -26,7 +26,8 @@
         { id: "enemy", src: "./Assets/images/enemyA.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
-        { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" }
+        { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
+        { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" } //temporary sound
     ];
     //preload Assets
     function Init() {

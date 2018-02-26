@@ -22,10 +22,10 @@ var managers;
                     console.log("Crushed with " + other.name);
                     switch (other.name) {
                         case "enemy":
-                            //createjs.Sound.play("crushedSound");
                             plane.MinusLife();
                             objects.Game.scoreboardManager.Lives -= 1;
                             objects.Game.scoreboardManager.Score += 100; //will be changed after creating more objects
+                            createjs.Sound.play("crashSound");
                             break;
                     }
                 }
