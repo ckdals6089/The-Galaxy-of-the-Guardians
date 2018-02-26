@@ -23,7 +23,10 @@
         { id: "btnPlayAgain", src: "./Assets/images/btnPlayAgain.png" },
         { id: "missile", src: "./Assets/images/missile.png" },
         { id: "plane", src: "./Assets/images/PlayerShip.png" },
-        { id: "enemy", src: "./Assets/images/enemyA.png" }
+        { id: "enemy", src: "./Assets/images/enemyA.png" },
+        { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
+        { id: "missileSound", src: "./Assets/sounds/PlayerShip.missilSound.mp3" },
+        { id: "bazoozaSound", src: "./Assets/sounds/enemyA.bazookaSound" }
     ];
     //preload Assets
     function Init() {

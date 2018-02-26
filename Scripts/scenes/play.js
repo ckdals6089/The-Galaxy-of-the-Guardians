@@ -40,6 +40,9 @@ var scenes;
                 this._enemy[count] = new objects.Enemy(this.assetManager);
             }
             this._collision = new managers.Collision();
+            this._backgroundSound = createjs.Sound.play("backgroundSound");
+            this._backgroundSound.loop = -1;
+            this._backgroundSound.volume = 0.2;
             this.Main();
         };
         playScene.prototype.Update = function () {

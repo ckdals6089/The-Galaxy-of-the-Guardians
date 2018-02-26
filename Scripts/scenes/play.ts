@@ -16,6 +16,7 @@ export class playScene extends objects.Scene{
     private _missileNum:number;
     private _missileCount:number;
     private _collision: managers.Collision;
+    private _backgroundSound:createjs.AbstractSoundInstance;
     //PUBLIC PROPERTIES
 
     //CONSTRUCTOR
@@ -44,10 +45,15 @@ export class playScene extends objects.Scene{
         }
         this._collision = new managers.Collision();
 
+        this._backgroundSound = createjs.Sound.play("backgroundSound")
+        this._backgroundSound.loop = -1;
+        this._backgroundSound.volume = 0.2;
+
         this.Main();
     }
 
     public Update():void{
+    
         this._background.Update();
         this._plane.Update();
         this._enemy.forEach(enemy =>{
