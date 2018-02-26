@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.0
+    Version : v2.1
     Last_modification : Feb 26, 2018
-    Description : Made the missile sound looping
+    Description : Created Star Object
 */
 
 module scenes{
@@ -12,6 +12,7 @@ export class playScene extends objects.Scene{
     private _plane:objects.Plane;
     private _enemy:objects.Enemy[];
     private _enemyNum:number;
+    private _star:objects.Star;
     private _missile:objects.Missile[];
     private _missileNum:number;
     private _missileCount:number;
@@ -37,7 +38,7 @@ export class playScene extends objects.Scene{
         this._background = new objects.Background(this.assetManager);
         
         this._plane = new objects.Plane(this.assetManager);
-
+        this._star = new objects.Star(this.assetManager);
         this._enemyNum=3;
         this._enemy = new Array<objects.Enemy>();
         this._missile = new Array<objects.Missile>();
@@ -62,6 +63,11 @@ export class playScene extends objects.Scene{
     
         this._background.Update();
         this._plane.Update();
+        this._star.Update();
+
+        //check collision between plane and star
+        this._collision.check(this._plane, this._star);
+
         this._enemy.forEach(enemy =>{
             enemy.Update();
 
@@ -70,8 +76,10 @@ export class playScene extends objects.Scene{
             if(this._plane.Life == 0){
                 objects.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
+                this._missileSound.stop();
             }
         });
+
         this._missile.forEach(missile =>{
             missile.position.x = this._plane.x;
             missile.position.y = this._plane.y;
@@ -88,10 +96,10 @@ export class playScene extends objects.Scene{
     }
     public Main():void{
         this.addChild(this._background);
+        this.addChild(this._star);
 
         for(let count = 0; count < this._missileNum; count++) {
             //console.log("missile shooting");
-            
             this._missile[count] = new objects.Missile(this.assetManager);
 
             this.addChild(this._missile[count]);
@@ -106,7 +114,6 @@ export class playScene extends objects.Scene{
 
         this.addChild(this._scoreBoard.LivesLabel);
         this.addChild(this._scoreBoard.ScoreLabel);
-
     }
 
     private _bulletFire(back:number):void{

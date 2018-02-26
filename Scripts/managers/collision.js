@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.2
+    Version : v1.4
     Last_modification : Feb 26, 2018
-    Description : added scoreboard manager to manage player's lives and score
+    Description : added star
 */
 var managers;
 (function (managers) {
@@ -24,8 +24,15 @@ var managers;
                         case "enemy":
                             plane.MinusLife();
                             objects.Game.scoreboardManager.Lives -= 1;
-                            objects.Game.scoreboardManager.Score += 100; //will be changed after creating more objects
                             createjs.Sound.play("crashSound");
+                            break;
+                        case "star":
+                            objects.Game.scoreboardManager.Score += 100;
+                            createjs.Sound.play("tadaSound");
+                            if (objects.Game.HighScore <= objects.Game.scoreboardManager.Score) {
+                                objects.Game.scoreboardManager.HighScore = objects.Game.scoreboardManager.Score;
+                                objects.Game.HighScore = objects.Game.scoreboardManager.HighScore;
+                            }
                             break;
                     }
                 }

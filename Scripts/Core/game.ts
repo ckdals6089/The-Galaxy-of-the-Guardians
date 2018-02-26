@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
-    Version : v2.1
-    Last_modification : Feb 25, 2018
-    Description : Edited sound name
+    Version : v2.2
+    Last_modification : Feb 26, 2018
+    Description : Added star image
 */
 
 /// <reference path="_reference.ts"/>
@@ -26,16 +26,17 @@
         {id: "btnPlayAgain", src:"./Assets/images/btnPlayAgain.png"},
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/PlayerShip.png"},
+        {id: "star", src:"./Assets/images/star.png"},
         {id: "enemy", src:"./Assets/images/enemyA.png"},
         {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},
         {id: "bazoozaSound", src:"./Assets/sounds/bazookaSound.mp3"},
-        {id: "crashSound", src:"./Assets/sounds/crashSound.mp3"} //temporary sound
+        {id: "crashSound", src:"./Assets/sounds/crashSound.mp3"}, //temporary sound
+        {id: "tadaSound", src:"./Assets/sounds/tada.mp3"}
     ];
 
     //preload Assets
     function Init():void{
-
         assetManager = new createjs.LoadQueue();
         assetManager.installPlugin(createjs.Sound);
         assetManager.loadManifest(assetManifest);

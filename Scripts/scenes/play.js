@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.0
+    Version : v2.1
     Last_modification : Feb 26, 2018
-    Description : Made the missile sound looping
+    Description : Created Star Object
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -32,6 +32,7 @@ var scenes;
             this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
+            this._star = new objects.Star(this.assetManager);
             this._enemyNum = 3;
             this._enemy = new Array();
             this._missile = new Array();
@@ -51,12 +52,16 @@ var scenes;
             var _this = this;
             this._background.Update();
             this._plane.Update();
+            this._star.Update();
+            //check collision between plane and star
+            this._collision.check(this._plane, this._star);
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
                 _this._collision.check(_this._plane, enemy);
                 if (_this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
                     _this._backgroundSound.stop();
+                    _this._missileSound.stop();
                 }
             });
             this._missile.forEach(function (missile) {
@@ -74,6 +79,7 @@ var scenes;
         playScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
+            this.addChild(this._star);
             for (var count = 0; count < this._missileNum; count++) {
                 //console.log("missile shooting");
                 this._missile[count] = new objects.Missile(this.assetManager);
