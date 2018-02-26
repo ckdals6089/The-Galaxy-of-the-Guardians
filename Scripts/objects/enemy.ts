@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 23, 2018
-    Description : Added Enemy objects
+    Version : v1.1
+    Last_modification : Feb 26, 2018
+    Description : Set the visibility when they reset
 */
 module objects{
     export class Enemy extends GameObject{
@@ -26,6 +26,7 @@ module objects{
             this.Reset();
         }
         public Reset():void{
+            this.visible = true;
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) +2;

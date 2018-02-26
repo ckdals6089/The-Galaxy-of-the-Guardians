@@ -1,8 +1,8 @@
 /*
-    Name : Jowon Shin
-    Version : v1.0
+    Name : Jowon Shin, Dongwan Kim
+    Version : v1.1
     Last_modification : Feb 26, 2018
-    Description : Created Star Object
+    Description : Set the visibility when they reset
 */
 module objects {
   export class Star extends GameObject {
@@ -35,6 +35,7 @@ module objects {
 
     // reset the objects location to some value
     public Reset(): void {
+      this.visible =true;
       this.x = Math.floor((Math.random() * (640 - this.width)) + this.centerY);
       this.y = -this.height;
     }

@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.1
+    Version : v2.2
     Last_modification : Feb 26, 2018
-    Description : Created Star Object
+    Description : Changed the visibility options of enemy and star  
 */
 
 module scenes {
@@ -67,12 +67,16 @@ module scenes {
 
             //check collision between plane and star
             this._collision.check(this._plane, this._star);
-
+            if(this._star.isColliding){
+                this._star.visible = false;
+            }
             this._enemy.forEach(enemy => {
                 enemy.Update();
 
                 this._collision.check(this._plane, enemy);
-
+                if(enemy.isColliding){
+                    enemy.visible = false;
+                }
                 if (this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
                     this._backgroundSound.stop();
@@ -84,7 +88,6 @@ module scenes {
                 missile.position.x = this._plane.x;
                 missile.position.y = this._plane.y;
                 missile.Update();
-                console.log(missile.position.x);
             });
 
             if (this._scoreBoard.Lives <= 0) {
@@ -99,7 +102,6 @@ module scenes {
             this.addChild(this._star);
 
             for (let count = 0; count < this._missileNum; count++) {
-                //console.log("missile shooting");
                 this._missile[count] = new objects.Missile(this.assetManager);
 
                 this.addChild(this._missile[count]);
@@ -117,14 +119,12 @@ module scenes {
         }
 
         private _bulletFire(back: number): void {
-            //console.log(this._missileCount);
             this._missile[this._missileCount].x = objects.Game.stage.mouseX;
             this._missile[this._missileCount].y = objects.Game.stage.mouseY - back;
 
             this._missileCount++;
             if (this._missileCount >= this._missileNum - 1) {
                 this._missileCount = 0;
-                //createjs.Sound.play("missileSound");
                 this._missileSound = createjs.Sound.play("missileSound");
                 this._missileSound.loop = -1;
                 this._missileSound.volume = 0.2;

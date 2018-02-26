@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 23, 2018
-    Description : Added Enemy objects
+    Version : v1.1
+    Last_modification : Feb 26, 2018
+    Description : Set the visibility when they reset
 */
 var objects;
 (function (objects) {
@@ -36,6 +36,7 @@ var objects;
             this.Reset();
         };
         Enemy.prototype.Reset = function () {
+            this.visible = true;
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) + 2;
