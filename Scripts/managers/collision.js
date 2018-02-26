@@ -28,7 +28,7 @@ var managers;
                             break;
                         case "star":
                             objects.Game.scoreboardManager.Score += 100;
-                            createjs.Sound.play("tadaSound");
+                            createjs.Sound.play("gettingItemSound"); //sound must be changed
                             if (objects.Game.HighScore <= objects.Game.scoreboardManager.Score) {
                                 objects.Game.scoreboardManager.HighScore = objects.Game.scoreboardManager.Score;
                                 objects.Game.HighScore = objects.Game.scoreboardManager.HighScore;
