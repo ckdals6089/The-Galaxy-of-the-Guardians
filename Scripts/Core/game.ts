@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v2.0
-    Last_modification : Feb 23, 2018
-    Description : Changed some images 
+    Name : Dongwan Kim, Jowon Shin, Changmin Shin
+    Version : v2.1
+    Last_modification : Feb 25, 2018
+    Description : Added the background sounds
 */
 
 /// <reference path="_reference.ts"/>
@@ -27,9 +27,9 @@
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/PlayerShip.png"},
         {id: "enemy", src:"./Assets/images/enemyA.png"},
-        {id: "backgroundSound", src:"./Assets/sounds/background.ogg"},
+        {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/PlayerShip.missilSound.mp3"},
-        {id: "bazoozaSound", src:"./Assets/sounds/enemyA.bazookaSound"}        
+        {id: "bazoozaSound", src:"./Assets/sounds/enemyA.bazookaSound.mp3"}        
     ];
 
     //preload Assets
