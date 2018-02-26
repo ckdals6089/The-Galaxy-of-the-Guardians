@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.1
-    Last_modification : Feb 22, 2018
-    Description : Added Back Button
+    Version : v1.2
+    Last_modification : Feb 25, 2018
+    Description : Added a background image
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -37,8 +37,9 @@ var scenes;
         };
         //PUBLIC METHODS
         chooseModeScene.prototype.Start = function () {
-            this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 340);
-            this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 340);
+            this._background = new objects.Background(this.assetManager);
+            this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 400);
+            this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 400);
             this._btnBack = new objects.Button(this.assetManager, "btnBack", 500, 100);
             this.Main();
             console.log("start");
@@ -46,6 +47,7 @@ var scenes;
         chooseModeScene.prototype.Update = function () {
         };
         chooseModeScene.prototype.Main = function () {
+            this.addChild(this._background);
             this.addChild(this._btnNormal);
             this.addChild(this._btnHell);
             this.addChild(this._btnBack);

@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.1
-    Last_modification : Feb 22, 2018
-    Description : Added Back Button
+    Version : v1.2
+    Last_modification : Feb 25, 2018
+    Description : Added a background image
 */
 
 module scenes{
@@ -11,6 +11,7 @@ module scenes{
         private _btnNormal: objects.Button;
         private _btnHell: objects.Button;
         private _btnBack: objects.Button;
+        private _background: objects.Background;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
@@ -34,8 +35,10 @@ module scenes{
 
         //PUBLIC METHODS
         public Start():void{
-            this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 340);
-            this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 340);
+            this._background = new objects.Background(this.assetManager);
+
+            this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 400);
+            this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 400);
             this._btnBack = new objects.Button(this.assetManager, "btnBack", 500, 100);
             this.Main();
             console.log("start");
@@ -45,6 +48,7 @@ module scenes{
 
         }
         public Main():void{
+            this.addChild(this._background);
             this.addChild(this._btnNormal);
             this.addChild(this._btnHell);
             this.addChild(this._btnBack);
