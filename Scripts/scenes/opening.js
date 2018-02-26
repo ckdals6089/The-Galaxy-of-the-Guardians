@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 21, 2018
-    Description : reset the button click event
+    Version : v1.2
+    Last_modification : Feb 25, 2018
+    Description : Added a background and label
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -31,6 +31,8 @@ var scenes;
         };
         //PUBLIC METHODS
         openingScene.prototype.Start = function () {
+            this._background = new objects.Background(this.assetManager);
+            this._openingLogo = new objects.Label("The Galaxy of the Guardians", "40px", "Consolas", "#FFFFFF", 25, 180);
             this._btnStart = new objects.Button(this.assetManager, "btnStart", 320, 340);
             this.Main();
             console.log("start");
@@ -38,6 +40,8 @@ var scenes;
         openingScene.prototype.Update = function () {
         };
         openingScene.prototype.Main = function () {
+            this.addChild(this._background);
+            this.addChild(this._openingLogo);
             this.addChild(this._btnStart);
             this._btnStart.on("click", this._btnStartClick);
         };
