@@ -2,7 +2,7 @@
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
     Version : v2.2
     Last_modification : Feb 26, 2018
-    Description : Added star image
+    Description : Added star image and item sound
 */
 
 /// <reference path="_reference.ts"/>
@@ -32,7 +32,8 @@
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},
         {id: "bazoozaSound", src:"./Assets/sounds/bazookaSound.mp3"},
         {id: "crashSound", src:"./Assets/sounds/crashSound.mp3"}, //temporary sound
-        {id: "tadaSound", src:"./Assets/sounds/tada.mp3"}
+        {id: "tadaSound", src:"./Assets/sounds/tada.mp3"},
+        {id: "gettingItemSound", src:"./Assets/sounds/gettingItem.wav"}
     ];
 
     //preload Assets

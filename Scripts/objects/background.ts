@@ -4,35 +4,35 @@
     Last_modification : Feb 21, 2018
     Description : Created background objects
 */
-module objects{
-    export class Background extends createjs.Bitmap{
+module objects {
+    export class Background extends createjs.Bitmap {
         //PRIVATE INSTANCE
-        private _dy:number;
+        private _dy: number;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
-        constructor(assetManager:createjs.LoadQueue){
+        constructor(assetManager: createjs.LoadQueue) {
             super(assetManager.getResult("background"));
             this.Start();
         }
         //PRIVATE METHODS
-        private _reset():void{
+        private _reset(): void {
             this.y = -960;
         }
-        private _checkBounds():void{
-            if(this.y >= 0){
+        private _checkBounds(): void {
+            if (this.y >= 0) {
                 this._reset();
             }
         }
-        private _move():void{
+        private _move(): void {
             this.y += this._dy;
         }
         //PUBLIC METHODS
-        public Start():void{
+        public Start(): void {
             this._dy = 5;
             this._reset();
         }
-        public Update():void{
+        public Update(): void {
             this._move();
             this._checkBounds();
         }
