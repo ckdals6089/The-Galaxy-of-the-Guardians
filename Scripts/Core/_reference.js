@@ -10,9 +10,11 @@
 /// <reference path="../../Scripts/objects/missile.ts"/>
 /// <reference path="../../Scripts/objects/enemy.ts"/>
 /// <reference path="../../Scripts/objects/vector2.ts"/>
+/// <reference path="../../Scripts/managers/collision.ts"/>
+/// <reference path="../../Scripts/managers/keyboard.ts"/>
+/// <reference path="../../Scripts/managers/scoreboard.ts"/>
 /// <reference path="../../Scripts/scenes/opening.ts"/>
 /// <reference path="../../Scripts/scenes/choosemode.ts"/>
 /// <reference path="../../Scripts/scenes/play.ts"/>
 /// <reference path="../../Scripts/scenes/gameover.ts"/>
-/// <reference path="../../Scripts/managers/collision.ts"/>
 //# sourceMappingURL=_reference.js.map

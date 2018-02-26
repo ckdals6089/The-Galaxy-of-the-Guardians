@@ -1,7 +1,7 @@
 /*
-    Name : Dongwan Kim, Changmin Shin
-    Version : v1.8
-    Last_modification : Feb 25, 2018
+    Name : Dongwan Kim, Changmin Shin, Jowon Shin
+    Version : v1.9
+    Last_modification : Feb 26, 2018
     Description : Fix the error
 */
 var __extends = (this && this.__extends) || (function () {
@@ -43,6 +43,8 @@ var scenes;
             this._backgroundSound = createjs.Sound.play("backgroundSound");
             this._backgroundSound.loop = -1;
             this._backgroundSound.volume = 0.2;
+            this._scoreBoard = new managers.ScoreBoard;
+            objects.Game.scoreboardManager = this._scoreBoard;
             this.Main();
         };
         playScene.prototype.Update = function () {
@@ -63,6 +65,10 @@ var scenes;
                 missile.Update();
                 console.log(missile.position.x);
             });
+            if (this._scoreBoard.Lives <= 0) {
+                objects.Game.currentScene = config.Scene.GAMEOVER;
+                this._backgroundSound.stop();
+            }
         };
         playScene.prototype.Main = function () {
             var _this = this;
@@ -77,6 +83,8 @@ var scenes;
             this._enemy.forEach(function (enemy) {
                 _this.addChild(enemy);
             });
+            this.addChild(this._scoreBoard.LivesLabel);
+            this.addChild(this._scoreBoard.ScoreLabel);
         };
         playScene.prototype._bulletFire = function (back) {
             //console.log(this._missileCount);
@@ -85,6 +93,7 @@ var scenes;
             this._missileCount++;
             if (this._missileCount >= this._missileNum - 1) {
                 this._missileCount = 0;
+                createjs.Sound.play("missileSound");
             }
         };
         return playScene;
