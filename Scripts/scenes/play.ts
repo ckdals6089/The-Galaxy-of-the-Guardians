@@ -50,7 +50,7 @@ export class playScene extends objects.Scene{
 
         this._backgroundSound = createjs.Sound.play("backgroundSound")
         this._backgroundSound.loop = -1;
-        this._backgroundSound.volume = 0.2;
+        this._backgroundSound.volume = 0.5;
 
         this._scoreBoard = new managers.ScoreBoard;
         objects.Game.scoreboardManager = this._scoreBoard;
@@ -120,6 +120,7 @@ export class playScene extends objects.Scene{
                 //createjs.Sound.play("missileSound");
                 this._missileSound = createjs.Sound.play("missileSound");
                 this._missileSound.loop = -1;
+                this._missileSound.volume = 0.2;
         }
     }
 }

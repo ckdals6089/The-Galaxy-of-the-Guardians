@@ -42,7 +42,7 @@ var scenes;
             this._collision = new managers.Collision();
             this._backgroundSound = createjs.Sound.play("backgroundSound");
             this._backgroundSound.loop = -1;
-            this._backgroundSound.volume = 0.2;
+            this._backgroundSound.volume = 0.5;
             this._scoreBoard = new managers.ScoreBoard;
             objects.Game.scoreboardManager = this._scoreBoard;
             this.Main();
@@ -97,6 +97,7 @@ var scenes;
                 //createjs.Sound.play("missileSound");
                 this._missileSound = createjs.Sound.play("missileSound");
                 this._missileSound.loop = -1;
+                this._missileSound.volume = 0.2;
             }
         };
         return playScene;
