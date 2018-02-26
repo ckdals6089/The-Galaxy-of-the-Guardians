@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.7
+    Name : Dongwan Kim, Changmin Shin
+    Version : v1.8
     Last_modification : Feb 25, 2018
-    Description : Implemented the background sounds
+    Description : Fix the error
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -54,6 +54,7 @@ var scenes;
                 _this._collision.check(_this._plane, enemy);
                 if (_this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
+                    _this._backgroundSound.stop();
                 }
             });
             this._missile.forEach(function (missile) {

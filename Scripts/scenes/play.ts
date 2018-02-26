@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.7
+    Name : Dongwan Kim, Changmin Shin
+    Version : v1.8
     Last_modification : Feb 25, 2018
-    Description : Implemented the background sounds
+    Description : Fix the error 
 */
 
 module scenes{
@@ -63,6 +63,7 @@ export class playScene extends objects.Scene{
 
             if(this._plane.Life == 0){
                 objects.Game.currentScene = config.Scene.GAMEOVER;
+                this._backgroundSound.stop();
             }
         });
         this._missile.forEach(missile =>{
