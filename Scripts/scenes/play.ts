@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.6
+    Version : v1.7
     Last_modification : Feb 25, 2018
-    Description : Modified the position of missile
+    Description : Implemented the background sounds
 */
 
 module scenes{
