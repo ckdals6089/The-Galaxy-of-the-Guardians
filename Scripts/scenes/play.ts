@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.5
-    Last_modification : Feb 23, 2018
-    Description : Added life feature to player
+    Version : v1.6
+    Last_modification : Feb 25, 2018
+    Description : Modified the position of missile
 */
 
 module scenes{
@@ -53,7 +53,6 @@ export class playScene extends objects.Scene{
         this._enemy.forEach(enemy =>{
             enemy.Update();
 
-            console.log(enemy.isColliding);
             this._collision.check(this._plane, enemy);
 
             if(this._plane.Life == 0){
@@ -61,7 +60,11 @@ export class playScene extends objects.Scene{
             }
         });
         this._missile.forEach(missile =>{
+            missile.position.x = this._plane.x;
+            missile.position.y = this._plane.y;
             missile.Update();
+           console.log(missile.position.x);
+
         });
     }
     public Main():void{
@@ -69,7 +72,7 @@ export class playScene extends objects.Scene{
 
 
         for(let count = 0; count < this._missileNum; count++) {
-            console.log("missile shooting");
+            //console.log("missile shooting");
             
             this._missile[count] = new objects.Missile(this.assetManager);
 
@@ -84,7 +87,7 @@ export class playScene extends objects.Scene{
     }
 
     private _bulletFire(back:number):void{
-        console.log(this._missileCount);
+        //console.log(this._missileCount);
             this._missile[this._missileCount].x = objects.Game.stage.mouseX;
             this._missile[this._missileCount].y = objects.Game.stage.mouseY - back;
 

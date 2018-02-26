@@ -25,8 +25,22 @@ var objects;
             _this.Start();
             return _this;
         }
-        Object.defineProperty(Plane.prototype, "Life", {
+        Object.defineProperty(Plane, "centerX", {
             //PUBLIC PROPERTIES
+            get: function () {
+                return this.centerX;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Plane, "centerY", {
+            get: function () {
+                return this.centerY;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Plane.prototype, "Life", {
             get: function () {
                 return this._life;
             },
@@ -66,6 +80,7 @@ var objects;
             }
         };
         Plane.prototype.Start = function () {
+            this.x = 300;
             this.y = 430;
         };
         Plane.prototype.Update = function () {

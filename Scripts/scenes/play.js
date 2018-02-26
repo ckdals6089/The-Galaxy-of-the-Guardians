@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.5
-    Last_modification : Feb 23, 2018
-    Description : Added life feature to player
+    Version : v1.6
+    Last_modification : Feb 25, 2018
+    Description : Modified the position of missile
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -48,21 +48,23 @@ var scenes;
             this._plane.Update();
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
-                console.log(enemy.isColliding);
                 _this._collision.check(_this._plane, enemy);
                 if (_this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
                 }
             });
             this._missile.forEach(function (missile) {
+                missile.position.x = _this._plane.x;
+                missile.position.y = _this._plane.y;
                 missile.Update();
+                console.log(missile.position.x);
             });
         };
         playScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
             for (var count = 0; count < this._missileNum; count++) {
-                console.log("missile shooting");
+                //console.log("missile shooting");
                 this._missile[count] = new objects.Missile(this.assetManager);
                 this.addChild(this._missile[count]);
                 this._bulletFire(count * 80);
@@ -73,7 +75,7 @@ var scenes;
             });
         };
         playScene.prototype._bulletFire = function (back) {
-            console.log(this._missileCount);
+            //console.log(this._missileCount);
             this._missile[this._missileCount].x = objects.Game.stage.mouseX;
             this._missile[this._missileCount].y = objects.Game.stage.mouseY - back;
             this._missileCount++;

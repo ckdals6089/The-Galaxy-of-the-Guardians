@@ -5,10 +5,16 @@
     Description : Added keyboard control to move the plane
 */
 module objects{
-    export class Plane extends objects.GameObject{
+    export class Plane extends objects.GameObject {
         //PRIVATE VARIABLES
             private _life:number;
         //PUBLIC PROPERTIES
+            public static get centerX():number{
+                return this.centerX;
+            }
+            public static get centerY():number{
+                return this.centerY;
+            }
             public get Life():number{
                 return this._life;
             }
@@ -54,6 +60,7 @@ module objects{
             }
         }
         public Start():void{
+            this.x = 300;
             this.y=430;
         }
         public Update():void{
