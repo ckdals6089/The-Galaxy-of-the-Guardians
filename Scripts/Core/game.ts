@@ -15,6 +15,7 @@
     let assetManifest: any[];
     let currentScene:objects.Scene;
     let currentState:number;
+    let keyBoardManager:managers.Keyboard;
 
     assetManifest = [ //TODO: Must change the temporary images
         {id: "btnStart", src:"./Assets/images/Start_button.png"}, 
@@ -46,6 +47,9 @@
         objects.Game.stage = stage;
         objects.Game.currentScene = config.Scene.OPENING;
         currentState = config.Scene.OPENING;
+
+        keyBoardManager = new managers.Keyboard();
+        objects.Game.keyboardManager = keyBoardManager;
         Main();
     }
     function Update():void{
