@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 21, 2018
-    Description : Added life value and set 3 lives
+    Version : v1.2
+    Last_modification : Feb 25, 2018
+    Description : Added keyboard control to move the plane
 */
 var objects;
 (function (objects) {
@@ -21,7 +21,6 @@ var objects;
         //CONSTRUTOR
         function Plane(assetManager) {
             var _this = _super.call(this, assetManager, "plane") || this;
-            _this._centerX = _this.centerX;
             _this._life = 3;
             _this.Start();
             return _this;
@@ -53,11 +52,20 @@ var objects;
             }
         };
         Plane.prototype.Move = function () {
-            this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY;
+            if (objects.Game.keyboardManager.moveLeft) {
+                this.x -= 10;
+            }
+            if (objects.Game.keyboardManager.moveRight) {
+                this.x += 10;
+            }
+            if (objects.Game.keyboardManager.moveForward) {
+                this.y += 10;
+            }
+            if (objects.Game.keyboardManager.moveBackward) {
+                this.y -= 10;
+            }
         };
         Plane.prototype.Start = function () {
-            this._centerX = this.width * 0.5;
             this.y = 430;
         };
         Plane.prototype.Update = function () {

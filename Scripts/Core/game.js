@@ -13,6 +13,7 @@
     var assetManifest;
     var currentScene;
     var currentState;
+    var keyBoardManager;
     assetManifest = [
         { id: "btnStart", src: "./Assets/images/Start_button.png" },
         { id: "background", src: "./Assets/images/background_temporary.png" },
@@ -40,6 +41,8 @@
         objects.Game.stage = stage;
         objects.Game.currentScene = config.Scene.OPENING;
         currentState = config.Scene.OPENING;
+        keyBoardManager = new managers.Keyboard();
+        objects.Game.keyboardManager = keyBoardManager;
         Main();
     }
     function Update() {

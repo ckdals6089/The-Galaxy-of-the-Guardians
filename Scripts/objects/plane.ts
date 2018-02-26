@@ -1,13 +1,12 @@
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 21, 2018
-    Description : Added life value and set 3 lives
+    Version : v1.2
+    Last_modification : Feb 25, 2018
+    Description : Added keyboard control to move the plane
 */
 module objects{
     export class Plane extends objects.GameObject{
         //PRIVATE VARIABLES
-            private _centerX:number;
             private _life:number;
         //PUBLIC PROPERTIES
             public get Life():number{
@@ -16,7 +15,6 @@ module objects{
         //CONSTRUTOR
         constructor(assetManager:createjs.LoadQueue){
             super(assetManager,"plane");
-            this._centerX = this.centerX;
             this._life = 3;
             this.Start();
         }
@@ -42,11 +40,20 @@ module objects{
         }
         public Move():void{
 
-            this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY;
+            if(objects.Game.keyboardManager.moveLeft){
+                this.x -= 10;
+            }
+            if(objects.Game.keyboardManager.moveRight){
+                this.x += 10;
+            }
+            if(objects.Game.keyboardManager.moveForward){
+                this.y += 10;
+            }
+            if(objects.Game.keyboardManager.moveBackward){
+                this.y -= 10;
+            }
         }
         public Start():void{
-            this._centerX = this.width*0.5;
             this.y=430;
         }
         public Update():void{
