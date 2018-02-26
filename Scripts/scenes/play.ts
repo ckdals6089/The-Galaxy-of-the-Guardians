@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim, Changmin Shin
-    Version : v1.8
-    Last_modification : Feb 25, 2018
-    Description : Fix the error 
+    Name : Dongwan Kim, Changmin Shin, Jowon Shin
+    Version : v2.0
+    Last_modification : Feb 26, 2018
+    Description : Made the missile sound looping
 */
 
 module scenes{
@@ -17,6 +17,8 @@ export class playScene extends objects.Scene{
     private _missileCount:number;
     private _collision: managers.Collision;
     private _backgroundSound:createjs.AbstractSoundInstance;
+    private _missileSound:createjs.AbstractSoundInstance;
+    private _scoreBoard: managers.ScoreBoard;
     //PUBLIC PROPERTIES
 
     //CONSTRUCTOR
@@ -33,6 +35,7 @@ export class playScene extends objects.Scene{
         this._missileNum = 5;
         this._missileCount = 0;
         this._background = new objects.Background(this.assetManager);
+        
         this._plane = new objects.Plane(this.assetManager);
 
         this._enemyNum=3;
@@ -47,7 +50,10 @@ export class playScene extends objects.Scene{
 
         this._backgroundSound = createjs.Sound.play("backgroundSound")
         this._backgroundSound.loop = -1;
-        this._backgroundSound.volume = 0.2;
+        this._backgroundSound.volume = 0.5;
+
+        this._scoreBoard = new managers.ScoreBoard;
+        objects.Game.scoreboardManager = this._scoreBoard;
 
         this.Main();
     }
@@ -71,12 +77,17 @@ export class playScene extends objects.Scene{
             missile.position.y = this._plane.y;
             missile.Update();
            console.log(missile.position.x);
-
         });
+
+        if(this._scoreBoard.Lives <= 0){
+            objects.Game.currentScene = config.Scene.GAMEOVER;
+            this._backgroundSound.stop();
+            this._missileSound.stop();
+          }
+          
     }
     public Main():void{
         this.addChild(this._background);
-
 
         for(let count = 0; count < this._missileNum; count++) {
             //console.log("missile shooting");
@@ -86,11 +97,16 @@ export class playScene extends objects.Scene{
             this.addChild(this._missile[count]);
             this._bulletFire(count * 80);
         }
+
         this.addChild(this._plane);
+        
         this._enemy.forEach(enemy =>{
             this.addChild(enemy);
-
         });
+
+        this.addChild(this._scoreBoard.LivesLabel);
+        this.addChild(this._scoreBoard.ScoreLabel);
+
     }
 
     private _bulletFire(back:number):void{
@@ -101,6 +117,10 @@ export class playScene extends objects.Scene{
             this._missileCount++;
             if(this._missileCount >= this._missileNum -1){
                 this._missileCount = 0;
+                //createjs.Sound.play("missileSound");
+                this._missileSound = createjs.Sound.play("missileSound");
+                this._missileSound.loop = -1;
+                this._missileSound.volume = 0.2;
         }
     }
 }

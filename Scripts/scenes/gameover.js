@@ -2,7 +2,7 @@
     Name : Jowon Shin
     Version : v1.1
     Last_modification : Feb 23, 2018
-    Description : added label and changed the button
+    Description : added Score Label
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -33,6 +33,8 @@ var scenes;
         GameOverScene.prototype.Start = function () {
             this._btnPlayAgain = new objects.Button(this.assetManager, "btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "Consolas", "#FF0000", 320, 240, true);
+            this._lblScore = new objects.Label("Your ", "40px", "Consolas", "#FF0000", 180, 100, false);
+            this._scoreboard = objects.Game.scoreboardManager;
             this.Main();
             console.log("game over");
         };
@@ -41,6 +43,8 @@ var scenes;
         GameOverScene.prototype.Main = function () {
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
+            this._lblScore.text += this._scoreboard.ScoreLabel.text;
+            this.addChild(this._lblScore);
             this._btnPlayAgain.on("click", this._btnPlayAgainClick);
         };
         return GameOverScene;

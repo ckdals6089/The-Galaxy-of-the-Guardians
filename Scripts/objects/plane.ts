@@ -68,6 +68,7 @@ module objects{
             this.Move();
             this.CheckBounds();
         }
+        
         public MinusLife():void{
             this._life -= 1;
         }

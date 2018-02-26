@@ -2,7 +2,7 @@
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
     Version : v2.1
     Last_modification : Feb 25, 2018
-    Description : Added the background sounds
+    Description : Edited sound name
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -25,8 +25,9 @@
         { id: "plane", src: "./Assets/images/PlayerShip.png" },
         { id: "enemy", src: "./Assets/images/enemyA.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
-        { id: "missileSound", src: "./Assets/sounds/PlayerShip.missilSound.mp3" },
-        { id: "bazoozaSound", src: "./Assets/sounds/enemyA.bazookaSound.mp3" }
+        { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
+        { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
+        { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" } //temporary sound
     ];
     //preload Assets
     function Init() {

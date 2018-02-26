@@ -1,8 +1,8 @@
 <!--
     Name : Dongwan Kim, Jowon Shin
     Version : v1.2
-    Last_modification : Feb 23, 2018
-    Description : Added a keys config and keyboard managers
+    Last_modification : Feb 26, 2018
+    Description : Added a scoreboard manager
 -->
 
 <!DOCTYPE html>
@@ -19,18 +19,19 @@
     <canvas id="canvas" width="640" height="480"></canvas>
 
     <!-- JavaScript -->
-        <!-- CreateJS Libraries -->
+
+    <!-- CreateJS Libraries -->
     <script src="./node_modules/easeljs/lib/easeljs.min.js"></script>
     <script src="./node_modules/tweenjs/lib/tweenjs.min.js"></script>
     <script src="./node_modules/soundjs/lib/soundjs.min.js"></script>
     <script src="./node_modules/preloadjs/lib/preloadjs.min.js"></script>
         
-        <!-- Config Script -->
+    <!-- Config Script -->
     <script src="./Scripts/config/scene.js"></script>
     <script src="./Scripts/config/keys.js"></script>
 
 
-        <!-- Objects -->
+    <!-- Objects -->
     <script src="./Scripts/objects/scene.js"></script>
     <script src="./Scripts/objects/button.js"></script>
     <script src="./Scripts/objects/game.js"></script>
@@ -42,18 +43,19 @@
     <script src="./Scripts/objects/label.js"></script>
     <script src="Scripts/objects/vector2.js"></script>
 
-        <!--Game Objects- -->
+    <!-- Manager -->
+    <script src="./Scripts/managers/collision.js"></script>
+    <script src="./Scripts/managers/keyboard.js"></script>
+    <script src="./Scripts/managers/scoreboard.js"></script>
 
-        <!-- Scene -->
+    <!--Game Objects- -->
+
+    <!-- Scene -->
     <script src="./Scripts/scenes/opening.js"></script>
     <script src="./Scripts/scenes/choosemode.js"></script>
     <script src="./Scripts/scenes/play.js"></script>
     <script src="./Scripts/scenes/gameover.js"></script>
 
     <script src="./Scripts/core/game.js"></script>
-
-    <script src="./Scripts/managers/collision.js"></script>
-    <script src="./Scripts/managers/keyboard.js"></script>
-           
 </body>
 </html>

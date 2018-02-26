@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 25, 2018
-    Description : Added keyboard manager
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.2
+    Last_modification : Feb 26, 2018
+    Description : Added scoreboard manager
 */
 var objects;
 (function (objects) {

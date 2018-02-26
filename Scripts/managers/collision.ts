@@ -1,8 +1,8 @@
 /*
-    Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 23, 2018
-    Description : Changed the value to make it play smoothly
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.2
+    Last_modification : Feb 26, 2018
+    Description : added scoreboard manager to manage player's lives and score
 */
 module managers {
     export class Collision {
@@ -22,14 +22,18 @@ module managers {
         public check(plane: objects.Plane, other: objects.GameObject) {
             //check to see if object is colliding
 
-            //console.log(plane.position);
             if (objects.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY -30 )) {
                 if (!other.isColliding) {
                     other.isColliding = true;
-
-                    // if plane collides with enemy
-                    if(other.name === "enemy") {
-                        plane.MinusLife();
+                    console.log("Crushed with " + other.name);
+                    switch(other.name)
+                    {
+                        case "enemy":
+                            plane.MinusLife();
+                            objects.Game.scoreboardManager.Lives -= 1;
+                            objects.Game.scoreboardManager.Score += 100; //will be changed after creating more objects
+                            createjs.Sound.play("crashSound");                            
+                        break;
                     }
                 }
             }
