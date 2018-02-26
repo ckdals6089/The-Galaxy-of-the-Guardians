@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.1
+    Version : v2.2
     Last_modification : Feb 26, 2018
-    Description : Created Star Object
+    Description : Changed the visibility options of enemy and star
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -55,9 +55,15 @@ var scenes;
             this._star.Update();
             //check collision between plane and star
             this._collision.check(this._plane, this._star);
+            if (this._star.isColliding) {
+                this._star.visible = false;
+            }
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
                 _this._collision.check(_this._plane, enemy);
+                if (enemy.isColliding) {
+                    enemy.visible = false;
+                }
                 if (_this._plane.Life == 0) {
                     objects.Game.currentScene = config.Scene.GAMEOVER;
                     _this._backgroundSound.stop();
@@ -68,7 +74,6 @@ var scenes;
                 missile.position.x = _this._plane.x;
                 missile.position.y = _this._plane.y;
                 missile.Update();
-                console.log(missile.position.x);
             });
             if (this._scoreBoard.Lives <= 0) {
                 objects.Game.currentScene = config.Scene.GAMEOVER;
@@ -81,7 +86,6 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._star);
             for (var count = 0; count < this._missileNum; count++) {
-                //console.log("missile shooting");
                 this._missile[count] = new objects.Missile(this.assetManager);
                 this.addChild(this._missile[count]);
                 this._bulletFire(count * 80);
@@ -94,13 +98,11 @@ var scenes;
             this.addChild(this._scoreBoard.ScoreLabel);
         };
         playScene.prototype._bulletFire = function (back) {
-            //console.log(this._missileCount);
             this._missile[this._missileCount].x = objects.Game.stage.mouseX;
             this._missile[this._missileCount].y = objects.Game.stage.mouseY - back;
             this._missileCount++;
             if (this._missileCount >= this._missileNum - 1) {
                 this._missileCount = 0;
-                //createjs.Sound.play("missileSound");
                 this._missileSound = createjs.Sound.play("missileSound");
                 this._missileSound.loop = -1;
                 this._missileSound.volume = 0.2;

@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
-    Version : v2.2
+    Version : v2.3
     Last_modification : Feb 26, 2018
-    Description : Added star image and item sound
+    Description : Changed image names due to live site
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -15,10 +15,10 @@
     var currentState;
     var keyBoardManager;
     assetManifest = [
-        { id: "btnStart", src: "./Assets/images/Start_button.png" },
-        { id: "background", src: "./Assets/images/background_temporary.png" },
-        { id: "btnNormal", src: "./Assets/images/normal_Button.png" },
-        { id: "btnHell", src: "./Assets/images/ULTIMATE_Button.png" },
+        { id: "btnStart", src: "./Assets/images/btnStart.png" },
+        { id: "background", src: "./Assets/images/background.png" },
+        { id: "btnNormal", src: "./Assets/images/btnNormal.png" },
+        { id: "btnHell", src: "./Assets/images/btnUltimate.png" },
         { id: "btnBack", src: "./Assets/images/btnBack.png" },
         { id: "btnPlayAgain", src: "./Assets/images/btnPlayAgain.png" },
         { id: "missile", src: "./Assets/images/missile.png" },
