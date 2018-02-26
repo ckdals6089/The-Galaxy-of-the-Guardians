@@ -9,6 +9,7 @@
 /// <reference path="../../Scripts/objects/plane.ts"/>
 /// <reference path="../../Scripts/objects/missile.ts"/>
 /// <reference path="../../Scripts/objects/enemy.ts"/>
+/// <reference path="../../Scripts/objects/star.ts"/>
 /// <reference path="../../Scripts/objects/vector2.ts"/>
 /// <reference path="../../Scripts/managers/collision.ts"/>
 /// <reference path="../../Scripts/managers/keyboard.ts"/>

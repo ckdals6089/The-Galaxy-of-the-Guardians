@@ -11,5 +11,6 @@ module objects{
         public static currentScene:number;
         public static keyboardManager:managers.Keyboard;
         public static scoreboardManager:managers.ScoreBoard;
+        public static HighScore: number = 0;
     }
 }
