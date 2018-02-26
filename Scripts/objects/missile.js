@@ -10,14 +10,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 21, 2018
-    Description : Created missile objects
+    Version : v1.1
+    Last_modification : Feb 25, 2018
+    Description : Changed the position of missile
 */
 var objects;
 (function (objects) {
     var Missile = /** @class */ (function (_super) {
         __extends(Missile, _super);
+        //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUTOR
         function Missile(assetManager) {
@@ -27,8 +28,13 @@ var objects;
         }
         //PRIVATE METHODS
         Missile.prototype._reset = function () {
-            this.x = objects.Game.stage.mouseX;
-            this.y = objects.Game.stage.mouseY; //TODO: + plane top
+            //this.position = objects.Plane.getPosition;
+            this.x = this.position.x;
+            this.y = this.position.y;
+            //this.x = objects.Game.stage.mouseX;
+            //this.y = objects.Game.stage.mouseY; //TODO: + plane top
+            //this.x = 300;
+            //this.y=430;
         };
         Missile.prototype._checkBounds = function () {
             if (this.y <= 0) {
@@ -39,23 +45,15 @@ var objects;
             this.y -= this._dy;
             this._checkBounds();
         };
-        Missile.prototype._updatePosition = function () {
-            this.position.x = this.x;
-            this.position.y = this.y;
-        };
-        //PUBLIC METHODS
+        // //PUBLIC METHODS
         Missile.prototype.Start = function () {
+            //console.log(objects.Plane.getPosition);
             this._dy = 15;
         };
         Missile.prototype.Update = function () {
             if (this.y > 0) {
-                this._updatePosition();
                 this._move();
             }
-        };
-        Missile.prototype.ResetValue = function (value1, value2) {
-            this.x = value1;
-            this.y = value2;
         };
         return Missile;
     }(objects.GameObject));

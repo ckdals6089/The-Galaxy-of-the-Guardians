@@ -1,25 +1,30 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Feb 21, 2018
-    Description : Created missile objects
+    Version : v1.1
+    Last_modification : Feb 25, 2018
+    Description : Changed the position of missile
 */
 module objects{
     export class Missile extends objects.GameObject {
         //PRIVATE VARIABLES
-        private _plane:objects.Plane;
+         
         //PUBLIC PROPERTIES
 
         //CONSTRUTOR
         constructor(assetManager:createjs.LoadQueue){
-            super(assetManager,"missile");    
-            
+           super(assetManager,"missile");    
+
             this.Start();
-        }
+       }
         //PRIVATE METHODS
         private _reset():void{
-             this.x = objects.Game.stage.mouseX;
-             this.y = objects.Game.stage.mouseY; //TODO: + plane top
+            //this.position = objects.Plane.getPosition;
+            this.x = this.position.x;
+            this.y = this.position.y;  
+            //this.x = objects.Game.stage.mouseX;
+              //this.y = objects.Game.stage.mouseY; //TODO: + plane top
+              //this.x = 300;
+              //this.y=430;
 
         }
         private _checkBounds():void{
@@ -29,28 +34,24 @@ module objects{
             
         }
         private _move():void{
+            
             this.y -= this._dy;
             this._checkBounds();
         }
-        private _updatePosition():void{
-            this.position.x = this.x;
-            this.position.y = this.y;
-        }
-        //PUBLIC METHODS
+
+        // //PUBLIC METHODS
         public Start():void{
+            //console.log(objects.Plane.getPosition);
             this._dy = 15;
             
         }
         public Update():void{
+
             if(this.y >0){
-                this._updatePosition();
                 this._move();
             }
         }
-        public ResetValue(value1:number, value2:number):void{
-            this.x = value1;
-            this.y = value2;
-        }
+
 
 
     }
