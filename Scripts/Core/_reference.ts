@@ -12,6 +12,7 @@
 /// <reference path="../../Scripts/objects/missile.ts"/>
 /// <reference path="../../Scripts/objects/enemy.ts"/>
 /// <reference path="../../Scripts/objects/star.ts"/>
+/// <reference path="../../Scripts/objects/lifeitem.ts"/>
 
 /// <reference path="../../Scripts/objects/vector2.ts"/>
 

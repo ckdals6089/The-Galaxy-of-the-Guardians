@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.2
-    Last_modification : Feb 26, 2018
-    Description : Changed the visibility options of enemy and star
+    Version : v2.3
+    Last_modification : Mar 16, 2018
+    Description : Added Life Item and Set Success Condition
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -33,6 +33,7 @@ var scenes;
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane(this.assetManager);
             this._star = new objects.Star(this.assetManager);
+            this._lifeItem = new objects.LifeItem(this.assetManager);
             this._enemyNum = 3;
             this._enemy = new Array();
             this._missile = new Array();
@@ -53,10 +54,16 @@ var scenes;
             this._background.Update();
             this._plane.Update();
             this._star.Update();
+            this._lifeItem.Update();
             //check collision between plane and star
             this._collision.check(this._plane, this._star);
             if (this._star.isColliding) {
                 this._star.visible = false;
+            }
+            //check collision between plane and a life item
+            this._collision.check(this._plane, this._lifeItem);
+            if (this._lifeItem.isColliding) {
+                this._lifeItem.visible = false;
             }
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
@@ -80,11 +87,18 @@ var scenes;
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
+            //Success Condition
+            if (this._scoreBoard.Score >= 3000) {
+                objects.Game.currentScene = config.Scene.LOADING; //TODO: Build a new scene ? or display a congratulation label?
+                this._backgroundSound.stop();
+                this._missileSound.stop();
+            }
         };
         playScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
             this.addChild(this._star);
+            this.addChild(this._lifeItem);
             for (var count = 0; count < this._missileNum; count++) {
                 this._missile[count] = new objects.Missile(this.assetManager);
                 this.addChild(this._missile[count]);

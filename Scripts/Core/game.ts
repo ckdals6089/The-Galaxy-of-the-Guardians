@@ -28,6 +28,7 @@
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/PlayerShip.png"},
         {id: "star", src:"./Assets/images/star.png"},
+        {id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
         {id: "enemy", src:"./Assets/images/enemyA.png"},
         {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},

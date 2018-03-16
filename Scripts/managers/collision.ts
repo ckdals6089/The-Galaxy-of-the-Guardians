@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 26, 2018
-    Description : added star
+    Version : v1.5
+    Last_modification : Mar 16, 2018
+    Description : added life item
 */
 module managers {
     export class Collision {
@@ -39,6 +39,13 @@ module managers {
                             if (objects.Game.HighScore <= objects.Game.scoreboardManager.Score) {
                                 objects.Game.scoreboardManager.HighScore = objects.Game.scoreboardManager.Score;
                                 objects.Game.HighScore = objects.Game.scoreboardManager.HighScore;
+                            }
+                            break;
+                        case "lifeitem":
+                            objects.Game.scoreboardManager.Lives += 1;
+                            createjs.Sound.play("gettingItemSound"); //sound must be changed
+                            if(objects.Game.scoreboardManager.Lives >= 5) {
+                                objects.Game.scoreboardManager.Lives = 5;
                             }
                             break;
                     }
