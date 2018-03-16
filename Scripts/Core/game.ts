@@ -18,6 +18,7 @@
     let keyBoardManager:managers.Keyboard;
 
     assetManifest = [ //TODO: Must change the temporary images
+        {id: "imgLogo", src:"./Assets/images/logo.png"},
         {id: "btnStart", src:"./Assets/images/btnStart.png"}, 
         {id: "background", src:"./Assets/images/background.png"},  
         {id: "btnNormal", src:"./Assets/images/btnNormal.png"},
@@ -27,6 +28,7 @@
         {id: "missile", src:"./Assets/images/missile.png"},
         {id: "plane", src:"./Assets/images/PlayerShip.png"},
         {id: "star", src:"./Assets/images/star.png"},
+        {id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
         {id: "enemy", src:"./Assets/images/enemyA.png"},
         {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},
@@ -51,8 +53,8 @@
         createjs.Ticker.on("tick", Update);
 
         objects.Game.stage = stage;
-        objects.Game.currentScene = config.Scene.OPENING;
-        currentState = config.Scene.OPENING;
+        objects.Game.currentScene = config.Scene.LOADING;
+        currentState = config.Scene.LOADING;
 
         keyBoardManager = new managers.Keyboard();
         objects.Game.keyboardManager = keyBoardManager;
@@ -71,6 +73,9 @@
         stage.removeAllChildren();
 
         switch(objects.Game.currentScene){
+            case config.Scene.LOADING:
+                currentScene = new scenes.loadingScene(assetManager);
+                break;
             case config.Scene.OPENING:
                 currentScene = new scenes.openingScene(assetManager);
                 break;
