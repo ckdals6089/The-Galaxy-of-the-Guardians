@@ -6,6 +6,7 @@
 */
 module config{
     export enum Scene{
+        LOADING,
         OPENING,
         CHOOSEMODE,
         PLAY,

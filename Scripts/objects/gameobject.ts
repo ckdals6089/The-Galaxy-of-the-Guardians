@@ -59,7 +59,6 @@ module objects{
             this.centerY = this.height * 0.5;
             this.regX = this.centerX;
             this.regY = this.centerY;
-            //this.position = new createjs.Point(this.x,this.y);
             this.position = new Vector2(this.x, this.y);
             this.isColliding = false;
 

@@ -15,6 +15,7 @@
     var currentState;
     var keyBoardManager;
     assetManifest = [
+        { id: "imgLogo", src: "./Assets/images/logo.png" },
         { id: "btnStart", src: "./Assets/images/btnStart.png" },
         { id: "background", src: "./Assets/images/background.png" },
         { id: "btnNormal", src: "./Assets/images/btnNormal.png" },
@@ -46,8 +47,8 @@
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", Update);
         objects.Game.stage = stage;
-        objects.Game.currentScene = config.Scene.OPENING;
-        currentState = config.Scene.OPENING;
+        objects.Game.currentScene = config.Scene.LOADING;
+        currentState = config.Scene.LOADING;
         keyBoardManager = new managers.Keyboard();
         objects.Game.keyboardManager = keyBoardManager;
         Main();
@@ -62,6 +63,9 @@
     function Main() {
         stage.removeAllChildren();
         switch (objects.Game.currentScene) {
+            case config.Scene.LOADING:
+                currentScene = new scenes.loadingScene(assetManager);
+                break;
             case config.Scene.OPENING:
                 currentScene = new scenes.openingScene(assetManager);
                 break;
