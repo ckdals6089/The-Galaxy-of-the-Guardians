@@ -77,6 +77,7 @@ var scenes;
                     _this._missileSound.stop();
                 }
             });
+            //this._collision.check(this._missile,this._enemy);
             this._missile.forEach(function (missile) {
                 missile.position.x = _this._plane.x;
                 missile.position.y = _this._plane.y;

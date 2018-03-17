@@ -93,19 +93,20 @@ module scenes {
                     this._missileSound.stop();
                 }
             });
-
+            //this._collision.check(this._missile,this._enemy);
+            
             this._missile.forEach(missile => {
                 missile.position.x = this._plane.x;
                 missile.position.y = this._plane.y;
                 missile.Update();
             });
-
+            
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
-
+            
             //Success Condition
             if(this._scoreBoard.Score >= 3000) {
                 managers.Game.currentScene = config.Scene.LOADING; //TODO: Build a new scene ? or display a congratulation label?

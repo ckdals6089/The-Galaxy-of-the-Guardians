@@ -25,36 +25,47 @@ module managers {
                 if (!other.isColliding) {
 
                     other.isColliding = true;
-                    console.log("Crushed with " + other.name);
-                    
-                    switch (other.name) {
-                        case "enemy":
-                            one.life -= 1;
-                            managers.Game.scoreboardManager.Lives -= 1;
-                            createjs.Sound.play("crashSound");
-                            break;
-                        case "star":
-                             managers.Game.scoreboardManager.Score += 100;
-                            createjs.Sound.play("gettingItemSound"); //sound must be changed
-                            if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
-                                managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
-                                managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
-                            }
-                            break;
-                        case "lifeitem":
-                        one.life += 1;
-                        managers.Game.scoreboardManager.Lives += 1;
-                            createjs.Sound.play("gettingItemSound"); //sound must be changed
-                            if(managers.Game.scoreboardManager.Lives >= 5) {
-                                managers.Game.scoreboardManager.Lives = 5;
-                            }
-                            break;
-                    }
+                    if(one.name = "plane"){
+                        //console.log("Crushed with " + other.name);
+
+                        switch (other.name) {
+                            case "enemy":
+                                    one.life -= 1;
+                                    managers.Game.scoreboardManager.Lives -= 1;
+                                    createjs.Sound.play("crashSound");                           
+                                break;
+                            case "star":
+                                managers.Game.scoreboardManager.Score += 100;
+                                createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
+                                    managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
+                                    managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
+                                }
+                                break;
+                            case "lifeitem":
+                            one.life += 1;
+                            managers.Game.scoreboardManager.Lives += 1;
+                                createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                if(managers.Game.scoreboardManager.Lives >= 5) {
+                                    managers.Game.scoreboardManager.Lives = 5;
+                                }
+                                break;
+                        }
+                     }
+                    // else if(one.name = "missile"){
+                    //     switch(other.name){
+                    //         case "enemy":
+                    //             console.log("Crushed with " + other.name);
+                    //             other.Life -= 1;
+                    //         break;
+                    //     }
+                    // }
                 }
             }
             else {
                 other.isColliding = false;
             }
         }
+
     }
 }
