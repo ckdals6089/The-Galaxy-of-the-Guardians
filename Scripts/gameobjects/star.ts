@@ -1,11 +1,11 @@
 /*
-    Name : Jowon Shin
-    Version : v1.0
-    Last_modification : Mar 16, 2018
-    Description : Created Life Item
+    Name : Jowon Shin, Dongwan Kim
+    Version : v1.1
+    Last_modification : Feb 26, 2018
+    Description : Set the visibility when they reset
 */
-module objects {
-    export class LifeItem extends GameObject {
+module gameobjects {
+    export class Star extends GameObject {
   
       // private instance variables
   
@@ -13,7 +13,7 @@ module objects {
   
       // Constructor
       constructor(assetManager: createjs.LoadQueue) {
-        super(assetManager, "lifeitem");
+        super(assetManager, "star");
         this.Start();
       }
   

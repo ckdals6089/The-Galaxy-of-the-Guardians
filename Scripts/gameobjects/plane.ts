@@ -4,8 +4,8 @@
     Last_modification : Feb 25, 2018
     Description : Added keyboard control to move the plane
 */
-module objects{
-    export class Plane extends objects.GameObject {
+module gameobjects{
+    export class Plane extends GameObject {
         //PRIVATE VARIABLES
             private _life:number;
         //PUBLIC PROPERTIES

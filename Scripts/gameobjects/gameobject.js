@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var gameobjects;
+(function (gameobjects) {
     var GameObject = /** @class */ (function (_super) {
         __extends(GameObject, _super);
         //CONSTRUTORS
@@ -80,6 +80,6 @@ var objects;
         };
         return GameObject;
     }(createjs.Bitmap));
-    objects.GameObject = GameObject;
-})(objects || (objects = {}));
+    gameobjects.GameObject = GameObject;
+})(gameobjects || (gameobjects = {}));
 //# sourceMappingURL=gameobject.js.map

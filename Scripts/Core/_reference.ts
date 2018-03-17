@@ -3,18 +3,19 @@
 
 /// <reference path="../../Scripts/managers/game.ts"/>
 
+/// <reference path="../../Scripts/gameobjects/gameobject.ts"/>
+/// <reference path="../../Scripts/gameobjects/enemy.ts"/>
+/// <reference path="../../Scripts/gameobjects/plane.ts"/>
+/// <reference path="../../Scripts/gameobjects/missile.ts"/>
+/// <reference path="../../Scripts/gameobjects/star.ts"/>
+/// <reference path="../../Scripts/gameobjects/lifeitem.ts"/>
 
 /// <reference path="../../Scripts/objects/scene.ts"/>
 /// <reference path="../../Scripts/objects/button.ts"/>
 /// <reference path="../../Scripts/objects/label.ts"/>
 /// <reference path="../../Scripts/objects/logo.ts"/>
 /// <reference path="../../Scripts/objects/background.ts"/>
-/// <reference path="../../Scripts/objects/gameobject.ts"/>
-/// <reference path="../../Scripts/objects/plane.ts"/>
-/// <reference path="../../Scripts/objects/missile.ts"/>
-/// <reference path="../../Scripts/objects/enemy.ts"/>
-/// <reference path="../../Scripts/objects/star.ts"/>
-/// <reference path="../../Scripts/objects/lifeitem.ts"/>
+
 
 /// <reference path="../../Scripts/math/vector2.ts"/>
 

@@ -4,8 +4,8 @@
     Last_modification : Feb 25, 2018
     Description : Changed the position of missile
 */
-module objects{
-    export class Missile extends objects.GameObject {
+module gameobjects{
+    export class Missile extends GameObject {
         //PRIVATE VARIABLES
          
         //PUBLIC PROPERTIES

@@ -5,7 +5,7 @@
     Description : Created Gameobject object
 */
 
-module objects{
+module gameobjects{
     export class GameObject extends createjs.Bitmap{
         //PRIVATE VARIABLES
         protected _dy:number;

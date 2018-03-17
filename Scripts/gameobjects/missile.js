@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     Last_modification : Feb 25, 2018
     Description : Changed the position of missile
 */
-var objects;
-(function (objects) {
+var gameobjects;
+(function (gameobjects) {
     var Missile = /** @class */ (function (_super) {
         __extends(Missile, _super);
         //PRIVATE VARIABLES
@@ -56,7 +56,7 @@ var objects;
             }
         };
         return Missile;
-    }(objects.GameObject));
-    objects.Missile = Missile;
-})(objects || (objects = {}));
+    }(gameobjects.GameObject));
+    gameobjects.Missile = Missile;
+})(gameobjects || (gameobjects = {}));
 //# sourceMappingURL=missile.js.map

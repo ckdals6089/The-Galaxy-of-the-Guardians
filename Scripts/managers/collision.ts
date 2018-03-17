@@ -19,7 +19,7 @@ module managers {
 
         }
 
-        public check(plane: objects.Plane, other: objects.GameObject) {
+        public check(plane: gameobjects.Plane, other: gameobjects.GameObject) {
             //check to see if object is colliding
             if (math.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {

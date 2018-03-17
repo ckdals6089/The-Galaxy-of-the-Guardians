@@ -31,15 +31,15 @@ var scenes;
             this._missileNum = 5;
             this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
-            this._plane = new objects.Plane(this.assetManager);
-            this._star = new objects.Star(this.assetManager);
-            this._lifeItem = new objects.LifeItem(this.assetManager);
+            this._plane = new gameobjects.Plane(this.assetManager);
+            this._star = new gameobjects.Star(this.assetManager);
+            this._lifeItem = new gameobjects.LifeItem(this.assetManager);
             this._enemyNum = 3;
             this._enemy = new Array();
             this._missile = new Array();
             this._bulletFire = this._bulletFire.bind(this);
             for (var count = 0; count < this._enemyNum; count++) {
-                this._enemy[count] = new objects.Enemy(this.assetManager);
+                this._enemy[count] = new gameobjects.Enemy(this.assetManager);
             }
             this._collision = new managers.Collision();
             this._backgroundSound = createjs.Sound.play("backgroundSound");
@@ -100,7 +100,7 @@ var scenes;
             this.addChild(this._star);
             this.addChild(this._lifeItem);
             for (var count = 0; count < this._missileNum; count++) {
-                this._missile[count] = new objects.Missile(this.assetManager);
+                this._missile[count] = new gameobjects.Missile(this.assetManager);
                 this.addChild(this._missile[count]);
                 this._bulletFire(count * 80);
             }

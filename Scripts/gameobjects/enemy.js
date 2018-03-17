@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     Last_modification : Feb 26, 2018
     Description : Set the visibility when they reset
 */
-var objects;
-(function (objects) {
+var gameobjects;
+(function (gameobjects) {
     var Enemy = /** @class */ (function (_super) {
         __extends(Enemy, _super);
         //PRIVATE VARIABLES
@@ -54,7 +54,7 @@ var objects;
             this.CheckBounds();
         };
         return Enemy;
-    }(objects.GameObject));
-    objects.Enemy = Enemy;
-})(objects || (objects = {}));
+    }(gameobjects.GameObject));
+    gameobjects.Enemy = Enemy;
+})(gameobjects || (gameobjects = {}));
 //# sourceMappingURL=enemy.js.map

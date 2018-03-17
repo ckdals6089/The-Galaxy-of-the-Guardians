@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     Last_modification : Feb 25, 2018
     Description : Added keyboard control to move the plane
 */
-var objects;
-(function (objects) {
+var gameobjects;
+(function (gameobjects) {
     var Plane = /** @class */ (function (_super) {
         __extends(Plane, _super);
         //CONSTRUTOR
@@ -92,7 +92,7 @@ var objects;
             this._life -= 1;
         };
         return Plane;
-    }(objects.GameObject));
-    objects.Plane = Plane;
-})(objects || (objects = {}));
+    }(gameobjects.GameObject));
+    gameobjects.Plane = Plane;
+})(gameobjects || (gameobjects = {}));
 //# sourceMappingURL=plane.js.map

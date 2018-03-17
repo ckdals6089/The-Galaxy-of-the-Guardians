@@ -4,7 +4,7 @@
     Last_modification : Feb 26, 2018
     Description : Set the visibility when they reset
 */
-module objects{
+module gameobjects{
     export class Enemy extends GameObject{
         //PRIVATE VARIABLES
 
