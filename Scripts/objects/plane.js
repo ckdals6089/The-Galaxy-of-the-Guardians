@@ -66,16 +66,16 @@ var objects;
             }
         };
         Plane.prototype.Move = function () {
-            if (objects.Game.keyboardManager.moveLeft) {
+            if (managers.Game.keyboardManager.moveLeft) {
                 this.x -= 10;
             }
-            if (objects.Game.keyboardManager.moveRight) {
+            if (managers.Game.keyboardManager.moveRight) {
                 this.x += 10;
             }
-            if (objects.Game.keyboardManager.moveForward) {
+            if (managers.Game.keyboardManager.moveForward) {
                 this.y += 10;
             }
-            if (objects.Game.keyboardManager.moveBackward) {
+            if (managers.Game.keyboardManager.moveBackward) {
                 this.y -= 10;
             }
         };
@@ -84,7 +84,7 @@ var objects;
             this.y = 430;
         };
         Plane.prototype.Update = function () {
-            this.position = new objects.Vector2(this.x, this.y);
+            this.position = new math.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
         };

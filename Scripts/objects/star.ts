@@ -42,7 +42,7 @@ module objects {
 
     // move the object to some new location
     public Move(): void {
-      this.position = new Vector2(this.x, this.y);
+      this.position = new math.Vector2(this.x, this.y);
       this.y += this._dy;
     }
 

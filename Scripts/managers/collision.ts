@@ -21,7 +21,7 @@ module managers {
 
         public check(plane: objects.Plane, other: objects.GameObject) {
             //check to see if object is colliding
-            if (objects.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY - 30)) {
+            if (math.Vector2.distance(plane.position, other.position) < (plane.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {
 
                     other.isColliding = true;
@@ -30,22 +30,22 @@ module managers {
                     switch (other.name) {
                         case "enemy":
                             plane.MinusLife();
-                            objects.Game.scoreboardManager.Lives -= 1;
+                            managers.Game.scoreboardManager.Lives -= 1;
                             createjs.Sound.play("crashSound");
                             break;
                         case "star":
-                            objects.Game.scoreboardManager.Score += 100;
+                             managers.Game.scoreboardManager.Score += 100;
                             createjs.Sound.play("gettingItemSound"); //sound must be changed
-                            if (objects.Game.HighScore <= objects.Game.scoreboardManager.Score) {
-                                objects.Game.scoreboardManager.HighScore = objects.Game.scoreboardManager.Score;
-                                objects.Game.HighScore = objects.Game.scoreboardManager.HighScore;
+                            if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
+                                managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
+                                managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
                             }
                             break;
                         case "lifeitem":
-                            objects.Game.scoreboardManager.Lives += 1;
+                        managers.Game.scoreboardManager.Lives += 1;
                             createjs.Sound.play("gettingItemSound"); //sound must be changed
-                            if(objects.Game.scoreboardManager.Lives >= 5) {
-                                objects.Game.scoreboardManager.Lives = 5;
+                            if(managers.Game.scoreboardManager.Lives >= 5) {
+                                managers.Game.scoreboardManager.Lives = 5;
                             }
                             break;
                     }

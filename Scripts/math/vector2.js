@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     Last_modification : Feb 23, 2018
     Description : Created a vector object
 */
-var objects;
-(function (objects) {
+var math;
+(function (math) {
     /**
      * This class extends the CreateJS Point class
      *
@@ -44,6 +44,6 @@ var objects;
         };
         return Vector2;
     }(createjs.Point));
-    objects.Vector2 = Vector2;
-})(objects || (objects = {}));
+    math.Vector2 = Vector2;
+})(math || (math = {}));
 //# sourceMappingURL=vector2.js.map

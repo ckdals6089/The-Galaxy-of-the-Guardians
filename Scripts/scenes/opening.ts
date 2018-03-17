@@ -20,7 +20,7 @@ module scenes{
         }
         //PRIVATE METHODS
         private _btnStartClick():void{
-            objects.Game.currentScene = config.Scene.CHOOSEMODE;
+            managers.Game.currentScene = config.Scene.CHOOSEMODE;
         }
         //PUBLIC METHODS
         public Start():void{

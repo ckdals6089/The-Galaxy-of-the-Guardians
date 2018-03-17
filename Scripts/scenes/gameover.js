@@ -27,7 +27,7 @@ var scenes;
         }
         //PRIVATE METHODS
         GameOverScene.prototype._btnPlayAgainClick = function () {
-            objects.Game.currentScene = config.Scene.OPENING;
+            managers.Game.currentScene = config.Scene.OPENING;
         };
         //PUBLIC METHODS
         GameOverScene.prototype.Start = function () {
@@ -44,7 +44,7 @@ var scenes;
             createjs.Sound.play("tadaSound"); //must be changed
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
-            this._scoreboard.HighScore = objects.Game.HighScore;
+            this._scoreboard.HighScore = managers.Game.HighScore;
             this._lblScore.text += this._scoreboard.HighScore;
             this.addChild(this._lblScore);
             this._btnPlayAgain.on("click", this._btnPlayAgainClick);

@@ -35,4 +35,4 @@ var objects;
     }(createjs.Bitmap));
     objects.Logo = Logo;
 })(objects || (objects = {}));
-//# sourceMappingURL=Logo.js.map
+//# sourceMappingURL=logo.js.map

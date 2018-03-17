@@ -11,7 +11,7 @@ module objects{
         protected _dy:number;
         protected _dx:number;
         protected _name:string;
-        protected _position:Vector2;
+        protected _position:math.Vector2;
         protected _isColliding:boolean;
 
         //PUBLIC PROPERTIES
@@ -29,11 +29,11 @@ module objects{
             this._name = newName;
         }
 
-        get position():Vector2 {
+        get position():math.Vector2 {
             return this._position;
         }
 
-        set position(newPosition:Vector2) {
+        set position(newPosition:math.Vector2) {
             this._position = newPosition;
         }
 
@@ -59,7 +59,7 @@ module objects{
             this.centerY = this.height * 0.5;
             this.regX = this.centerX;
             this.regY = this.centerY;
-            this.position = new Vector2(this.x, this.y);
+            this.position = new math.Vector2(this.x, this.y);
             this.isColliding = false;
 
         }

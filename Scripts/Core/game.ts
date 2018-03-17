@@ -52,17 +52,17 @@
         createjs.Ticker.framerate = 60;
         createjs.Ticker.on("tick", Update);
 
-        objects.Game.stage = stage;
-        objects.Game.currentScene = config.Scene.LOADING;
+        managers.Game.stage = stage;
+        managers.Game.currentScene = config.Scene.LOADING;
         currentState = config.Scene.LOADING;
 
         keyBoardManager = new managers.Keyboard();
-        objects.Game.keyboardManager = keyBoardManager;
+        managers.Game.keyboardManager = keyBoardManager;
 
         Main();
     }
     function Update():void{
-        if(currentState != objects.Game.currentScene){
+        if(currentState != managers.Game.currentScene){
             Main();
         }
         currentScene.Update();
@@ -72,7 +72,7 @@
     function Main():void{
         stage.removeAllChildren();
 
-        switch(objects.Game.currentScene){
+        switch(managers.Game.currentScene){
             case config.Scene.LOADING:
                 currentScene = new scenes.loadingScene(assetManager);
                 break;
@@ -89,7 +89,7 @@
                 currentScene = new scenes.GameOverScene(assetManager);
                 break;
         }
-        currentState = objects.Game.currentScene;
+        currentState = managers.Game.currentScene;
         
         stage.addChild(currentScene);
     }

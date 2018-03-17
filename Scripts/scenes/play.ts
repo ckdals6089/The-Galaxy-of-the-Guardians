@@ -56,7 +56,7 @@ module scenes {
             this._backgroundSound.volume = 0.5;
 
             this._scoreBoard = new managers.ScoreBoard;
-            objects.Game.scoreboardManager = this._scoreBoard;
+            managers.Game.scoreboardManager = this._scoreBoard;
 
             this.Main();
         }
@@ -88,7 +88,7 @@ module scenes {
                     enemy.visible = false;
                 }
                 if (this._plane.Life == 0) {
-                    objects.Game.currentScene = config.Scene.GAMEOVER;
+                    managers.Game.currentScene = config.Scene.GAMEOVER;
                     this._backgroundSound.stop();
                     this._missileSound.stop();
                 }
@@ -101,14 +101,14 @@ module scenes {
             });
 
             if (this._scoreBoard.Lives <= 0) {
-                objects.Game.currentScene = config.Scene.GAMEOVER;
+                managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
 
             //Success Condition
             if(this._scoreBoard.Score >= 3000) {
-                objects.Game.currentScene = config.Scene.LOADING; //TODO: Build a new scene ? or display a congratulation label?
+                managers.Game.currentScene = config.Scene.LOADING; //TODO: Build a new scene ? or display a congratulation label?
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
@@ -137,8 +137,8 @@ module scenes {
         }
 
         private _bulletFire(back: number): void {
-            this._missile[this._missileCount].x = objects.Game.stage.mouseX;
-            this._missile[this._missileCount].y = objects.Game.stage.mouseY - back;
+            this._missile[this._missileCount].x = managers.Game.stage.mouseX;
+            this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
 
             this._missileCount++;
             if (this._missileCount >= this._missileNum - 1) {

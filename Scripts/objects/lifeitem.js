@@ -46,7 +46,7 @@ var objects;
         };
         // move the object to some new location
         LifeItem.prototype.Move = function () {
-            this.position = new objects.Vector2(this.x, this.y);
+            this.position = new math.Vector2(this.x, this.y);
             this.y += this._dy;
         };
         // check to see if some boundary has been passed
@@ -60,4 +60,4 @@ var objects;
     }(objects.GameObject));
     objects.LifeItem = LifeItem;
 })(objects || (objects = {}));
-//# sourceMappingURL=lifeItem.js.map
+//# sourceMappingURL=lifeitem.js.map
