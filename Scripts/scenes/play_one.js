@@ -20,8 +20,8 @@ var scenes;
         __extends(StageOneScene, _super);
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function StageOneScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function StageOneScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }

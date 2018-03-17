@@ -14,10 +14,10 @@ module objects{
         public assetManager;
 
         //CONSTRUCTOR
-        constructor(assetManager:createjs.LoadQueue){
+        constructor(){
             super();
 
-            this.assetManager = assetManager;
+            this.assetManager = managers.Game.assetManager;
         }
 
         //PRIVATE METHODS

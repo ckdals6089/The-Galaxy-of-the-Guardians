@@ -16,8 +16,8 @@ module scenes {
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
-        constructor(assetManager: createjs.LoadQueue) {
-            super(assetManager);
+        constructor() {
+            super();
             this.Start();
         }
 
@@ -30,7 +30,7 @@ module scenes {
         public Start(): void {
             this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "SpaceComic", "#FF0000", 320, 240, true);
-            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 190, 120, false);
+            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 140, 120, false);
 
             this._scoreboard = new managers.ScoreBoard;
 

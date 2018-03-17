@@ -20,8 +20,8 @@ var scenes;
         __extends(openingScene, _super);
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function openingScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function openingScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }

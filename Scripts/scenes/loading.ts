@@ -13,8 +13,8 @@ module scenes{
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
-        constructor(assetManager:createjs.LoadQueue){
-            super(assetManager);
+        constructor(){
+            super();
             this.Start();
         }
         //PRIVATE METHODS

@@ -20,8 +20,8 @@ var scenes;
         __extends(chooseModeScene, _super);
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function chooseModeScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function chooseModeScene() {
+            var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }

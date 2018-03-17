@@ -94,22 +94,22 @@
         stage.removeAllChildren();
         switch (managers.Game.currentScene) {
             case config.Scene.LOADING:
-                currentScene = new scenes.loadingScene(assetManager);
+                currentScene = new scenes.loadingScene();
                 break;
             case config.Scene.OPENING:
-                currentScene = new scenes.openingScene(assetManager);
+                currentScene = new scenes.openingScene();
                 break;
             case config.Scene.CHOOSEMODE:
-                currentScene = new scenes.chooseModeScene(assetManager);
+                currentScene = new scenes.chooseModeScene();
                 break;
             case config.Scene.PLAY_ONE:
-                currentScene = new scenes.StageOneScene(assetManager);
+                currentScene = new scenes.StageOneScene();
                 break;
             case config.Scene.PLAY_TWO:
-                currentScene = new scenes.StageTwoScene(assetManager);
+                currentScene = new scenes.StageTwoScene();
                 break;
             case config.Scene.GAMEOVER:
-                currentScene = new scenes.GameOverScene(assetManager);
+                currentScene = new scenes.GameOverScene();
                 break;
         }
         currentState = managers.Game.currentScene;
