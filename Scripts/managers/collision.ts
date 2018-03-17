@@ -19,7 +19,7 @@ module managers {
 
         }
 
-        public check(one: objects.GameObject, other: objects.GameObject) {
+        public static Check(one: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
             if (math.Vector2.distance(one.position, other.position) < (one.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {
@@ -51,27 +51,44 @@ module managers {
                                 }
                                 break;
                         }
-                     }
+                      }//else if(one.name = "missile"){
+                    //      switch(other.name){
+                    //          case "enemy":
+                    //          other.life -=1;
+                    //          if(other.life = 0 ){
+                    //              console.log("AA");
+                    //              other.visible = false;
+                    //          }
+                    //          break;
+                    //      }
+                    //  }
                 }
             }
             else {
                 other.isColliding = false;
             }
         }
-        public crush(missile:objects.Missile[], enemy:objects.Enemy[]){
-             //check to see if object is colliding
-             missile.every
-             if (math.Vector2.distance(missile[0].position, enemy[0].position) < (missile[0].centerY + enemy[0].centerY - 30)) {
-                if (!enemy[0].isColliding) {
+        // public crush(missile:objects.Missile[], enemy:objects.Enemy[]){
+        //      //check to see if object is colliding
 
-                    enemy[0].isColliding = true;
-                    console.log("Crushed with " + enemy[0].name);
-                    enemy[0].visible = false;
-                }
-            }
-            else {
-                enemy[0].isColliding = false;
-            }
-        }
+        //       missile.forEach(missiles => {
+        //           enemy.forEach(enemies =>{
+        //             //console.log("missile - enemy");
+                    
+        //             if(math.Vector2.distance(missiles.position, enemies.position) > (missiles.centerY + enemies.centerY - 30)){
+        //                 console.log(missiles.position);
+        //                 if(!enemies.isColliding){
+        //                     enemies.isColliding = true;
+        //                     enemies.life -=1
+        //                     if(enemies.life =0){
+        //                         enemies.visible = false;
+        //                     }
+        //                 }
+        //             }else{
+        //                 enemies.isColliding = false;
+        //             }
+        //           });
+        //     });
+        // }
     }
 }

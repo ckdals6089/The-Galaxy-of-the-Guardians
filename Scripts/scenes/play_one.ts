@@ -46,13 +46,12 @@ module scenes {
 
         private _sucessStage():void{
             
-            if(this._scoreBoard.Score >= 3000) {
+             if(this._scoreBoard.Score >= 300) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO; 
-                this._scoreBoard.Score = managers.Game.scoreboardManager.Score;
-                //TODO: Build a new scene ? or display a congratulation label?
                 this._backgroundSound.stop();
                 this._missileSound.stop();
-            }
+                //TODO: Build a new scene ? or display a congratulation label?
+             }
         }
         //PUBLIC METHODS
         public Start(): void {
@@ -91,13 +90,13 @@ module scenes {
             this._lifeItem.Update();
 
             //check collision between plane and star
-            this._collision.check(this._plane, this._star);
+            managers.Collision.Check(this._plane, this._star);
             if(this._star.isColliding){
                 this._star.visible = false;
             }
 
             //check collision between plane and a life item
-            this._collision.check(this._plane, this._lifeItem);
+            managers.Collision.Check(this._plane, this._lifeItem);
             if(this._lifeItem.isColliding) {
                 this._lifeItem.visible = false;
             }
@@ -105,7 +104,7 @@ module scenes {
             this._enemy.forEach(enemy => {
                 enemy.Update();
 
-                this._collision.check(this._plane, enemy);
+                managers.Collision.Check(this._plane, enemy);
                 if(enemy.isColliding){
                     enemy.visible = false;
                 }
@@ -115,7 +114,6 @@ module scenes {
                     this._missileSound.stop();
                 }
             });
-            //this._collision.check(this._missile,this._enemy);
             
             this._missile.forEach(missile => {
                 missile.position.x = this._plane.x;
@@ -123,6 +121,7 @@ module scenes {
                 missile.Update();
             });
             //this._collision.crush(this._missile,this._enemy);
+
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();

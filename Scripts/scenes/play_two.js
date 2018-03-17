@@ -76,19 +76,19 @@ var scenes;
             this._star.Update();
             this._lifeItem.Update();
             //check collision between plane and star
-            this._collision.check(this._plane, this._star);
+            managers.Collision.Check(this._plane, this._star);
             if (this._star.isColliding) {
                 this._star.visible = false;
             }
             //check collision between plane and a life item
-            this._collision.check(this._plane, this._lifeItem);
+            managers.Collision.Check(this._plane, this._lifeItem);
             if (this._lifeItem.isColliding) {
                 this._lifeItem.visible = false;
             }
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
                 enemy.Dy += 0.07;
-                _this._collision.check(_this._plane, enemy);
+                managers.Collision.Check(_this._plane, enemy);
                 if (enemy.isColliding) {
                     enemy.visible = false;
                 }
