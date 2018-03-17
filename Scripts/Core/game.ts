@@ -17,16 +17,49 @@
     let currentState:number;
     let keyBoardManager:managers.Keyboard;
 
+    let textureAtlasData: any;
+    let textureAtlas: createjs.SpriteSheet;
+
+
+    
+
+
+    textureAtlasData = {
+
+        "images": [
+            
+            "./Assets/sprites/textureAtlas.png"
+        ],
+        
+        "frames": [
+            [1, 1, 226, 56, 0, 0, 0],
+            [229, 1, 226, 56, 0, 0, 0],
+            [1, 59, 229, 57, 0, 0, 0],
+            [232, 59, 75, 75, 0, 0, 0],
+            [309, 59, 110, 113, 0, 0, 0],
+            [1, 174, 110, 118, 0, 0, 0],
+            [113, 174, 114, 137, 0, 0, 0],
+            [229, 174, 120, 140, 0, 0, 0],
+            [351, 174, 125, 140,0, 0, 0],
+            [1, 316, 398, 191, 0, 0, 0]
+        ],
+        
+        "animations": {
+            "btnStart": { "frames": [0] },
+            "btnNormal": { "frames": [1] },
+            "btnUltimate": { "frames": [2] },
+            "btnBack": { "frames": [3] },
+            "playerShip": { "frames": [4,5,6,7,8],
+                            "speed" : 0.5 },
+            "btnPlayAgain": { "frames": [9] }
+        }
+    };
+
     assetManifest = [ //TODO: Must change the temporary images
         {id: "imgLogo", src:"./Assets/images/logo.png"},
-        {id: "btnStart", src:"./Assets/images/btnStart.png"}, 
+        //{id: "btnStart", src:"./Assets/images/btnStart.png"}, 
         {id: "background", src:"./Assets/images/background.png"},  
-        {id: "btnNormal", src:"./Assets/images/btnNormal.png"},
-        {id: "btnHell", src:"./Assets/images/btnUltimate.png"},
-        {id: "btnBack", src:"./Assets/images/btnBack.png"},
-        {id: "btnPlayAgain", src:"./Assets/images/btnPlayAgain.png"},
         {id: "missile", src:"./Assets/images/missile.png"},
-        {id: "plane", src:"./Assets/images/PlayerShip.png"},
         {id: "star", src:"./Assets/images/star.png"},
         {id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
         {id: "enemy", src:"./Assets/images/enemyA.png"},
@@ -41,6 +74,8 @@
 
     //preload Assets
     function Init():void{
+        textureAtlas = new createjs.SpriteSheet(textureAtlasData);
+
         assetManager = new createjs.LoadQueue();
         assetManager.installPlugin(createjs.Sound);
         assetManager.loadManifest(assetManifest);
@@ -48,6 +83,9 @@
         console.log("start");
     }
     function Start():void{
+         textureAtlasData.images = [assetManager.getResult("textureAtlas")];
+         //textureAtlas = new createjs.SpriteSheet(textureAtlasData);
+        
         stage = new createjs.Stage(canvas);
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60;
@@ -59,7 +97,8 @@
 
         keyBoardManager = new managers.Keyboard();
         managers.Game.keyboardManager = keyBoardManager;
-
+        managers.Game.assetManager = assetManager;
+        managers.Game.textureAtlas = textureAtlas;
         Main();
     }
     function Update():void{

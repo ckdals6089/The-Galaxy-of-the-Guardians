@@ -11,8 +11,8 @@ module objects{
         //PUBLIC PROPERTIES
 
         //CONSTRUTOR
-        constructor(assetManager:createjs.LoadQueue){
-           super(assetManager,"missile");    
+        constructor(){
+           super("missile");    
 
             this.Start();
        }

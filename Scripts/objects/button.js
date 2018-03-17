@@ -21,18 +21,18 @@ var objects;
         //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function Button(assetManager, imageString, x, y) {
+        function Button(imageString, x, y) {
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
-            var _this = _super.call(this, assetManager.getResult(imageString)) || this;
-            _this.regX = _this.getBounds().width * 0.5;
-            _this.regY = _this.getBounds().height * 0.5;
+            var _this = _super.call(this, imageString) || this;
+            // this.regX = this.getBounds().width * 0.5;
+            // this.regY = this.getBounds().height * 0.5;
             _this.x = x;
             _this.y = y;
             return _this;
         }
         return Button;
-    }(createjs.Bitmap));
+    }(objects.GameObject));
     objects.Button = Button;
 })(objects || (objects = {}));
 //# sourceMappingURL=button.js.map

@@ -6,7 +6,7 @@
 */
 
 module objects{
-    export class GameObject extends createjs.Bitmap{
+    export class GameObject extends createjs.Sprite{
         //PRIVATE VARIABLES
         protected _dy:number;
         protected _dx:number;
@@ -61,8 +61,8 @@ module objects{
             this._life = newLife;
         }
         //CONSTRUTORS
-        constructor(assetManager:createjs.LoadQueue, imageString:string){
-            super(assetManager.getResult(imageString));
+        constructor(imageString:string){
+            super(managers.Game.textureAtlas, imageString);
             this.name = imageString;
             this._init();
         }

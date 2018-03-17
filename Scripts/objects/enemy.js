@@ -21,8 +21,8 @@ var objects;
         //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUCTORS
-        function Enemy(assetManager) {
-            var _this = _super.call(this, assetManager, "enemy") || this;
+        function Enemy() {
+            var _this = _super.call(this, "enemy") || this;
             _this.Start();
             _this.life = 1;
             return _this;

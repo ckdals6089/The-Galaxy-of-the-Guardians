@@ -12,8 +12,8 @@ module objects {
       // public properties
   
       // Constructor
-      constructor(assetManager: createjs.LoadQueue) {
-        super(assetManager, "lifeitem");
+      constructor() {
+        super("lifeitem");
         this.Start();
       }
   

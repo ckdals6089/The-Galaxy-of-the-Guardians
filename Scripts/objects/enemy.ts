@@ -10,8 +10,8 @@ module objects{
         //PUBLIC PROPERTIES
 
         //CONSTRUCTORS
-        constructor(assetManager:createjs.LoadQueue){
-            super(assetManager,"enemy");
+        constructor(){
+            super("enemy");
             this.Start();
             this.life=1;
         }

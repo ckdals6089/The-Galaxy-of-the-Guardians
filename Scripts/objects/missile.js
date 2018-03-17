@@ -21,8 +21,8 @@ var objects;
         //PRIVATE VARIABLES
         //PUBLIC PROPERTIES
         //CONSTRUTOR
-        function Missile(assetManager) {
-            var _this = _super.call(this, assetManager, "missile") || this;
+        function Missile() {
+            var _this = _super.call(this, "missile") || this;
             _this.Start();
             return _this;
         }

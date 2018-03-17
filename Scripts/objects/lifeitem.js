@@ -21,8 +21,8 @@ var objects;
         // private instance variables
         // public properties
         // Constructor
-        function LifeItem(assetManager) {
-            var _this = _super.call(this, assetManager, "lifeitem") || this;
+        function LifeItem() {
+            var _this = _super.call(this, "lifeitem") || this;
             _this.Start();
             return _this;
         }

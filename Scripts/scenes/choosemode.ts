@@ -38,10 +38,10 @@ module scenes{
         public Start():void{
             this._background = new objects.Background(this.assetManager);
 
-            this._logo = new objects.Button(this.assetManager, "logo", 320,220);
-            this._btnNormal = new objects.Button(this.assetManager, "btnNormal", 200, 400);
-            this._btnHell = new objects.Button(this.assetManager, "btnHell", 440, 400);
-            this._btnBack = new objects.Button(this.assetManager, "btnBack", 530, 80);
+            this._logo = new objects.Button("logo", 320,220);
+            this._btnNormal = new objects.Button("btnNormal", 200, 400);
+            this._btnHell = new objects.Button("btnHell", 440, 400);
+            this._btnBack = new objects.Button("btnBack", 530, 80);
             this.Main();
             console.log("start");
         }

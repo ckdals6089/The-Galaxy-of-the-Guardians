@@ -18,8 +18,8 @@ module objects{
                 return this.life;
             }
         //CONSTRUTOR
-        constructor(assetManager:createjs.LoadQueue){
-            super(assetManager,"plane");
+        constructor(){
+            super("plane");
             this.life = 3;
             this.Start();
         }

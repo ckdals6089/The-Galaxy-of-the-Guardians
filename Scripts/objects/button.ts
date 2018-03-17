@@ -6,18 +6,18 @@
 */
 
 module objects{
-    export class Button extends createjs.Bitmap{
+    export class Button extends objects.GameObject{
 
         //PRIVATE VARIABLES
 
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
-        constructor(assetManager: createjs.LoadQueue, imageString:string, x:number=0, y:number=0){
-            super(assetManager.getResult(imageString));
+        constructor(imageString:string, x:number=0, y:number=0){
+            super(imageString);
 
-            this.regX = this.getBounds().width * 0.5;
-            this.regY = this.getBounds().height * 0.5;
+            // this.regX = this.getBounds().width * 0.5;
+            // this.regY = this.getBounds().height * 0.5;
             this.x = x;
             this.y = y;
         }

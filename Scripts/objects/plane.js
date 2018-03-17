@@ -19,8 +19,8 @@ var objects;
     var Plane = /** @class */ (function (_super) {
         __extends(Plane, _super);
         //CONSTRUTOR
-        function Plane(assetManager) {
-            var _this = _super.call(this, assetManager, "plane") || this;
+        function Plane() {
+            var _this = _super.call(this, "plane") || this;
             _this.life = 3;
             _this.Start();
             return _this;

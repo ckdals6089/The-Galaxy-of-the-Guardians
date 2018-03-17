@@ -13,5 +13,6 @@ module managers{
         public static keyboardManager:managers.Keyboard;
         public static scoreboardManager:managers.ScoreBoard;
         public static HighScore: number = 0;
+        public static textureAtlas: createjs.SpriteSheet;
     }
 }

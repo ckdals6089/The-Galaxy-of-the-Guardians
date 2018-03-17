@@ -21,8 +21,8 @@ var objects;
         // private instance variables
         // public properties
         // Constructor
-        function Star(assetManager) {
-            var _this = _super.call(this, assetManager, "star") || this;
+        function Star() {
+            var _this = _super.call(this, "star") || this;
             _this.Start();
             return _this;
         }
