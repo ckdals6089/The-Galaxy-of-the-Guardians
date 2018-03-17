@@ -83,9 +83,11 @@
             case config.Scene.CHOOSEMODE:
                 currentScene = new scenes.chooseModeScene(assetManager);
                 break;
-            case config.Scene.PLAY:
-                currentScene = new scenes.playScene(assetManager);
+            case config.Scene.PLAY_ONE:
+                currentScene = new scenes.StageOneScene(assetManager);
                 break;
+            case config.Scene.PLAY_TWO:
+                currentScene = new scenes.StageTwoScene(assetManager);
             case config.Scene.GAMEOVER:
                 currentScene = new scenes.GameOverScene(assetManager);
                 break;

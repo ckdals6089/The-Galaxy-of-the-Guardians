@@ -25,5 +25,6 @@
 /// <reference path="../../Scripts/scenes/loading.ts"/>
 /// <reference path="../../Scripts/scenes/opening.ts"/>
 /// <reference path="../../Scripts/scenes/choosemode.ts"/>
-/// <reference path="../../Scripts/scenes/play.ts"/>
+/// <reference path="../../Scripts/scenes/play_one.ts"/>
+/// <reference path="../../Scripts/scenes/play_two.ts"/>
 /// <reference path="../../Scripts/scenes/gameover.ts"/>

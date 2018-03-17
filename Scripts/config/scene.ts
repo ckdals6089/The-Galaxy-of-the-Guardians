@@ -9,7 +9,8 @@ module config{
         LOADING,
         OPENING,
         CHOOSEMODE,
-        PLAY,
+        PLAY_ONE,
+        PLAY_TWO,
         GAMEOVER
     }
 }

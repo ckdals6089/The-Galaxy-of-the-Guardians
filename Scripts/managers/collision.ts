@@ -52,20 +52,26 @@ module managers {
                                 break;
                         }
                      }
-                    // else if(one.name = "missile"){
-                    //     switch(other.name){
-                    //         case "enemy":
-                    //             console.log("Crushed with " + other.name);
-                    //             other.Life -= 1;
-                    //         break;
-                    //     }
-                    // }
                 }
             }
             else {
                 other.isColliding = false;
             }
         }
+        public crush(missile:objects.Missile[], enemy:objects.Enemy[]){
+             //check to see if object is colliding
+             missile.every
+             if (math.Vector2.distance(missile[0].position, enemy[0].position) < (missile[0].centerY + enemy[0].centerY - 30)) {
+                if (!enemy[0].isColliding) {
 
+                    enemy[0].isColliding = true;
+                    console.log("Crushed with " + enemy[0].name);
+                    enemy[0].visible = false;
+                }
+            }
+            else {
+                enemy[0].isColliding = false;
+            }
+        }
     }
 }

@@ -16,18 +16,18 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var playScene = /** @class */ (function (_super) {
-        __extends(playScene, _super);
+    var StageOneScene = /** @class */ (function (_super) {
+        __extends(StageOneScene, _super);
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function playScene(assetManager) {
+        function StageOneScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
             _this.Start();
             return _this;
         }
         //PRIVATE METHODS
         //PUBLIC METHODS
-        playScene.prototype.Start = function () {
+        StageOneScene.prototype.Start = function () {
             this._missileNum = 5;
             this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
@@ -49,7 +49,7 @@ var scenes;
             managers.Game.scoreboardManager = this._scoreBoard;
             this.Main();
         };
-        playScene.prototype.Update = function () {
+        StageOneScene.prototype.Update = function () {
             var _this = this;
             this._background.Update();
             this._plane.Update();
@@ -83,6 +83,7 @@ var scenes;
                 missile.position.y = _this._plane.y;
                 missile.Update();
             });
+            //this._collision.crush(this._missile,this._enemy);
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
@@ -95,7 +96,7 @@ var scenes;
                 this._missileSound.stop();
             }
         };
-        playScene.prototype.Main = function () {
+        StageOneScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
             this.addChild(this._star);
@@ -112,7 +113,7 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        playScene.prototype._bulletFire = function (back) {
+        StageOneScene.prototype._bulletFire = function (back) {
             this._missile[this._missileCount].x = managers.Game.stage.mouseX;
             this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
             this._missileCount++;
@@ -123,8 +124,8 @@ var scenes;
                 this._missileSound.volume = 0.2;
             }
         };
-        return playScene;
+        return StageOneScene;
     }(objects.Scene));
-    scenes.playScene = playScene;
+    scenes.StageOneScene = StageOneScene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=play_one.js.map

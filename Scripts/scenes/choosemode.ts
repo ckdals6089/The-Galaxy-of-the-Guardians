@@ -23,11 +23,11 @@ module scenes{
 
         //PRIVATE METHODS
         private _btnNormalClick():void{
-            managers.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY_ONE;
         }
 
         private _btnHellClick():void{
-            managers.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY_ONE;
         }
 
         private _btnBackClick():void {

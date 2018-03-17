@@ -6,7 +6,7 @@
 */
 
 module scenes {
-    export class playScene extends objects.Scene {
+    export class StageOneScene extends objects.Scene {
         //PRIVATE VARIABLES
         private _background: objects.Background;
         private _plane: objects.Plane;
@@ -100,7 +100,7 @@ module scenes {
                 missile.position.y = this._plane.y;
                 missile.Update();
             });
-            
+            //this._collision.crush(this._missile,this._enemy);
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
