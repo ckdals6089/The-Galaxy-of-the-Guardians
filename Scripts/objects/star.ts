@@ -35,7 +35,7 @@ module objects {
 
     // reset the objects location to some value
     public Reset(): void {
-      this.visible =true;
+      this.alpha = 1;
       this.x = Math.floor((Math.random() * (640 - this.width)) + this.centerY);
       this.y = -this.height;
     }

@@ -19,7 +19,6 @@ module scenes {
         private _missileNum: number;
         private _missileCount: number;
 
-        private _collision: managers.Collision;
 
         private _backgroundSound: createjs.AbstractSoundInstance;
         private _missileSound: createjs.AbstractSoundInstance;
@@ -73,7 +72,6 @@ module scenes {
             for (let count = 0; count < this._enemyNum; count++) {
                 this._enemy[count] = new objects.Enemy(this.assetManager);
             }
-            this._collision = new managers.Collision();
 
             this._backgroundSound = createjs.Sound.play("backgroundSound")
             this._backgroundSound.loop = -1;
@@ -93,23 +91,17 @@ module scenes {
 
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
-            if(this._star.isColliding){
-                this._star.visible = false;
-            }
+
 
             //check collision between plane and a life item
             managers.Collision.Check(this._plane, this._lifeItem);
-            if(this._lifeItem.isColliding) {
-                this._lifeItem.visible = false;
-            }
+
 
             this._enemy.forEach(enemy => {
                 enemy.Update();
                 enemy.Dy+=0.07;
                 managers.Collision.Check(this._plane, enemy);
-                if(enemy.isColliding){
-                    enemy.visible = false;
-                }
+
                 if (this._plane.Life == 0) {
                     managers.Game.currentScene = config.Scene.GAMEOVER;
                     this._backgroundSound.stop();

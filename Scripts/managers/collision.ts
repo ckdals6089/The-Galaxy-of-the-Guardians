@@ -21,6 +21,9 @@ module managers {
 
         public static Check(one: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
+            if(other.alpha != 0){
+
+            
             if (math.Vector2.distance(one.position, other.position) < (one.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {
 
@@ -32,11 +35,13 @@ module managers {
                             case "enemy":
                                     one.life -= 1;
                                     managers.Game.scoreboardManager.Lives -= 1;
-                                    createjs.Sound.play("crashSound");                           
+                                    createjs.Sound.play("crashSound");
+                                    other.alpha = 0;
                                 break;
                             case "star":
                                 managers.Game.scoreboardManager.Score += 100;
                                 createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                other.alpha = 0;
                                 if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
                                     managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
                                     managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
@@ -46,6 +51,7 @@ module managers {
                             one.life += 1;
                             managers.Game.scoreboardManager.Lives += 1;
                                 createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                other.alpha = 0;
                                 if(managers.Game.scoreboardManager.Lives >= 5) {
                                     managers.Game.scoreboardManager.Lives = 5;
                                 }
@@ -68,6 +74,7 @@ module managers {
                 other.isColliding = false;
             }
         }
+    }
         // public crush(missile:objects.Missile[], enemy:objects.Enemy[]){
         //      //check to see if object is colliding
 
