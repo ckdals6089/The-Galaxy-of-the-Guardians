@@ -27,13 +27,13 @@ var scenes;
         }
         //PRIVATE METHODS
         chooseModeScene.prototype._btnNormalClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         };
         chooseModeScene.prototype._btnHellClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         };
         chooseModeScene.prototype._btnBackClick = function () {
-            objects.Game.currentScene = config.Scene.OPENING;
+            managers.Game.currentScene = config.Scene.OPENING;
         };
         //PUBLIC METHODS
         chooseModeScene.prototype.Start = function () {

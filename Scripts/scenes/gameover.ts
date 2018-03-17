@@ -23,7 +23,7 @@ module scenes {
 
         //PRIVATE METHODS
         private _btnPlayAgainClick(): void {
-            objects.Game.currentScene = config.Scene.OPENING;
+            managers.Game.currentScene = config.Scene.OPENING;
         }
 
         //PUBLIC METHODS
@@ -47,7 +47,7 @@ module scenes {
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
 
-            this._scoreboard.HighScore = objects.Game.HighScore;
+            this._scoreboard.HighScore = managers.Game.HighScore;
             this._lblScore.text += this._scoreboard.HighScore;
             this.addChild(this._lblScore);
 

@@ -1,7 +1,9 @@
 /// <reference path="../../Scripts/config/scene.ts"/>
 /// <reference path="../../Scripts/config/keys.ts"/>
 
-/// <reference path="../../Scripts/objects/game.ts"/>
+/// <reference path="../../Scripts/managers/game.ts"/>
+
+
 /// <reference path="../../Scripts/objects/scene.ts"/>
 /// <reference path="../../Scripts/objects/button.ts"/>
 /// <reference path="../../Scripts/objects/label.ts"/>
@@ -14,7 +16,7 @@
 /// <reference path="../../Scripts/objects/star.ts"/>
 /// <reference path="../../Scripts/objects/lifeitem.ts"/>
 
-/// <reference path="../../Scripts/objects/vector2.ts"/>
+/// <reference path="../../Scripts/math/vector2.ts"/>
 
 /// <reference path="../../Scripts/managers/collision.ts"/>
 /// <reference path="../../Scripts/managers/keyboard.ts"/>

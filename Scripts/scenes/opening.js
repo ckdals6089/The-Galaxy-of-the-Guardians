@@ -27,7 +27,7 @@ var scenes;
         }
         //PRIVATE METHODS
         openingScene.prototype._btnStartClick = function () {
-            objects.Game.currentScene = config.Scene.CHOOSEMODE;
+            managers.Game.currentScene = config.Scene.CHOOSEMODE;
         };
         //PUBLIC METHODS
         openingScene.prototype.Start = function () {

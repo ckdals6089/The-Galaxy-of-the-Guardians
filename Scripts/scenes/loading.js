@@ -30,7 +30,7 @@ var scenes;
             setTimeout(
             //Move to Opening scene after 3 seconds
             function () {
-                objects.Game.currentScene = config.Scene.OPENING;
+                managers.Game.currentScene = config.Scene.OPENING;
             }, 3000);
         };
         loadingScene.prototype.AnimateLogo = function () {

@@ -22,15 +22,15 @@ module scenes{
 
         //PRIVATE METHODS
         private _btnNormalClick():void{
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         }
 
         private _btnHellClick():void{
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
         }
 
         private _btnBackClick():void {
-            objects.Game.currentScene = config.Scene.OPENING;
+            managers.Game.currentScene = config.Scene.OPENING;
         }
 
         //PUBLIC METHODS

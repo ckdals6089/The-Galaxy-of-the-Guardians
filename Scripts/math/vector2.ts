@@ -4,7 +4,7 @@
     Last_modification : Feb 23, 2018
     Description : Created a vector object
 */
-module objects {
+module  math{
     /**
      * This class extends the CreateJS Point class
      * 

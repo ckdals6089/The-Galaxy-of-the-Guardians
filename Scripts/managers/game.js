@@ -1,17 +1,17 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.2
+    Version : v1.4
     Last_modification : Feb 26, 2018
-    Description : Added scoreboard manager
+    Description : Moved to managers module
 */
-var objects;
-(function (objects) {
+var managers;
+(function (managers) {
     var Game = /** @class */ (function () {
         function Game() {
         }
         Game.HighScore = 0;
         return Game;
     }());
-    objects.Game = Game;
-})(objects || (objects = {}));
+    managers.Game = Game;
+})(managers || (managers = {}));
 //# sourceMappingURL=game.js.map
