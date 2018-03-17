@@ -25,8 +25,18 @@ var objects;
             _this._init();
             return _this;
         }
-        Object.defineProperty(GameObject.prototype, "name", {
+        Object.defineProperty(GameObject.prototype, "Dy", {
             //public position:createjs.Point;
+            get: function () {
+                return this._dy;
+            },
+            set: function (_dy) {
+                this._dy = _dy;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(GameObject.prototype, "name", {
             get: function () {
                 return this._name;
             },

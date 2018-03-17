@@ -18,13 +18,23 @@ var objects;
 (function (objects) {
     var Background = /** @class */ (function (_super) {
         __extends(Background, _super);
-        //PUBLIC PROPERTIES
         //CONSTRUCTOR
         function Background(assetManager) {
             var _this = _super.call(this, assetManager.getResult("background")) || this;
             _this.Start();
             return _this;
         }
+        Object.defineProperty(Background.prototype, "Dy", {
+            //PUBLIC PROPERTIES
+            get: function () {
+                return this._dy;
+            },
+            set: function (_dy) {
+                this._dy = _dy;
+            },
+            enumerable: true,
+            configurable: true
+        });
         //PRIVATE METHODS
         Background.prototype._reset = function () {
             this.y = -960;
@@ -39,7 +49,7 @@ var objects;
         };
         //PUBLIC METHODS
         Background.prototype.Start = function () {
-            this._dy = 5;
+            this._dy = 10;
             this._reset();
         };
         Background.prototype.Update = function () {

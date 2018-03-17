@@ -22,7 +22,13 @@ module objects{
         public centerY:number;
         public Life:number;
         //public position:createjs.Point;
-
+        get Dy():number{
+            return this._dy;
+        }
+        set Dy(_dy:number){
+            this._dy = _dy;
+        }
+        
         get name():string {
             return this._name;
         }

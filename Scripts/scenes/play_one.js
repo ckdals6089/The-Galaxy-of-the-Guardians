@@ -26,6 +26,26 @@ var scenes;
             return _this;
         }
         //PRIVATE METHODS
+        StageOneScene.prototype._bulletFire = function (back) {
+            this._missile[this._missileCount].x = managers.Game.stage.mouseX;
+            this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
+            this._missileCount++;
+            if (this._missileCount >= this._missileNum - 1) {
+                this._missileCount = 0;
+                this._missileSound = createjs.Sound.play("missileSound");
+                this._missileSound.loop = -1;
+                this._missileSound.volume = 0.2;
+            }
+        };
+        StageOneScene.prototype._sucessStage = function () {
+            if (this._scoreBoard.Score >= 3000) {
+                managers.Game.currentScene = config.Scene.PLAY_TWO;
+                this._scoreBoard.Score = managers.Game.scoreboardManager.Score;
+                //TODO: Build a new scene ? or display a congratulation label?
+                this._backgroundSound.stop();
+                this._missileSound.stop();
+            }
+        };
         //PUBLIC METHODS
         StageOneScene.prototype.Start = function () {
             this._missileNum = 5;
@@ -89,12 +109,7 @@ var scenes;
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
-            //Success Condition
-            if (this._scoreBoard.Score >= 3000) {
-                managers.Game.currentScene = config.Scene.LOADING; //TODO: Build a new scene ? or display a congratulation label?
-                this._backgroundSound.stop();
-                this._missileSound.stop();
-            }
+            this._sucessStage();
         };
         StageOneScene.prototype.Main = function () {
             var _this = this;
@@ -112,17 +127,6 @@ var scenes;
             });
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
-        };
-        StageOneScene.prototype._bulletFire = function (back) {
-            this._missile[this._missileCount].x = managers.Game.stage.mouseX;
-            this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
-            this._missileCount++;
-            if (this._missileCount >= this._missileNum - 1) {
-                this._missileCount = 0;
-                this._missileSound = createjs.Sound.play("missileSound");
-                this._missileSound.loop = -1;
-                this._missileSound.volume = 0.2;
-            }
         };
         return StageOneScene;
     }(objects.Scene));

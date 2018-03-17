@@ -88,6 +88,7 @@
                 break;
             case config.Scene.PLAY_TWO:
                 currentScene = new scenes.StageTwoScene(assetManager);
+                break;
             case config.Scene.GAMEOVER:
                 currentScene = new scenes.GameOverScene(assetManager);
                 break;
