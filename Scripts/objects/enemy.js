@@ -24,7 +24,7 @@ var objects;
         function Enemy(assetManager) {
             var _this = _super.call(this, assetManager, "enemy") || this;
             _this.Start();
-            _this.life = 2;
+            _this.life = 1;
             return _this;
         }
         //PRIVATE METHODS

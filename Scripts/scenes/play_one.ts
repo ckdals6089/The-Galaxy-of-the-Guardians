@@ -45,7 +45,7 @@ module scenes {
 
         private _sucessStage():void{
             
-             if(this._scoreBoard.Score >= 300) {
+             if(this._scoreBoard.Score >= 3000) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO; 
                 this._backgroundSound.stop();
                 this._missileSound.stop();
@@ -106,11 +106,12 @@ module scenes {
             });
             
             this._missile.forEach(missile => {
-                missile.position.x = this._plane.x;
-                missile.position.y = this._plane.y;
+                 missile.position.x = this._plane.x;
+                 missile.position.y = this._plane.y;
                 missile.Update();
             });
-            //this._collision.crush(this._missile,this._enemy);
+
+             managers.Collision.Crush(this._missile,this._enemy);
 
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
@@ -128,9 +129,9 @@ module scenes {
 
             for (let count = 0; count < this._missileNum; count++) {
                 this._missile[count] = new objects.Missile(this.assetManager);
-
                 this.addChild(this._missile[count]);
                 this._bulletFire(count * 80);
+
             }
 
             this.addChild(this._plane);

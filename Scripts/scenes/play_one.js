@@ -38,7 +38,7 @@ var scenes;
             }
         };
         StageOneScene.prototype._sucessStage = function () {
-            if (this._scoreBoard.Score >= 300) {
+            if (this._scoreBoard.Score >= 3000) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO;
                 this._backgroundSound.stop();
                 this._missileSound.stop();
@@ -91,7 +91,7 @@ var scenes;
                 missile.position.y = _this._plane.y;
                 missile.Update();
             });
-            //this._collision.crush(this._missile,this._enemy);
+            managers.Collision.Crush(this._missile, this._enemy);
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();

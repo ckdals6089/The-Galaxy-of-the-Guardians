@@ -57,17 +57,7 @@ module managers {
                                 }
                                 break;
                         }
-                      }//else if(one.name = "missile"){
-                    //      switch(other.name){
-                    //          case "enemy":
-                    //          other.life -=1;
-                    //          if(other.life = 0 ){
-                    //              console.log("AA");
-                    //              other.visible = false;
-                    //          }
-                    //          break;
-                    //      }
-                    //  }
+                      }
                 }
             }
             else {
@@ -75,27 +65,24 @@ module managers {
             }
         }
     }
-        // public crush(missile:objects.Missile[], enemy:objects.Enemy[]){
-        //      //check to see if object is colliding
-
-        //       missile.forEach(missiles => {
-        //           enemy.forEach(enemies =>{
-        //             //console.log("missile - enemy");
-                    
-        //             if(math.Vector2.distance(missiles.position, enemies.position) > (missiles.centerY + enemies.centerY - 30)){
-        //                 console.log(missiles.position);
-        //                 if(!enemies.isColliding){
-        //                     enemies.isColliding = true;
-        //                     enemies.life -=1
-        //                     if(enemies.life =0){
-        //                         enemies.visible = false;
-        //                     }
-        //                 }
-        //             }else{
-        //                 enemies.isColliding = false;
-        //             }
-        //           });
-        //     });
-        // }
+        public static Crush(missile:objects.Missile[], enemy:objects.Enemy[]){
+             //check to see if object is colliding
+             
+            for(let countM=0; countM < missile.length; countM ++){
+                for(let countE=0; countE < enemy.length; countE++){
+                    if(enemy[countE].alpha != 0){
+                        if(missile[countM].x >=  enemy[countE].x && missile[countM].x + 11 <  enemy[countE].x + 49 && missile[countM].y <  enemy[countE].y + 40){
+                        //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
+                            
+                            if(!enemy[countE].isColliding){
+                                enemy[countE].isColliding = true;
+                                enemy[countE].alpha = 0;
+                                managers.Game.scoreboardManager.Score += 100;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

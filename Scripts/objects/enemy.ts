@@ -13,7 +13,7 @@ module objects{
         constructor(assetManager:createjs.LoadQueue){
             super(assetManager,"enemy");
             this.Start();
-            this.life=2;
+            this.life=1;
         }
         //PRIVATE METHODS
 

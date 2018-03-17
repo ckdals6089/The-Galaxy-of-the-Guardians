@@ -94,7 +94,7 @@ var scenes;
                 missile.position.y = _this._plane.y;
                 missile.Update();
             });
-            //this._collision.crush(this._missile,this._enemy);
+            managers.Collision.Crush(this._missile, this._enemy);
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
