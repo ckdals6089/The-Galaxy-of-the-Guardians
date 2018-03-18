@@ -21,9 +21,8 @@ var managers;
                     if (!other.isColliding) {
                         other.isColliding = true;
                         if (one.name = "plane") {
-                            //console.log("Crushed with " + other.name);
                             switch (other.name) {
-                                case "enemy":
+                                case "enemyA":
                                     one.life -= 1;
                                     managers.Game.scoreboardManager.Lives -= 1;
                                     createjs.Sound.play("crashSound");

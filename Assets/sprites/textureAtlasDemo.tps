@@ -108,7 +108,7 @@
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
-            <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
+            <enum type="AlgorithmSettings::SizeConstraints">POT</enum>
             <key>forceSquared</key>
             <false/>
             <key>maxRects</key>
@@ -119,7 +119,7 @@
             <key>basic</key>
             <struct type="AlgorithmBasicSettings">
                 <key>sortBy</key>
-                <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
+                <enum type="AlgorithmBasicSettings::SortBy">Name</enum>
                 <key>order</key>
                 <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
@@ -165,11 +165,11 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>1</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
-            <uint>1</uint>
+            <uint>4</uint>
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>tracerTolerance</key>
@@ -183,7 +183,34 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../images/btnBack.png</key>
+            <key type="filename">../images/enemyA.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,38,65,75</rect>
+                <key>scale9Paddings</key>
+                <rect>33,38,65,75</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/lifeItem.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/meteor.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../OneDrive/바탕 화면/btnBack.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -196,8 +223,8 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../images/btnNormal.png</key>
-            <key type="filename">../images/btnStart.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/btnNormal.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/btnStart.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -210,7 +237,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../images/btnPlayAgain.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/btnPlayAgain.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -223,7 +250,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../images/btnUltimate.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/btnUltimate.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -233,6 +260,33 @@
                 <rect>63,18,125,35</rect>
                 <key>scale9Paddings</key>
                 <rect>63,18,125,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../OneDrive/바탕 화면/enemyB.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>50,63,100,125</rect>
+                <key>scale9Paddings</key>
+                <rect>50,63,100,125</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../OneDrive/바탕 화면/missile.png</key>
+            <key type="filename">../../../../OneDrive/바탕 화면/missile2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -253,19 +307,39 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../OneDrive/바탕 화면/star.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>18,18,35,35</rect>
+                <key>scale9Paddings</key>
+                <rect>18,18,35,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../images/btnStart.png</filename>
-            <filename>../images/btnUltimate.png</filename>
-            <filename>../images/btnBack.png</filename>
-            <filename>../images/btnNormal.png</filename>
-            <filename>../images/btnPlayAgain.png</filename>
-            <filename>../../../../OneDrive/바탕 화면/playerShip2.png</filename>
-            <filename>../../../../OneDrive/바탕 화면/playerShip3.png</filename>
             <filename>../../../../OneDrive/바탕 화면/playerShip4.png</filename>
             <filename>../../../../OneDrive/바탕 화면/playerShip5.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/btnUltimate.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/btnNormal.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/btnPlayAgain.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/btnStart.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/btnBack.png</filename>
             <filename>../../../../OneDrive/바탕 화면/playerShip.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/playerShip2.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/playerShip3.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/enemyB.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/star.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/meteor.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/missile.png</filename>
+            <filename>../../../../OneDrive/바탕 화면/missile2.png</filename>
+            <filename>../images/lifeItem.png</filename>
+            <filename>../images/enemyA.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

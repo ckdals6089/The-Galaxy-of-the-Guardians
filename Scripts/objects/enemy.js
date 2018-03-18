@@ -22,7 +22,7 @@ var objects;
         //PUBLIC PROPERTIES
         //CONSTRUCTORS
         function Enemy() {
-            var _this = _super.call(this, "enemy") || this;
+            var _this = _super.call(this, "enemyA") || this;
             _this.Start();
             _this.life = 1;
             return _this;

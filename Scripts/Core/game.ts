@@ -32,26 +32,43 @@
         ],
         
         "frames": [
-            [1, 1, 226, 56, 0, 0, 0],
-            [229, 1, 226, 56, 0, 0, 0],
-            [1, 59, 229, 57, 0, 0, 0],
-            [232, 59, 75, 75, 0, 0, 0],
-            [309, 59, 110, 113, 0, 0, 0],
-            [1, 174, 110, 118, 0, 0, 0],
-            [113, 174, 114, 137, 0, 0, 0],
-            [229, 174, 120, 140, 0, 0, 0],
-            [351, 174, 125, 140,0, 0, 0],
-            [1, 316, 398, 191, 0, 0, 0]
+            [0, 0, 75, 75, 0, 0, 0],
+            [75, 0, 232, 62, 0, -4, -11],
+            [0, 75, 403, 196, 0, 0, 0],
+            [0, 271, 232, 62, 0, -4, -11],
+            [232, 271, 235, 63, 0, -9, -4],
+            [0, 334, 131, 151, 0, 0, 0],
+            [131, 334, 200, 237, 0, 0, -13],
+            [331, 334, 120, 82, 0, -4, -23],
+            [0, 571, 106, 110, 0, -14, -7],
+            [106, 571, 62, 64, 0, -1, 0],
+            [168, 571, 47, 47, 0, -9, -9],
+            [215, 571, 116, 116, 0, -20, 0],
+            [331, 571, 116, 121, 0, -20, 0],
+            [0, 692, 120, 140, 0, -18, 0],
+            [120, 692, 126, 140, 0, -14, 0],
+            [246, 692, 131, 140, 0, -11, 0],
+            [377, 692, 70, 70, 0, 0, 0]
         ],
         
         "animations": {
-            "btnStart": { "frames": [0] },
+            "btnBack": { "frames": [0] },
             "btnNormal": { "frames": [1] },
-            "btnUltimate": { "frames": [2] },
-            "btnBack": { "frames": [3] },
-            "playerShip": { "frames": [4,5,6,7,8],
-                            "speed" : 0.5 },
-            "btnPlayAgain": { "frames": [9] }
+            "btnPlayAgain": { "frames": [2] },
+            "btnStart": { "frames": [3] },
+            "btnUltimate": { "frames": [4] },
+            "enemyA": { "frames": [5] },
+            "enemyB": { "frames": [6] },
+            "lifeitem": { "frames": [7] },
+            "meteor": { "frames": [8] },
+            "missile": { "frames": [9] },
+            "missile2": { "frames": [10] },
+            "playerShip": { 
+                "frames": [11,12,13,14,15],
+                "speed": 0.5 
+            },
+        
+            "star": { "frames": [16] }
         }
     };
 
@@ -59,10 +76,10 @@
         {id: "imgLogo", src:"./Assets/images/logo.png"},
         //{id: "btnStart", src:"./Assets/images/btnStart.png"}, 
         {id: "background", src:"./Assets/images/background.png"},  
-        {id: "missile", src:"./Assets/images/missile.png"},
-        {id: "star", src:"./Assets/images/star.png"},
-        {id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
-        {id: "enemy", src:"./Assets/images/enemyA.png"},
+        //{id: "missile", src:"./Assets/images/missile.png"},
+        //{id: "star", src:"./Assets/images/star.png"},
+        //{id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
+        //{id: "enemy", src:"./Assets/images/enemyA.png"},
         {id: "logo", src: "./Assets/images/logo.png" },
         {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},

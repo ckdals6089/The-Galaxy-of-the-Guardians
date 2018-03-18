@@ -20,7 +20,7 @@ var objects;
         __extends(Plane, _super);
         //CONSTRUTOR
         function Plane() {
-            var _this = _super.call(this, "plane") || this;
+            var _this = _super.call(this, "playerShip") || this;
             _this.life = 3;
             _this.Start();
             return _this;

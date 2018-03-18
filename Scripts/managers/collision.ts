@@ -26,13 +26,10 @@ module managers {
             
             if (math.Vector2.distance(one.position, other.position) < (one.centerY + other.centerY - 30)) {
                 if (!other.isColliding) {
-
                     other.isColliding = true;
                     if(one.name = "plane"){
-                        //console.log("Crushed with " + other.name);
-
                         switch (other.name) {
-                            case "enemy":
+                            case "enemyA":
                                     one.life -= 1;
                                     managers.Game.scoreboardManager.Lives -= 1;
                                     createjs.Sound.play("crashSound");

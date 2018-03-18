@@ -19,7 +19,7 @@ module objects{
             }
         //CONSTRUTOR
         constructor(){
-            super("plane");
+            super("playerShip");
             this.life = 3;
             this.Start();
         }

@@ -11,7 +11,7 @@ module objects{
 
         //CONSTRUCTORS
         constructor(){
-            super("enemy");
+            super("enemyA");
             this.Start();
             this.life=1;
         }
