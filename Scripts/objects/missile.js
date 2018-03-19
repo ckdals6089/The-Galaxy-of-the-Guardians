@@ -22,14 +22,14 @@ var objects;
         //PUBLIC PROPERTIES
         //CONSTRUTOR
         function Missile() {
-            var _this = _super.call(this, "missile") || this;
+            var _this = _super.call(this, "missile2") || this;
             _this.Start();
             return _this;
         }
         //PRIVATE METHODS
         Missile.prototype._reset = function () {
             //this.position = objects.Plane.getPosition;
-            this.visible = true;
+            this.alpha = 1;
             this.x = this.position.x;
             this.y = this.position.y;
             //this.x = objects.Game.stage.mouseX;

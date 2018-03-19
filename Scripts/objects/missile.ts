@@ -12,14 +12,14 @@ module objects{
 
         //CONSTRUTOR
         constructor(){
-           super("missile");    
+           super("missile2");    
 
             this.Start();
        }
         //PRIVATE METHODS
         private _reset():void{
             //this.position = objects.Plane.getPosition;
-            this.visible = true;
+            this.alpha = 1;
             this.x = this.position.x;
             this.y = this.position.y;  
             //this.x = objects.Game.stage.mouseX;

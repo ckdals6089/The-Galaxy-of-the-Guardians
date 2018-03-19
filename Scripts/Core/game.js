@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
-    Version : v2.3
-    Last_modification : Feb 26, 2018
-    Description : Changed image names due to live site
+    Version : v2.5
+    Last_modification : Mar 18, 2018
+    Description : Changed image path with spriteS
 */
 /// <reference path="_reference.ts"/>
 (function () {
@@ -22,21 +22,21 @@
         ],
         "frames": [
             [0, 0, 75, 75, 0, 0, 0],
-            [75, 0, 232, 62, 0, -4, -11],
+            [75, 0, 232, 62, 0, 0, 0],
             [0, 75, 403, 196, 0, 0, 0],
-            [0, 271, 232, 62, 0, -4, -11],
-            [232, 271, 235, 63, 0, -9, -4],
+            [0, 271, 232, 62, 0, 0, 0],
+            [232, 271, 235, 63, 0, 0, 0],
             [0, 334, 131, 151, 0, 0, 0],
-            [131, 334, 200, 237, 0, 0, -13],
-            [331, 334, 120, 82, 0, -4, -23],
-            [0, 571, 106, 110, 0, -14, -7],
-            [106, 571, 62, 64, 0, -1, 0],
-            [168, 571, 47, 47, 0, -9, -9],
-            [215, 571, 116, 116, 0, -20, 0],
-            [331, 571, 116, 121, 0, -20, 0],
-            [0, 692, 120, 140, 0, -18, 0],
-            [120, 692, 126, 140, 0, -14, 0],
-            [246, 692, 131, 140, 0, -11, 0],
+            [131, 334, 200, 237, 0, 0, 0],
+            [331, 334, 120, 82, 0, 0, 0],
+            [0, 571, 106, 110, 0, 0, 0],
+            [106, 571, 62, 64, 0, 0, 0],
+            [168, 571, 47, 47, 0, 0, 0],
+            [215, 571, 116, 116, 0, 0, 0],
+            [331, 571, 116, 121, 0, 0, 0],
+            [0, 692, 120, 140, 0, 0, 0],
+            [120, 692, 126, 140, 0, 0, 0],
+            [246, 692, 131, 140, 0, 0, 0],
             [377, 692, 70, 70, 0, 0, 0]
         ],
         "animations": {
@@ -60,12 +60,7 @@
     };
     assetManifest = [
         { id: "imgLogo", src: "./Assets/images/logo.png" },
-        //{id: "btnStart", src:"./Assets/images/btnStart.png"}, 
         { id: "background", src: "./Assets/images/background.png" },
-        //{id: "missile", src:"./Assets/images/missile.png"},
-        //{id: "star", src:"./Assets/images/star.png"},
-        //{id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
-        //{id: "enemy", src:"./Assets/images/enemyA.png"},
         { id: "logo", src: "./Assets/images/logo.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },

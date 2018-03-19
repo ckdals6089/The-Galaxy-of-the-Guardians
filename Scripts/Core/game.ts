@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
-    Version : v2.3
-    Last_modification : Feb 26, 2018
-    Description : Changed image names due to live site
+    Version : v2.5
+    Last_modification : Mar 18, 2018
+    Description : Changed image path with spriteS
 */
 
 /// <reference path="_reference.ts"/>
@@ -19,11 +19,6 @@
 
     let textureAtlasData: any;
     let textureAtlas: createjs.SpriteSheet;
-
-
-    
-
-
     textureAtlasData = {
 
         "images": [
@@ -74,12 +69,8 @@
 
     assetManifest = [ //TODO: Must change the temporary images
         {id: "imgLogo", src:"./Assets/images/logo.png"},
-        //{id: "btnStart", src:"./Assets/images/btnStart.png"}, 
         {id: "background", src:"./Assets/images/background.png"},  
-        //{id: "missile", src:"./Assets/images/missile.png"},
-        //{id: "star", src:"./Assets/images/star.png"},
-        //{id: "lifeitem", src:"./Assets/images/lifeItem.png"}, //temporary image
-        //{id: "enemy", src:"./Assets/images/enemyA.png"},
+
         {id: "logo", src: "./Assets/images/logo.png" },
         {id: "backgroundSound", src:"./Assets/sounds/background.mp3"},
         {id: "missileSound", src:"./Assets/sounds/missileSound.mp3"},

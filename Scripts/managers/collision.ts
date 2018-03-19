@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.6
+    Version : v1.7
     Last_modification : Mar 16, 2018
-    Description : Changed check methods
+    Description : Addded a method that check the collision between missile and enemy
 */
 module managers {
     export class Collision {
@@ -68,16 +68,21 @@ module managers {
             for(let countM=0; countM < missile.length; countM ++){
                 for(let countE=0; countE < enemy.length; countE++){
                     if(enemy[countE].alpha != 0){
-                        if(missile[countM].x >=  enemy[countE].x && missile[countM].x + 11 <  enemy[countE].x + 49 && missile[countM].y <  enemy[countE].y + 40){
-                        //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
-                            
-                            if(!enemy[countE].isColliding){
-                                enemy[countE].isColliding = true;
-                                enemy[countE].alpha = 0;
-                                managers.Game.scoreboardManager.Score += 100;
-                            }
+                        if(missile[countM].alpha != 0){
+                            if(missile[countM].x >=  enemy[countE].x && missile[countM].x + 11 <  enemy[countE].x + 49 && missile[countM].y <  enemy[countE].y + 40){
+                            //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
+                                
+                                if(!enemy[countE].isColliding){
+                                    enemy[countE].isColliding = true;
+                                    enemy[countE].alpha = 0;
+                                    missile[countM].alpha = 0;
+                                    //createjs.Sound.play("");  TODO: put proper sound
+                                    managers.Game.scoreboardManager.Score += 100;
+                                }
+                            }  
                         }
                     }
+                
                 }
             }
         }
