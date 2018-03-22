@@ -21,7 +21,8 @@ module managers {
 
         public static Check(one: objects.GameObject, other: objects.GameObject) {
             //check to see if object is colliding
-            if(other.alpha != 0){
+            if(other.alpha != 0)
+            {
 
             
             if (math.Vector2.distance(one.position, other.position) < (one.centerY + other.centerY - 30)) {
