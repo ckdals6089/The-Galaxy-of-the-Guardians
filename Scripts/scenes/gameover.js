@@ -33,7 +33,7 @@ var scenes;
         GameOverScene.prototype.Start = function () {
             this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "SpaceComic", "#FF0000", 320, 240, true);
-            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 140, 120, false);
+            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 120, 120, false);
             this._scoreboard = new managers.ScoreBoard;
             this.Main();
             console.log("game over");
