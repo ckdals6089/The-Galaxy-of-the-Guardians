@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Mar 16, 2018
-    Description : Changed the speed and number of enemies
+    Version : v1.0
+    Last_modification : Apr 05, 2018
+    Description : Created third stage scene
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -16,17 +16,17 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var StageTwoScene = /** @class */ (function (_super) {
-        __extends(StageTwoScene, _super);
+    var StageThreeScene = /** @class */ (function (_super) {
+        __extends(StageThreeScene, _super);
         //PUBLIC PROPERTIES
         //CONSTRUCTOR
-        function StageTwoScene() {
+        function StageThreeScene() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         //PRIVATE METHODS
-        StageTwoScene.prototype._bulletFire = function (back) {
+        StageThreeScene.prototype._bulletFire = function (back) {
             this._missile[this._missileCount].x = managers.Game.stage.mouseX;
             this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
             this._missileCount++;
@@ -37,16 +37,16 @@ var scenes;
                 this._missileSound.volume = 0.2;
             }
         };
-        StageTwoScene.prototype._sucessStage = function () {
-            if (this._scoreBoard.Score >= 6000) {
-                managers.Game.currentScene = config.Scene.PLAY_THREE;
+        StageThreeScene.prototype._sucessStage = function () {
+            if (this._scoreBoard.Score >= 9000) {
+                managers.Game.currentScene = config.Scene.GAMEOVER;
                 //TODO: Build a new scene ? or display a congratulation label?
                 this._backgroundSound.stop();
                 this._missileSound.stop();
             }
         };
         //PUBLIC METHODS
-        StageTwoScene.prototype.Start = function () {
+        StageThreeScene.prototype.Start = function () {
             console.log("Stage two");
             this._missileNum = 5;
             this._missileCount = 0;
@@ -54,7 +54,7 @@ var scenes;
             this._plane = new objects.Plane();
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
-            this._enemyNum = 4;
+            this._enemyNum = 5;
             this._enemy = new Array();
             this._missile = new Array();
             this._bulletFire = this._bulletFire.bind(this);
@@ -68,7 +68,7 @@ var scenes;
             this._scoreBoard = managers.Game.scoreboardManager;
             this.Main();
         };
-        StageTwoScene.prototype.Update = function () {
+        StageThreeScene.prototype.Update = function () {
             var _this = this;
             this._background.Update();
             this._plane.Update();
@@ -102,7 +102,7 @@ var scenes;
             }
             this._sucessStage();
         };
-        StageTwoScene.prototype.Main = function () {
+        StageThreeScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
             this.addChild(this._star);
@@ -119,8 +119,8 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
-        return StageTwoScene;
+        return StageThreeScene;
     }(objects.Scene));
-    scenes.StageTwoScene = StageTwoScene;
+    scenes.StageThreeScene = StageThreeScene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play_two.js.map
+//# sourceMappingURL=play_three.js.map
