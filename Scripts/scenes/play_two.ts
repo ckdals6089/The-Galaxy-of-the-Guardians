@@ -49,7 +49,7 @@ module scenes {
         private _sucessStage():void{
             
             if(this._scoreBoard.Score >= 6000) {                
-                managers.Game.currentScene = config.Scene.GAMEOVER; 
+                managers.Game.currentScene = config.Scene.PLAY_THREE; 
                 //TODO: Build a new scene ? or display a congratulation label?
                 this._backgroundSound.stop();
                 this._missileSound.stop();

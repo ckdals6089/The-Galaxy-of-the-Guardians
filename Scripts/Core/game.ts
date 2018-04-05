@@ -165,6 +165,9 @@
             case config.Scene.PLAY_TWO:
                 currentScene = new scenes.StageTwoScene();
                 break;
+            case config.Scene.PLAY_THREE:
+                currentScene = new scenes.StageThreeScene();
+                break;
             case config.Scene.GAMEOVER:
                 currentScene = new scenes.GameOverScene();
                 break;
