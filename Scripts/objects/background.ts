@@ -24,7 +24,7 @@ module objects {
         }
         //PRIVATE METHODS
         private _reset(): void {
-            this.y = -960;
+            this.y = -1000;
         }
         private _checkBounds(): void {
             if (this.y >= 0) {
@@ -36,7 +36,7 @@ module objects {
         }
         //PUBLIC METHODS
         public Start(): void {
-            this._dy = 10;
+            this._dy = 1;
             this._reset();
         }
         public Update(): void {
