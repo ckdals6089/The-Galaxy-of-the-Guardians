@@ -39,8 +39,8 @@ var scenes;
         chooseModeScene.prototype.Start = function () {
             this._background = new objects.Background(this.assetManager);
             this._logo = new objects.Logo(this.assetManager, "logo", 320, 220);
-            this._btnNormal = new objects.Button("btnNormal", 200, 400);
-            this._btnHell = new objects.Button("btnUltimate", 440, 400);
+            this._btnNormal = new objects.Button("btnNormal", 200, 370);
+            this._btnHell = new objects.Button("btnUltimate", 440, 370);
             this._btnBack = new objects.Button("btnBack", 530, 80);
             this.Main();
             console.log("start");

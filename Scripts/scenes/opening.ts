@@ -29,7 +29,7 @@ module scenes{
 
             this._logo = new objects.Logo(this.assetManager, "logo", 320,220);
             this._openingLogo = new objects.Label("The Galaxy of the Guardians", "30px", "SpaceComic", "#FFFFFF",100,310);
-            this._btnStart = new objects.Button("btnStart", 320, 390);
+            this._btnStart = new objects.Button("btnStart", 320, 415);
             this.Main();
             console.log("start");
         }

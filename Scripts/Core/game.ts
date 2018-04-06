@@ -100,8 +100,10 @@
         { id: "imgLogo", src: "./Assets/images/logo.png" },
         { id: "background", src: "./Assets/images/background.png" },
         { id: "logo", src: "./Assets/images/logo.png" },
+
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
+        { id: "warningSound", src: "./Assets/sounds/warningSound.mp3" },
         { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
         { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" }, //temporary sound
         { id: "tadaSound", src: "./Assets/sounds/tada.mp3" },
