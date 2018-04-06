@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.7
-    Last_modification : Mar 16, 2018
-    Description : Addded a method that check the collision between missile and enemy
+    Version : v1.8
+    Last_modification : April 16, 2018
+    Description : Added Explosion
 */
 var managers;
 (function (managers) {
@@ -27,6 +27,10 @@ var managers;
                                     managers.Game.scoreboardManager.Lives -= 1;
                                     createjs.Sound.play("crashSound");
                                     other.alpha = 0;
+                                    var explosion = new objects.Explosion();
+                                    explosion.x = one.x;
+                                    explosion.y = one.y;
+                                    managers.Game.currentSceneObject.addChild(explosion);
                                     break;
                                 case "star":
                                     managers.Game.scoreboardManager.Score += 100;
