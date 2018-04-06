@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.3
-    Last_modification : Mar 16, 2018
-    Description : Added Life Item and Set Success Condition
+    Version : v2.4
+    Last_modification : Apr 06, 2018
+    Description : Changed missile manager
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -26,37 +26,24 @@ var scenes;
             return _this;
         }
         //PRIVATE METHODS
-        StageOneScene.prototype._bulletFire = function (back) {
-            this._missile[this._missileCount].x = managers.Game.stage.mouseX;
-            this._missile[this._missileCount].y = managers.Game.stage.mouseY - back;
-            this._missileCount++;
-            if (this._missileCount >= this._missileNum - 1) {
-                this._missileCount = 0;
-                this._missileSound = createjs.Sound.play("missileSound");
-                this._missileSound.loop = -1;
-                this._missileSound.volume = 0.2;
-            }
-        };
         StageOneScene.prototype._sucessStage = function () {
             if (this._scoreBoard.Score >= 3000) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO;
                 this._backgroundSound.stop();
-                this._missileSound.stop();
                 //TODO: Build a new scene ? or display a congratulation label?
             }
         };
         //PUBLIC METHODS
         StageOneScene.prototype.Start = function () {
-            this._missileNum = 5;
-            this._missileCount = 0;
             this._background = new objects.Background(this.assetManager);
             this._plane = new objects.Plane();
+            managers.Game.plane = this._plane;
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
             this._enemyNum = 3;
             this._enemy = new Array();
-            this._missile = new Array();
-            this._bulletFire = this._bulletFire.bind(this);
+            this._missileManager = new managers.Missile();
+            managers.Game.bulletManager = this._missileManager;
             for (var count = 0; count < this._enemyNum; count++) {
                 this._enemy[count] = new objects.Enemy();
             }
@@ -73,6 +60,7 @@ var scenes;
             this._plane.Update();
             this._star.Update();
             this._lifeItem.Update();
+            this._missileManager.Update();
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
             //check collision between plane and a life item
@@ -83,19 +71,12 @@ var scenes;
                 if (_this._plane.Life == 0) {
                     managers.Game.currentScene = config.Scene.GAMEOVER;
                     _this._backgroundSound.stop();
-                    _this._missileSound.stop();
                 }
             });
-            this._missile.forEach(function (missile) {
-                missile.position.x = _this._plane.x;
-                missile.position.y = _this._plane.y;
-                missile.Update();
-            });
-            managers.Collision.Crush(this._missile, this._enemy);
+            managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
-                this._missileSound.stop();
             }
             this._sucessStage();
         };
@@ -104,11 +85,9 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
-            for (var count = 0; count < this._missileNum; count++) {
-                this._missile[count] = new objects.Missile();
-                this.addChild(this._missile[count]);
-                this._bulletFire(count * 80);
-            }
+            this._missileManager.Missiles.forEach(function (missile) {
+                _this.addChild(missile);
+            });
             this.addChild(this._plane);
             this._enemy.forEach(function (enemy) {
                 _this.addChild(enemy);

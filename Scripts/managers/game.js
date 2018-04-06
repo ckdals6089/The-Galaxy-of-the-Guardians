@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 26, 2018
-    Description : Moved to managers module
+    Version : v1.5
+    Last_modification : Apr 06, 2018
+    Description : Added bullet manager
 */
 var managers;
 (function (managers) {

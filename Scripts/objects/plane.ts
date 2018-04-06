@@ -1,12 +1,15 @@
 /*
     Name : Dongwan Kim
-    Version : v1.3
-    Last_modification : Mar 16 2018
-    Description : Deleted life private variable and connected with gameobject life
+    Version : v1.4
+    Last_modification : Apr 06 2018
+    Description : Creaeted BulletFire public methods
 */
 module objects{
     export class Plane extends objects.GameObject {
         //PRIVATE VARIABLES
+        private _missileSpawn:math.Vector2;
+        private _missileSound: createjs.AbstractSoundInstance;
+
         //PUBLIC PROPERTIES
             public static get centerX():number{
                 return this.centerX;
@@ -61,11 +64,37 @@ module objects{
         public Start():void{
             this.x = 300;
             this.y = 430;
+            this._missileSpawn = new math.Vector2();
         }
         public Update():void{
-            this.position = new math.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
+            this.BulletFire();
+        }
+        public BulletFire():void{
+            if(this.alpha = 1){
+                let ticker:number = createjs.Ticker.getTicks();
+                if(ticker % 10 == 0){
+                    this._missileSpawn = new math.Vector2(this.x,this.y-this.centerY);
+    
+                    let currentMissile = managers.Game.bulletManager.CurrentMissile;
+                    let missile = managers.Game.bulletManager.Missiles[currentMissile];
+                    missile.x = this._missileSpawn.x;
+                    missile.y = this._missileSpawn.y;
+        
+                    this._missileSound = createjs.Sound.play("missileSound");
+                     this._missileSound.loop = 0;
+                    this._missileSound.volume = 0.2;
+
+                    managers.Game.bulletManager.CurrentMissile++;
+                    if(managers.Game.bulletManager.CurrentMissile > 29){
+                        managers.Game.bulletManager.CurrentMissile = 0;
+                    }
+        
+                }
+            }
+         
+          
         }
         
 

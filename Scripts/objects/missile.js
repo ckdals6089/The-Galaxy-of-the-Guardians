@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 25, 2018
-    Description : Changed the position of missile
+    Version : v1.2
+    Last_modification : Apr 06, 2018
+    Description : Changed the missile basic settings
 */
 var objects;
 (function (objects) {
@@ -27,34 +27,28 @@ var objects;
             return _this;
         }
         //PRIVATE METHODS
-        Missile.prototype._reset = function () {
-            //this.position = objects.Plane.getPosition;
-            this.alpha = 1;
-            this.x = this.position.x;
-            this.y = this.position.y;
-            //this.x = objects.Game.stage.mouseX;
-            //this.y = objects.Game.stage.mouseY; //TODO: + plane top
-            //this.x = 300;
-            //this.y=430;
-        };
-        Missile.prototype._checkBounds = function () {
-            if (this.y <= 0) {
-                this._reset();
-            }
-        };
-        Missile.prototype._move = function () {
-            this.y -= this._dy;
-            this._checkBounds();
-        };
         // //PUBLIC METHODS
         Missile.prototype.Start = function () {
             //console.log(objects.Plane.getPosition);
-            this._dy = 15;
+            this._dy = -10;
+            this._dx = 0;
+            this.Reset();
         };
         Missile.prototype.Update = function () {
-            if (this.y > 0) {
-                this._move();
+            this.Move();
+            this.CheckBounds();
+        };
+        Missile.prototype.Reset = function () {
+            this.x = -5000;
+            this.y = -5000;
+        };
+        Missile.prototype.CheckBounds = function () {
+            if (this.y <= -this.height) {
+                this.Reset();
             }
+        };
+        Missile.prototype.Move = function () {
+            this.y += this._dy;
         };
         return Missile;
     }(objects.GameObject));

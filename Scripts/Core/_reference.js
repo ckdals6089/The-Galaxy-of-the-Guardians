@@ -17,6 +17,7 @@
 /// <reference path="../../Scripts/managers/collision.ts"/>
 /// <reference path="../../Scripts/managers/keyboard.ts"/>
 /// <reference path="../../Scripts/managers/scoreboard.ts"/>
+/// <reference path="../../Scripts/managers/missile.ts"/>
 /// <reference path="../../Scripts/scenes/loading.ts"/>
 /// <reference path="../../Scripts/scenes/opening.ts"/>
 /// <reference path="../../Scripts/scenes/choosemode.ts"/>

@@ -16,8 +16,10 @@ var managers;
         };
         Collision.Check = function (one, other) {
             //check to see if object is colliding
+            var onePos = new math.Vector2(one.x, one.y);
+            var otherPos = new math.Vector2(other.x, other.y);
             if (other.alpha != 0) {
-                if (math.Vector2.distance(one.position, other.position) < (one.centerY + other.centerY - 30)) {
+                if (math.Vector2.distance(onePos, otherPos) < (one.centerY + other.centerY)) {
                     if (!other.isColliding) {
                         other.isColliding = true;
                         if (one.name = "plane") {
@@ -65,7 +67,7 @@ var managers;
                 for (var countE = 0; countE < enemy.length; countE++) {
                     if (enemy[countE].alpha != 0) {
                         if (missile[countM].alpha != 0) {
-                            if (missile[countM].x >= enemy[countE].x && missile[countM].x + 11 < enemy[countE].x + 49 && missile[countM].y < enemy[countE].y + 40) {
+                            if (missile[countM].x >= enemy[countE].x && missile[countM].x + 11 < enemy[countE].x + 49 && missile[countM].y < enemy[countE].y) {
                                 //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;

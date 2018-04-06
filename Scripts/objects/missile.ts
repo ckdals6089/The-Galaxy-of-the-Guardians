@@ -1,13 +1,13 @@
 /*
     Name : Dongwan Kim
-    Version : v1.1
-    Last_modification : Feb 25, 2018
-    Description : Changed the position of missile
+    Version : v1.2
+    Last_modification : Apr 06, 2018
+    Description : Changed the missile basic settings
 */
 module objects{
     export class Missile extends objects.GameObject {
         //PRIVATE VARIABLES
-         
+
         //PUBLIC PROPERTIES
 
         //CONSTRUTOR
@@ -17,40 +17,30 @@ module objects{
             this.Start();
        }
         //PRIVATE METHODS
-        private _reset():void{
-            //this.position = objects.Plane.getPosition;
-            this.alpha = 1;
-            this.x = this.position.x;
-            this.y = this.position.y;  
-            //this.x = objects.Game.stage.mouseX;
-              //this.y = objects.Game.stage.mouseY; //TODO: + plane top
-              //this.x = 300;
-              //this.y=430;
-
-        }
-        private _checkBounds():void{
-            if(this.y <= 0 ){
-                this._reset();
-            }
-            
-        }
-        private _move():void{
-            
-            this.y -= this._dy;
-            this._checkBounds();
-        }
 
         // //PUBLIC METHODS
         public Start():void{
             //console.log(objects.Plane.getPosition);
-            this._dy = 15;
+            this._dy = -10;
+            this._dx=0;
+            this.Reset();
             
         }
         public Update():void{
-
-            if(this.y >0){
-                this._move();
+            this.Move();
+            this.CheckBounds();
+        }
+        public Reset():void{
+            this.x = -5000;
+            this.y = -5000;
+        }
+        public CheckBounds():void{
+            if(this.y <= -this.height){
+                this.Reset();
             }
+        }
+        public Move():void{
+            this.y += this._dy;
         }
 
 

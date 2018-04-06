@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 26, 2018
-    Description : Moved to managers module
+    Version : v1.5
+    Last_modification : Apr 06, 2018
+    Description : Added bullet manager
 */
 module managers{
     export class Game{
@@ -14,5 +14,8 @@ module managers{
         public static scoreboardManager:managers.ScoreBoard;
         public static HighScore: number = 0;
         public static textureAtlas: createjs.SpriteSheet;
+        public static plane:objects.Plane;
+        public static boss:objects.Boss;
+        public static bulletManager: managers.Missile;
     }
 }

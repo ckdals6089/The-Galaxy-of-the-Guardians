@@ -10,9 +10,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 /*
     Name : Dongwan Kim
-    Version : v1.3
-    Last_modification : Mar 16 2018
-    Description : Deleted life private variable and connected with gameobject life
+    Version : v1.4
+    Last_modification : Apr 06 2018
+    Description : Creaeted BulletFire public methods
 */
 var objects;
 (function (objects) {
@@ -26,7 +26,6 @@ var objects;
             return _this;
         }
         Object.defineProperty(Plane, "centerX", {
-            //PRIVATE VARIABLES
             //PUBLIC PROPERTIES
             get: function () {
                 return this.centerX;
@@ -83,11 +82,31 @@ var objects;
         Plane.prototype.Start = function () {
             this.x = 300;
             this.y = 430;
+            this._missileSpawn = new math.Vector2();
         };
         Plane.prototype.Update = function () {
-            this.position = new math.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
+            this.BulletFire();
+        };
+        Plane.prototype.BulletFire = function () {
+            if (this.alpha = 1) {
+                var ticker = createjs.Ticker.getTicks();
+                if (ticker % 10 == 0) {
+                    this._missileSpawn = new math.Vector2(this.x, this.y - this.centerY);
+                    var currentMissile = managers.Game.bulletManager.CurrentMissile;
+                    var missile = managers.Game.bulletManager.Missiles[currentMissile];
+                    missile.x = this._missileSpawn.x;
+                    missile.y = this._missileSpawn.y;
+                    this._missileSound = createjs.Sound.play("missileSound");
+                    this._missileSound.loop = 0;
+                    this._missileSound.volume = 0.2;
+                    managers.Game.bulletManager.CurrentMissile++;
+                    if (managers.Game.bulletManager.CurrentMissile > 29) {
+                        managers.Game.bulletManager.CurrentMissile = 0;
+                    }
+                }
+            }
         };
         return Plane;
     }(objects.GameObject));
