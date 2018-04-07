@@ -41,6 +41,9 @@ module objects {
                 createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
+            } else if(this._boss.y === 50) {
+                this.alpha = 0;
+                this.Reset();
             }
             this.CheckBounds();
         }

@@ -44,6 +44,10 @@ var objects;
                 this.alpha = 1;
                 this.Move();
             }
+            else if (this._boss.y === 50) {
+                this.alpha = 0;
+                this.Reset();
+            }
             this.CheckBounds();
         };
         // reset the objects location to some value
