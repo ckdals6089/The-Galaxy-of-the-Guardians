@@ -53,6 +53,7 @@ var scenes;
             this._backgroundSound.volume = 0.5;
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
+            this._warningMessage = new objects.Warning(this.assetManager);
             this.Main();
         };
         StageOneScene.prototype.Update = function () {
@@ -64,6 +65,7 @@ var scenes;
             this._missileManager.Update();
             if (this._scoreBoard.Score >= 300) {
                 this._boss.Update();
+                this._warningMessage.Update();
             }
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
@@ -96,6 +98,7 @@ var scenes;
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
+            this.addChild(this._warningMessage);
             this.addChild(this._boss);
             this.addChild(this._plane);
             this._enemy.forEach(function (enemy) {

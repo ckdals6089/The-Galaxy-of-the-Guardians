@@ -37,11 +37,14 @@ var objects;
         };
         // updates the game object every frame
         Warning.prototype.Update = function () {
-            if (this._scoreBoard.Score === 3000) {
+            if (this._scoreBoard.Score === 300) {
+                createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
             }
-            this.CheckBounds();
+            else {
+                this.CheckBounds();
+            }
         };
         // reset the objects location to some value
         Warning.prototype.Reset = function () {
@@ -51,15 +54,14 @@ var objects;
         };
         // move the object to some new location
         Warning.prototype.Move = function () {
-            this.x += 5;
+            this.x += 10;
         };
         // check to see if some boundary has been passed
         Warning.prototype.CheckBounds = function () {
             // check lower bounds
-            //if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
-            if (this.x >= 1500) {
+            if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
+                //if (this.x >= 1000) {
                 this.Reset();
-                this.alpha = 0;
             }
         };
         return Warning;

@@ -18,6 +18,7 @@ module scenes {
         private _scoreBoard: managers.ScoreBoard;
         private _missileManager:managers.Missile;
         private _boss:objects.Boss;
+        private _warningMessage:objects.Warning;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
@@ -41,7 +42,6 @@ module scenes {
 
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
-
             
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
@@ -64,6 +64,8 @@ module scenes {
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
 
+            this._warningMessage = new objects.Warning(this.assetManager);
+
             this.Main();
         }
 
@@ -74,9 +76,10 @@ module scenes {
             this._star.Update();
             this._lifeItem.Update();
             this._missileManager.Update();
-            if(this._scoreBoard.Score >=300){
-                this._boss.Update();
 
+            if(this._scoreBoard.Score >= 300){
+                this._boss.Update();
+                this._warningMessage.Update();
             }
 
             //check collision between plane and star
@@ -122,6 +125,7 @@ module scenes {
             this._missileManager.Missiles.forEach(missile =>{
                 this.addChild(missile);
             });
+            this.addChild(this._warningMessage);
             this.addChild(this._boss);
 
             this.addChild(this._plane);
