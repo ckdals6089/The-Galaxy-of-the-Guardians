@@ -10,6 +10,7 @@ module objects {
         // Private Instance Variables
         private _boss : objects.Boss;
         private _scoreBoard : managers.ScoreBoard;
+        private _enemy : objects.Enemy[];
         // Public Propoerties
 
         // Constructor
@@ -32,6 +33,7 @@ module objects {
             this.y = y;
 
             this._boss = managers.Game.boss;
+            this._enemy = managers.Game.enemies;
             this._scoreBoard = managers.Game.scoreboardManager;
         }
 
@@ -47,6 +49,9 @@ module objects {
                 createjs.Sound.play("tada");
                 this.alpha = 1;
                 this.Move();
+                this._enemy.forEach(enemy => {
+                     managers.Game.currentSceneObject.removeChild(enemy);
+                });
             } else {
                 this.alpha = 0;
             }

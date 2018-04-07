@@ -15,6 +15,7 @@ module managers{
         public static HighScore: number = 0;
         public static textureAtlas: createjs.SpriteSheet;
         public static plane:objects.Plane;
+        public static enemies:objects.Enemy[];
         public static boss:objects.Boss;
         public static bulletManager: managers.Missile;
     }
