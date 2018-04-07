@@ -87,7 +87,7 @@ module objects{
                     this._missileSound.volume = 0.2;
 
                     managers.Game.bulletManager.CurrentMissile++;
-                    if(managers.Game.bulletManager.CurrentMissile > 99){
+                    if(managers.Game.bulletManager.CurrentMissile > 999){
                         managers.Game.bulletManager.CurrentMissile = 0;
                     }
         
