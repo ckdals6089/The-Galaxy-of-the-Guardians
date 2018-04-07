@@ -27,6 +27,7 @@ var scenes;
         }
         //PRIVATE METHODS
         StageOneScene.prototype._sucessStage = function () {
+            // if(this._scoreBoard.Score > 300){
             if (this._boss.alpha == 0) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO;
                 this._backgroundSound.stop();
@@ -40,6 +41,7 @@ var scenes;
             managers.Game.plane = this._plane;
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
+            this._meteor = new objects.Meteor();
             this._enemyNum = 3;
             this._enemy = new Array();
             this._boss = new objects.Boss();
@@ -63,8 +65,9 @@ var scenes;
             this._plane.Update();
             this._star.Update();
             this._lifeItem.Update();
+            this._meteor.Update();
             this._missileManager.Update();
-            if (this._scoreBoard.Score >= 300) {
+            if (this._scoreBoard.Score >= 3000) {
                 this._boss.Update();
                 this._warningMessage.Update();
             }
@@ -93,9 +96,9 @@ var scenes;
         StageOneScene.prototype.Main = function () {
             var _this = this;
             this.addChild(this._background);
+            this.addChild(this._meteor);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
-            // this.addChild(this._boss);
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });

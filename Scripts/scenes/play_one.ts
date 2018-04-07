@@ -13,6 +13,7 @@ module scenes {
         private _enemy: objects.Enemy[];
         private _enemyNum: number;
         private _star: objects.Star;
+        private _meteor: objects.Meteor;
         private _lifeItem: objects.LifeItem;
         private _backgroundSound: createjs.AbstractSoundInstance;
         private _scoreBoard: managers.ScoreBoard;
@@ -29,7 +30,7 @@ module scenes {
         }
         //PRIVATE METHODS
         private _sucessStage():void{
-            
+            // if(this._scoreBoard.Score > 300){
              if(this._boss.alpha == 0) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO; 
                 this._backgroundSound.stop();
@@ -45,6 +46,8 @@ module scenes {
             
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
+            this._meteor = new objects.Meteor();
+
             this._enemyNum = 3;
             this._enemy = new Array<objects.Enemy>();
             
@@ -76,9 +79,10 @@ module scenes {
             this._plane.Update();
             this._star.Update();
             this._lifeItem.Update();
+            this._meteor.Update();
             this._missileManager.Update();
 
-            if(this._scoreBoard.Score >= 300){
+            if(this._scoreBoard.Score >= 3000){
                 this._boss.Update();
                 this._warningMessage.Update();
             }
@@ -116,12 +120,11 @@ module scenes {
         }
         public Main(): void {
             this.addChild(this._background);
+            this.addChild(this._meteor);
+
             this.addChild(this._star);
             this.addChild(this._lifeItem);
             
-
-            
-            // this.addChild(this._boss);
 
             this._missileManager.Missiles.forEach(missile =>{
                 this.addChild(missile);

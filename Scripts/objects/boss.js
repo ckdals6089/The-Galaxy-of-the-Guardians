@@ -30,6 +30,7 @@ var objects;
         //PRIVATE METHODS
         //PUBLIC METHODS
         Boss.prototype.Start = function () {
+            this.alpha = 1;
             this._dy = 5;
             this.x = 320;
             this.y = -this.height;
