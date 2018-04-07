@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.4
-    Last_modification : Apr 06, 2018
-    Description : Changed missile manager
+    Version : v2.5
+    Last_modification : Apr 07, 2018
+    Description : Changed the amount of enemy
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -44,7 +44,7 @@ var scenes;
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
             this._meteor = new objects.Meteor();
-            this._enemyNum = 3;
+            this._enemyNum = 5;
             this._enemy = new Array();
             this._boss = new objects.Boss();
             managers.Game.boss = this._boss;

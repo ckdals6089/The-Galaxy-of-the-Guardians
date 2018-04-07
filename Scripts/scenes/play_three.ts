@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.2
-    Last_modification : Apr 06, 2018
-    Description : Added boss and warning message
+    Version : v1.3
+    Last_modification : Apr 07, 2018
+    Description : Changed the amount of enemy
 */
 
 module scenes {
@@ -51,7 +51,7 @@ module scenes {
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
             this._meteor = new objects.Meteor();
-            this._enemyNum = 4;
+            this._enemyNum = 7;
             this._enemy = new Array<objects.Enemy>();
             this._boss = new objects.Boss();
 
@@ -83,7 +83,7 @@ module scenes {
             this._meteor.Update();
             this._missileManager.Update();
 
-            if(this._scoreBoard.Score >= this._prviousScore + 3000){
+            if(this._scoreBoard.Score >= this._prviousScore + 10000){
                 this._boss.Update();
                 this._warningMessage.Update();
             }
