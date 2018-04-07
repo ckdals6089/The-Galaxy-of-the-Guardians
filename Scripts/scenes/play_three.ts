@@ -17,7 +17,7 @@ module scenes {
         private _meteor: objects.Meteor;
         private _backgroundSound: createjs.AbstractSoundInstance;
         private _scoreBoard: managers.ScoreBoard;
-        private _missileManager:managers.Missile;
+        private _missileManager: managers.Missile;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
@@ -29,10 +29,10 @@ module scenes {
         }
         //PRIVATE METHODS
 
-        private _sucessStage():void{
-            
-            if(this._scoreBoard.Score >= 9000) {                
-                managers.Game.currentScene = config.Scene.GAMEOVER; 
+        private _sucessStage(): void {
+
+            if (this._scoreBoard.Score >= 9000) {
+                managers.Game.currentScene = config.Scene.GAMEOVER;
                 //TODO: Build a new scene ? or display a congratulation label?
                 this._backgroundSound.stop();
             }
@@ -85,7 +85,7 @@ module scenes {
 
             this._enemy.forEach(enemy => {
                 enemy.Update();
-                enemy.Dy+=0.07;
+                enemy.Dy += 0.07;
                 managers.Collision.Check(this._plane, enemy);
 
                 if (this._plane.Life == 0) {
@@ -93,16 +93,16 @@ module scenes {
                     this._backgroundSound.stop();
                 }
             });
-            
-            managers.Collision.Crush(this._missileManager.Missiles,this._enemy);
-           
+
+            managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
+
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
-            
+
             this._sucessStage();
- 
+
 
         }
         public Main(): void {
@@ -110,10 +110,10 @@ module scenes {
             this.addChild(this._star);
             this.addChild(this._lifeItem);
             this.addChild(this._meteor);
-            this._missileManager.Missiles.forEach(missile =>{
+            this._missileManager.Missiles.forEach(missile => {
                 this.addChild(missile);
             });
- 
+
 
             this.addChild(this._plane);
 

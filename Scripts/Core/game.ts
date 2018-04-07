@@ -69,7 +69,7 @@
             [900, 1160, 49, 64, 0, -7, 0],
             [841, 1167, 46, 78, 0, -9, -9]
         ],
-        
+
         "animations": {
             "enemyH": { "frames": [0] },
             "meteorbig": { "frames": [1] },
@@ -89,7 +89,7 @@
             "meteorB": { "frames": [15] },
             "star": { "frames": [16] },
             "btnUltimate": { "frames": [17] },
-            "explosion": { "frames": [19,29,30,36,37,38,18] },
+            "explosion": { "frames": [19, 29, 30, 36, 37, 38, 18] },
             "btnNormal": { "frames": [20] },
             "bossA": { "frames": [22] },
             "btnStart": { "frames": [23] },
@@ -99,12 +99,14 @@
             "bossmissileA": { "frames": [31] },
             "missile2": { "frames": [32] },
             "bossmissileB": { "frames": [33] },
-            "playerShip": { "frames": [35,34,21,28,27],
-                        "speed": 0.5 },
+            "playerShip": {
+                "frames": [35, 34, 21, 28, 27],
+                "speed": 0.5
+            },
             "missile": { "frames": [39] },
             "missile3": { "frames": [40] }
         },
-        
+
 
     };
 
@@ -112,7 +114,7 @@
         { id: "imgLogo", src: "./Assets/images/logo.png" },
         { id: "background", src: "./Assets/images/background.png" },
         { id: "logo", src: "./Assets/images/logo.png" },
-
+        { id: "warning", src: "./Assets/images/warning.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
         { id: "warningSound", src: "./Assets/sounds/warningSound.mp3" },
