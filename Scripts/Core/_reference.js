@@ -13,6 +13,7 @@
 /// <reference path="../../Scripts/objects/enemy.ts"/>
 /// <reference path="../../Scripts/objects/star.ts"/>
 /// <reference path="../../Scripts/objects/lifeitem.ts"/>
+/// <reference path="../../Scripts/objects/meteor.ts"/>
 /// <reference path="../../Scripts/objects/explosion.ts"/>
 /// <reference path="../../Scripts/managers/collision.ts"/>
 /// <reference path="../../Scripts/managers/keyboard.ts"/>
