@@ -27,7 +27,7 @@ var scenes;
         }
         //PRIVATE METHODS
         StageOneScene.prototype._sucessStage = function () {
-            if (this._scoreBoard.Score >= 3000) {
+            if (this._boss.alpha == 0) {
                 managers.Game.currentScene = config.Scene.PLAY_TWO;
                 this._backgroundSound.stop();
                 //TODO: Build a new scene ? or display a congratulation label?
@@ -42,6 +42,7 @@ var scenes;
             this._lifeItem = new objects.LifeItem();
             this._enemyNum = 3;
             this._enemy = new Array();
+            this._boss = new objects.Boss();
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -52,7 +53,6 @@ var scenes;
             this._backgroundSound.volume = 0.5;
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
-            this._warningMessage = new objects.Warning(this.assetManager);
             this.Main();
         };
         StageOneScene.prototype.Update = function () {
@@ -62,7 +62,9 @@ var scenes;
             this._star.Update();
             this._lifeItem.Update();
             this._missileManager.Update();
-            this._warningMessage.Update();
+            if (this._scoreBoard.Score >= 300) {
+                this._boss.Update();
+            }
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
             //check collision between plane and a life item
@@ -76,6 +78,9 @@ var scenes;
                 }
             });
             managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
+            this._missileManager.Missiles.forEach(function (missile) {
+                managers.Collision.Check(missile, _this._boss);
+            });
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
@@ -87,16 +92,17 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
+            // this.addChild(this._boss);
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
+            this.addChild(this._boss);
             this.addChild(this._plane);
             this._enemy.forEach(function (enemy) {
                 _this.addChild(enemy);
             });
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
-            this.addChild(this._warningMessage);
         };
         return StageOneScene;
     }(objects.Scene));

@@ -11,9 +11,11 @@ module objects{
 
         //CONSTRUCTORS
         constructor(){
-            super("bossA");
-            this.Start();
-            this.life=10;
+            super("bossB");
+                this.Start();
+                this.life=1000;
+
+
         }
         //PRIVATE METHODS
 
@@ -31,11 +33,12 @@ module objects{
         }
         public CheckBounds():void{
             //check the bottom border
-            if(this.y >= 40){
-                this.y = 40;
+            if(this.y >= 50){
+                this.y = 50;
             }
         }
         public Update():void{
+            
             this.position = new math.Vector2(this.x, this.y);
 
             this.Move();

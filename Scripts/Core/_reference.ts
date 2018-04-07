@@ -22,6 +22,7 @@
 /// <reference path="../../Scripts/objects/meteor.ts"/>
 /// <reference path="../../Scripts/objects/explosion.ts"/>
 /// <reference path="../../Scripts/objects/warning.ts"/>
+/// <reference path="../../Scripts/objects/boss.ts"/>
 
 
 /// <reference path="../../Scripts/managers/collision.ts"/>

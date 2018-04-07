@@ -22,9 +22,9 @@ var objects;
         //PUBLIC PROPERTIES
         //CONSTRUCTORS
         function Boss() {
-            var _this = _super.call(this, "bossA") || this;
+            var _this = _super.call(this, "bossB") || this;
             _this.Start();
-            _this.life = 10;
+            _this.life = 1000;
             return _this;
         }
         //PRIVATE METHODS
@@ -40,8 +40,8 @@ var objects;
         };
         Boss.prototype.CheckBounds = function () {
             //check the bottom border
-            if (this.y >= 40) {
-                this.y = 40;
+            if (this.y >= 50) {
+                this.y = 50;
             }
         };
         Boss.prototype.Update = function () {

@@ -15,11 +15,12 @@ var managers;
         Missile.prototype._missileShoot = function () {
             for (var count = 0; count < this._missileCount; count++) {
                 this.Missiles[count] = new objects.Missile();
+                console.log("AA");
             }
         };
         //PUBLIC METHODS
         Missile.prototype.Start = function () {
-            this._missileCount = 30;
+            this._missileCount = 100;
             this.Missiles = new Array();
             this._missileShoot();
             this.CurrentMissile = 0;

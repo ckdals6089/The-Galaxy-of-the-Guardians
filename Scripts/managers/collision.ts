@@ -28,7 +28,7 @@ module managers {
                 if (math.Vector2.distance(onePos, otherPos) < (one.centerY + other.centerY)) {
                     if (!other.isColliding) {
                         other.isColliding = true;
-                        if (one.name = "plane") {
+                        
                             switch (other.name) {
                                 case "enemyA":
                                     one.life -= 1;
@@ -59,8 +59,15 @@ module managers {
                                         managers.Game.scoreboardManager.Lives = 5;
                                     }
                                     break;
+                                case "bossB":
+                                    other.life -= 1;
+                                    if(other.life < 0){
+                                        other.alpha = 0;
+                                    }                                    
+                                
+                                break;
                             }
-                        }
+                        
                     }
                 }
                 else {
@@ -84,6 +91,10 @@ module managers {
                                     missile[countM].alpha = 0;
                                     //createjs.Sound.play("");  TODO: put proper sound
                                     managers.Game.scoreboardManager.Score += 100;
+                                    let explosion = new objects.Explosion();
+                                    explosion.x = enemy[countE].x;
+                                    explosion.y = enemy[countE].y;
+                                    managers.Game.currentSceneObject.addChild(explosion);
                                 }
                             }
                         }

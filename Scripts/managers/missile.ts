@@ -23,12 +23,13 @@ module managers{
         private _missileShoot():void{
             for(let count = 0; count < this._missileCount;count++){
                 this.Missiles[count] = new objects.Missile();
-
+                console.log("AA");
+                
             }
         }
         //PUBLIC METHODS
         public Start():void{
-            this._missileCount=30;
+            this._missileCount=100;
             this.Missiles = new Array<objects.Missile>();
             this._missileShoot();
             this.CurrentMissile = 0;

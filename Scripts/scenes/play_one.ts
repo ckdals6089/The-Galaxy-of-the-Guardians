@@ -16,25 +16,24 @@ module scenes {
         private _lifeItem: objects.LifeItem;
         private _backgroundSound: createjs.AbstractSoundInstance;
         private _scoreBoard: managers.ScoreBoard;
-        private _missileManager: managers.Missile;
-        private _warningMessage: objects.Warning;
+        private _missileManager:managers.Missile;
+        private _boss:objects.Boss;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
         constructor() {
             super();
-
             this.Start();
 
         }
         //PRIVATE METHODS
-        private _sucessStage(): void {
-
-            if (this._scoreBoard.Score >= 3000) {
-                managers.Game.currentScene = config.Scene.PLAY_TWO;
+        private _sucessStage():void{
+            
+             if(this._boss.alpha == 0) {
+                managers.Game.currentScene = config.Scene.PLAY_TWO; 
                 this._backgroundSound.stop();
                 //TODO: Build a new scene ? or display a congratulation label?
-            }
+             }
         }
         //PUBLIC METHODS
         public Start(): void {
@@ -42,11 +41,14 @@ module scenes {
 
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
+
             
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
             this._enemyNum = 3;
             this._enemy = new Array<objects.Enemy>();
+            
+            this._boss = new objects.Boss();
 
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
@@ -62,8 +64,6 @@ module scenes {
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
 
-            this._warningMessage = new objects.Warning(this.assetManager);
-
             this.Main();
         }
 
@@ -74,7 +74,10 @@ module scenes {
             this._star.Update();
             this._lifeItem.Update();
             this._missileManager.Update();
-            this._warningMessage.Update();
+            if(this._scoreBoard.Score >=300){
+                this._boss.Update();
+
+            }
 
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
@@ -93,14 +96,17 @@ module scenes {
                 }
             });
 
-            managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
-
+            managers.Collision.Crush(this._missileManager.Missiles,this._enemy);
+            
+            this._missileManager.Missiles.forEach(missile =>{
+                managers.Collision.Check(missile,this._boss);  
+            });
 
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
-
+            
             this._sucessStage();
 
         }
@@ -108,19 +114,23 @@ module scenes {
             this.addChild(this._background);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
-            this._missileManager.Missiles.forEach(missile => {
+            
+
+            
+            // this.addChild(this._boss);
+
+            this._missileManager.Missiles.forEach(missile =>{
                 this.addChild(missile);
             });
+            this.addChild(this._boss);
 
             this.addChild(this._plane);
-
             this._enemy.forEach(enemy => {
                 this.addChild(enemy);
             });
 
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
-            this.addChild(this._warningMessage);
         }
     }
 }
