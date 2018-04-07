@@ -113,6 +113,8 @@
     assetManifest = [ //TODO: Must change the temporary images
         { id: "imgLogo", src: "./Assets/images/logo.png" },
         { id: "background", src: "./Assets/images/background.png" },
+        { id: "background2", src: "./Assets/images/background2.png" },
+        { id: "background2", src: "./Assets/images/background3.png" },
         { id: "logo", src: "./Assets/images/logo.png" },
         { id: "warning", src: "./Assets/images/warning.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },

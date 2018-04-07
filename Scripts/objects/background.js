@@ -21,6 +21,17 @@ var objects;
         //CONSTRUCTOR
         function Background(assetManager) {
             var _this = _super.call(this, assetManager.getResult("background")) || this;
+            switch (managers.Game.currentScene) {
+                case config.Scene.PLAY_ONE:
+                    _this = _super.call(this, assetManager.getResult("background")) || this;
+                    break;
+                case config.Scene.PLAY_TWO:
+                    _this = _super.call(this, assetManager.getResult("background2")) || this;
+                    break;
+                case config.Scene.PLAY_THREE:
+                    _this = _super.call(this, assetManager.getResult("background3")) || this;
+                    break;
+            }
             _this.Start();
             return _this;
         }

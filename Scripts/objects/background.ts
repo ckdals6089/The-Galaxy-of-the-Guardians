@@ -20,7 +20,20 @@ module objects {
         //CONSTRUCTOR
         constructor(assetManager: createjs.LoadQueue) {
             super(assetManager.getResult("background"));
-            this.Start();
+            switch (managers.Game.currentScene) {
+
+                case config.Scene.PLAY_ONE:
+                super(assetManager.getResult("background"));
+                  break;
+                case config.Scene.PLAY_TWO:
+                super(assetManager.getResult("background2"));
+                 break;
+                 case config.Scene.PLAY_THREE:
+                super(assetManager.getResult("background3"));
+                 break;
+              
+              }
+              this.Start();
         }
         //PRIVATE METHODS
         private _reset(): void {
