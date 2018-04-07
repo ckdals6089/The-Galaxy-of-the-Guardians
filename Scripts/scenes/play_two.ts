@@ -13,6 +13,7 @@ module scenes {
         private _enemy: objects.Enemy[];
         private _enemyNum: number;
         private _star: objects.Star;
+        private _meteor: objects.Meteor;
         private _lifeItem: objects.LifeItem;
         private _backgroundSound: createjs.AbstractSoundInstance;
         private _scoreBoard: managers.ScoreBoard;
@@ -44,6 +45,7 @@ module scenes {
             this._plane = new objects.Plane();
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
+            this._meteor = new objects.Meteor();
             this._enemyNum = 4;
             this._enemy = new Array<objects.Enemy>();
            
@@ -69,6 +71,7 @@ module scenes {
             this._plane.Update();
             this._star.Update();
             this._lifeItem.Update();
+            this._meteor.Update();
             this._missileManager.Update();
 
             //check collision between plane and star
@@ -106,6 +109,7 @@ module scenes {
             this.addChild(this._background);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
+            this.addChild(this._meteor);
             this._missileManager.Missiles.forEach(missile =>{
                 this.addChild(missile);
             });

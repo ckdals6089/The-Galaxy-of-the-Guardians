@@ -37,7 +37,7 @@ var objects;
         });
         //PRIVATE METHODS
         Background.prototype._reset = function () {
-            this.y = -960;
+            this.y = -1000;
         };
         Background.prototype._checkBounds = function () {
             if (this.y >= 0) {
@@ -49,7 +49,7 @@ var objects;
         };
         //PUBLIC METHODS
         Background.prototype.Start = function () {
-            this._dy = 10;
+            this._dy = 1;
             this._reset();
         };
         Background.prototype.Update = function () {

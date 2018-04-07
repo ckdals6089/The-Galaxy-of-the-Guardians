@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.6.3</string>
         <key>fileName</key>
-        <string>C:/The-Galaaxy-of-the-Guardians/The-Galaxy-of-the-Guardians/Assets/sprites/textureAtlasDemo.tps</string>
+        <string>C:/GameClass/The-Galaxy-of-the-Guardians/Assets/sprites/textureAtlasDemo.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -347,6 +347,47 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyE.png</key>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyF.png</key>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteormedium.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>64,64,128,128</rect>
+                <key>scale9Paddings</key>
+                <rect>64,64,128,128</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyG.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>64,128,128,256</rect>
+                <key>scale9Paddings</key>
+                <rect>64,128,128,256</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyH.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>128,160,256,320</rect>
+                <key>scale9Paddings</key>
+                <rect>128,160,256,320</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion1.png</key>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion2.png</key>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion3.png</key>
@@ -394,6 +435,7 @@
             </struct>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorA.png</key>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorB.png</key>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorsmall.png</key>
             <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/powerItem.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -404,6 +446,32 @@
                 <rect>32,32,64,64</rect>
                 <key>scale9Paddings</key>
                 <rect>32,32,64,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorbig.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>128,128,256,256</rect>
+                <key>scale9Paddings</key>
+                <rect>128,128,256,256</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/missile3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,24,32,48</rect>
+                <key>scale9Paddings</key>
+                <rect>16,24,32,48</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -423,8 +491,33 @@
         </map>
         <key>fileList</key>
         <array>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyH.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnBack.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnNormal.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnPlayAgain.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnStart.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnUltimate.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyA.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyB.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyC.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyD.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyE.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyF.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyG.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion1.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion2.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion3.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion4.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion5.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion6.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion7.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/liteItem.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/logo.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorA.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorB.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorbig.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteormedium.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/meteorsmall.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/missile.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/missile2.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/Player0.png</filename>
@@ -434,28 +527,11 @@
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/Player4.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/powerItem.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/star.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnUltimate.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnBack.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnNormal.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnPlayAgain.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/logo.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/btnStart.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/bossA.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/bossB.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/bossmissileA.png</filename>
             <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/bossmissileB.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyA.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyB.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyC.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/enemyD.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion1.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion2.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion3.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion4.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion5.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion6.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/explosion7.png</filename>
-            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/liteItem.png</filename>
+            <filename>../../../../Users/ckdal/OneDrive/바탕 화면/TexturePacker/missile3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -40,6 +40,7 @@ var scenes;
             this._plane = new objects.Plane();
             this._star = new objects.Star();
             this._lifeItem = new objects.LifeItem();
+            this._meteor = new objects.Meteor();
             this._enemyNum = 4;
             this._enemy = new Array();
             this._missileManager = new managers.Missile();
@@ -60,6 +61,7 @@ var scenes;
             this._plane.Update();
             this._star.Update();
             this._lifeItem.Update();
+            this._meteor.Update();
             this._missileManager.Update();
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
@@ -87,6 +89,7 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._star);
             this.addChild(this._lifeItem);
+            this.addChild(this._meteor);
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
