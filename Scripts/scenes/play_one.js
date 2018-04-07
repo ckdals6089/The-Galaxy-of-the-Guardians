@@ -52,6 +52,7 @@ var scenes;
             this._backgroundSound.volume = 0.5;
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
+            this._warningMessage = new objects.Warning(this.assetManager);
             this.Main();
         };
         StageOneScene.prototype.Update = function () {
@@ -61,6 +62,7 @@ var scenes;
             this._star.Update();
             this._lifeItem.Update();
             this._missileManager.Update();
+            this._warningMessage.Update();
             //check collision between plane and star
             managers.Collision.Check(this._plane, this._star);
             //check collision between plane and a life item
@@ -94,6 +96,7 @@ var scenes;
             });
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
+            this.addChild(this._warningMessage);
         };
         return StageOneScene;
     }(objects.Scene));

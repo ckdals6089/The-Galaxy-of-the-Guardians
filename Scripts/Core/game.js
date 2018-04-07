@@ -65,7 +65,7 @@
             "btnUltimate": { "frames": [6] },
             "explosion": {
                 "frames": [8, 21, 22, 27, 30, 31, 7],
-                "speed": 0.5
+                "speed": 0.3
             },
             "btnNormal": { "frames": [9] },
             "btnStart": { "frames": [11] },
@@ -91,6 +91,7 @@
         { id: "imgLogo", src: "./Assets/images/logo.png" },
         { id: "background", src: "./Assets/images/background.png" },
         { id: "logo", src: "./Assets/images/logo.png" },
+        { id: "warning", src: "./Assets/images/warning.png" },
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
         { id: "warningSound", src: "./Assets/sounds/warningSound.mp3" },
