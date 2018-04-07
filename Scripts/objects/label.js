@@ -1,8 +1,8 @@
 /*
     Name : Jowon Shin
-    Version : v1.0
-    Last_modification : Feb 23, 2018
-    Description : Created Label Object
+    Version : v1.1
+    Last_modification : April 07, 2018
+    Description : Updated Update method
 */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -18,7 +18,6 @@ var objects;
 (function (objects) {
     var Label = /** @class */ (function (_super) {
         __extends(Label, _super);
-        // Private Instance Variables
         // Public Propoerties
         // Constructor
         function Label(labelString, fontSize, fontFamily, fontColour, x, y, isCentered) {
@@ -32,8 +31,42 @@ var objects;
             }
             _this.x = x;
             _this.y = y;
+            _this._boss = managers.Game.boss;
+            _this._scoreBoard = managers.Game.scoreboardManager;
             return _this;
         }
+        // Private Methods
+        // Public Methods
+        // Initializes variables and creates new objects
+        // updates the game object every frame
+        Label.prototype.Update = function () {
+            if (this._boss.alpha === 0) {
+                createjs.Sound.play("tada");
+                this.alpha = 1;
+                this.Move();
+            }
+            else {
+                this.alpha = 0;
+            }
+        };
+        // reset the objects location to some value
+        Label.prototype.Reset = function () {
+            this.alpha = 0;
+            this.x = 320;
+            this.y = 600;
+        };
+        // move the object to some new location
+        Label.prototype.Move = function () {
+            this.y -= 5;
+        };
+        // check to see if some boundary has been passed
+        Label.prototype.CheckBounds = function () {
+            // check lower bounds
+            if (this.y < 0) {
+                //if (this.x >= 1000) {
+                this.Reset();
+            }
+        };
         return Label;
     }(createjs.Text));
     objects.Label = Label;
