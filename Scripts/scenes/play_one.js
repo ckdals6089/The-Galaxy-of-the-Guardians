@@ -29,9 +29,11 @@ var scenes;
         StageOneScene.prototype._sucessStage = function () {
             // if(this._scoreBoard.Score > 300){
             if (this._boss.alpha == 0) {
-                managers.Game.currentScene = config.Scene.PLAY_TWO;
+                this._congratMessage.Update();
+                setTimeout(function () {
+                    managers.Game.currentScene = config.Scene.PLAY_TWO;
+                }, 4000);
                 this._backgroundSound.stop();
-                //TODO: Build a new scene ? or display a congratulation label?
             }
         };
         //PUBLIC METHODS
@@ -57,6 +59,7 @@ var scenes;
             this._scoreBoard = new managers.ScoreBoard;
             managers.Game.scoreboardManager = this._scoreBoard;
             this._warningMessage = new objects.Warning(this.assetManager);
+            this._congratMessage = new objects.Label("Congratulations!", "40px", "SpaceComic", "#FFFFFF", 320, 600, true);
             this.Main();
         };
         StageOneScene.prototype.Update = function () {
@@ -110,6 +113,7 @@ var scenes;
             });
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
+            this.addChild(this._congratMessage);
         };
         return StageOneScene;
     }(objects.Scene));

@@ -31,7 +31,6 @@ var objects;
         // public methods
         // Initializes variables and creates new objects
         Warning.prototype.Start = function () {
-            this.alpha = 0;
             this._scoreBoard = managers.Game.scoreboardManager;
             this._boss = managers.Game.boss;
             this.Reset();
@@ -39,16 +38,15 @@ var objects;
         // updates the game object every frame
         Warning.prototype.Update = function () {
             if (this._boss.y < 50) {
-                //if (this._scoreBoard.Score === 300) {
+                managers.Game.currentSceneObject.addChild(this);
                 createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
             }
             else if (this._boss.y === 50) {
-                this.alpha = 0;
-                this.Reset();
+                managers.Game.currentSceneObject.removeChild(this);
             }
-            this.CheckBounds();
+            // this.CheckBounds();
         };
         // reset the objects location to some value
         Warning.prototype.Reset = function () {
@@ -62,9 +60,8 @@ var objects;
         };
         // check to see if some boundary has been passed
         Warning.prototype.CheckBounds = function () {
-            // check lower bounds
+            // check bounds
             if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
-                //if (this.x >= 1000) {
                 this.Reset();
             }
         };

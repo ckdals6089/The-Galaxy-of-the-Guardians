@@ -20,6 +20,7 @@ module scenes {
         private _missileManager:managers.Missile;
         private _boss:objects.Boss;
         private _warningMessage:objects.Warning;
+        private _congratMessage:objects.Label;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTOR
@@ -32,9 +33,11 @@ module scenes {
         private _sucessStage():void{
             // if(this._scoreBoard.Score > 300){
              if(this._boss.alpha == 0) {
-                managers.Game.currentScene = config.Scene.PLAY_TWO; 
-                this._backgroundSound.stop();
-                //TODO: Build a new scene ? or display a congratulation label?
+                this._congratMessage.Update();
+                 setTimeout(() => {
+                    managers.Game.currentScene = config.Scene.PLAY_TWO; 
+                 }, 4000);
+                 this._backgroundSound.stop();
              }
         }
         //PUBLIC METHODS
@@ -69,6 +72,7 @@ module scenes {
             managers.Game.scoreboardManager = this._scoreBoard;
 
             this._warningMessage = new objects.Warning(this.assetManager);
+            this._congratMessage = new objects.Label("Congratulations!", "40px", "SpaceComic", "#FFFFFF", 320, 600, true);
 
             this.Main();
         }
@@ -139,6 +143,8 @@ module scenes {
 
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
+
+            this.addChild(this._congratMessage);
         }
     }
 }
