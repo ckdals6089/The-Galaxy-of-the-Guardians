@@ -12,7 +12,7 @@ module objects {
 
         //CONSTRUTOR
         constructor() {
-            super("missile3");
+            super("missile");
 
             this.Start();
         }

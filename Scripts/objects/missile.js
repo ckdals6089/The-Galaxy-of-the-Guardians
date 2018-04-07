@@ -22,7 +22,7 @@ var objects;
         //PUBLIC PROPERTIES
         //CONSTRUTOR
         function Missile() {
-            var _this = _super.call(this, "missile3") || this;
+            var _this = _super.call(this, "missile") || this;
             _this.Start();
             return _this;
         }
