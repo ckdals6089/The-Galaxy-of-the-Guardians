@@ -33,18 +33,22 @@ var objects;
         Warning.prototype.Start = function () {
             this.alpha = 0;
             this._scoreBoard = managers.Game.scoreboardManager;
+            this._boss = managers.Game.boss;
             this.Reset();
         };
         // updates the game object every frame
         Warning.prototype.Update = function () {
-            if (this._scoreBoard.Score === 300) {
+            if (this._boss.y < 50) {
+                //if (this._scoreBoard.Score === 300) {
                 createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
             }
-            else {
-                this.CheckBounds();
+            else if (this._boss.y === 50) {
+                this.alpha = 0;
+                this.Reset();
             }
+            this.CheckBounds();
         };
         // reset the objects location to some value
         Warning.prototype.Reset = function () {

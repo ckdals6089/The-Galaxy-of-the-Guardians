@@ -9,6 +9,8 @@ module objects {
 
         // private instance variables
         private _scoreBoard: managers.ScoreBoard;
+        private _boss: objects.Boss;
+
         // public properties
 
         // Constructor
@@ -28,18 +30,22 @@ module objects {
         public Start(): void {
             this.alpha = 0;
             this._scoreBoard = managers.Game.scoreboardManager;
+            this._boss = managers.Game.boss;
             this.Reset();
         }
 
         // updates the game object every frame
         public Update(): void {
-            if (this._scoreBoard.Score === 300) {
+            if(this._boss.y < 50) {
+            //if (this._scoreBoard.Score === 300) {
                 createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
-            } else {
-                this.CheckBounds();
+            } else if(this._boss.y === 50) {
+                this.alpha = 0;
+                this.Reset();
             }
+            this.CheckBounds();
         }
 
         // reset the objects location to some value
@@ -58,7 +64,7 @@ module objects {
         public CheckBounds(): void {
             // check lower bounds
             if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
-            //if (this.x >= 1000) {
+                //if (this.x >= 1000) {
                 this.Reset();
             }
         }

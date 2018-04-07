@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.8
-    Last_modification : April 16, 2018
-    Description : Added Explosion
+    Version : v1.9
+    Last_modification : April 06, 2018
+    Description : Added explosion with boss
 */
 var managers;
 (function (managers) {
@@ -55,6 +55,13 @@ var managers;
                                 other.life -= 1;
                                 if (other.life < 0) {
                                     other.alpha = 0;
+                                }
+                                one.alpha = 0;
+                                if (other.y == 50) {
+                                    explosion = new objects.Explosion();
+                                    explosion.x = (other.x - 30) + Math.random() * 50;
+                                    explosion.y = other.centerY * Math.random();
+                                    managers.Game.currentSceneObject.addChild(explosion);
                                 }
                                 break;
                         }
