@@ -49,6 +49,7 @@ module scenes {
             this._enemy = new Array<objects.Enemy>();
             
             this._boss = new objects.Boss();
+            managers.Game.boss = this._boss;
 
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;

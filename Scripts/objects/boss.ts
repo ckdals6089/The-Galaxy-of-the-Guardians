@@ -14,8 +14,6 @@ module objects{
             super("bossB");
                 this.Start();
                 this.life=1000;
-
-
         }
         //PRIVATE METHODS
 

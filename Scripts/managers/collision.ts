@@ -28,46 +28,46 @@ module managers {
                 if (math.Vector2.distance(onePos, otherPos) < (one.centerY + other.centerY)) {
                     if (!other.isColliding) {
                         other.isColliding = true;
-                        
-                            switch (other.name) {
-                                case "enemyA":
-                                    one.life -= 1;
-                                    managers.Game.scoreboardManager.Lives -= 1;
-                                    createjs.Sound.play("crashSound");
-                                    other.alpha = 0;
 
-                                    let explosion = new objects.Explosion();
-                                    explosion.x = one.x;
-                                    explosion.y = one.y;
-                                    managers.Game.currentSceneObject.addChild(explosion);
-                                    break;
-                                case "star":
-                                    managers.Game.scoreboardManager.Score += 100;
-                                    createjs.Sound.play("gettingItemSound"); //sound must be changed
-                                    other.alpha = 0;
-                                    if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
-                                        managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
-                                        managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
-                                    }
-                                    break;
-                                case "lifeitem":
-                                    one.life += 1;
-                                    managers.Game.scoreboardManager.Lives += 1;
-                                    createjs.Sound.play("gettingItemSound"); //sound must be changed
-                                    other.alpha = 0;
-                                    if (managers.Game.scoreboardManager.Lives >= 5) {
-                                        managers.Game.scoreboardManager.Lives = 5;
-                                    }
-                                    break;
-                                case "bossB":
-                                    other.life -= 1;
-                                    if(other.life < 0){
-                                        other.alpha = 0;
-                                    }                                    
-                                
+                        switch (other.name) {
+                            case "enemyA":
+                                one.life -= 1;
+                                managers.Game.scoreboardManager.Lives -= 1;
+                                createjs.Sound.play("crashSound");
+                                other.alpha = 0;
+
+                                let explosion = new objects.Explosion();
+                                explosion.x = one.x;
+                                explosion.y = one.y;
+                                managers.Game.currentSceneObject.addChild(explosion);
                                 break;
-                            }
-                        
+                            case "star":
+                                managers.Game.scoreboardManager.Score += 100;
+                                createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                other.alpha = 0;
+                                if (managers.Game.HighScore <= managers.Game.scoreboardManager.Score) {
+                                    managers.Game.scoreboardManager.HighScore = managers.Game.scoreboardManager.Score;
+                                    managers.Game.HighScore = managers.Game.scoreboardManager.HighScore;
+                                }
+                                break;
+                            case "lifeitem":
+                                one.life += 1;
+                                managers.Game.scoreboardManager.Lives += 1;
+                                createjs.Sound.play("gettingItemSound"); //sound must be changed
+                                other.alpha = 0;
+                                if (managers.Game.scoreboardManager.Lives >= 5) {
+                                    managers.Game.scoreboardManager.Lives = 5;
+                                }
+                                break;
+                            case "bossB":
+                                other.life -= 1;
+                                if (other.life < 0) {
+                                    other.alpha = 0;
+                                }
+
+                                break;
+                        }
+
                     }
                 }
                 else {
@@ -91,6 +91,7 @@ module managers {
                                     missile[countM].alpha = 0;
                                     //createjs.Sound.play("");  TODO: put proper sound
                                     managers.Game.scoreboardManager.Score += 100;
+
                                     let explosion = new objects.Explosion();
                                     explosion.x = enemy[countE].x;
                                     explosion.y = enemy[countE].y;

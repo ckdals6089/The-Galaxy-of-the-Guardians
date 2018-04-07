@@ -43,6 +43,7 @@ var scenes;
             this._enemyNum = 3;
             this._enemy = new Array();
             this._boss = new objects.Boss();
+            managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
             for (var count = 0; count < this._enemyNum; count++) {
