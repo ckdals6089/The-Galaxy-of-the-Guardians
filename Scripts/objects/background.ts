@@ -8,12 +8,12 @@ module objects {
     export class Background extends createjs.Bitmap {
         //PRIVATE INSTANCE
         private _dy: number;
-        
+
         //PUBLIC PROPERTIES
-        get Dy():number{
+        get Dy(): number {
             return this._dy;
         }
-        set Dy(_dy:number){
+        set Dy(_dy: number) {
             this._dy = _dy;
         }
 

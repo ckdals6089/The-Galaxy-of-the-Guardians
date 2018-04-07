@@ -34,8 +34,8 @@ module objects {
         // updates the game object every frame
         public Update(): void {
             if (this._scoreBoard.Score === 3000) {
-                
-            this.alpha = 1;
+
+                this.alpha = 1;
                 this.Move();
             }
             this.CheckBounds();
@@ -57,7 +57,7 @@ module objects {
         public CheckBounds(): void {
             // check lower bounds
             //if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
-                if(this.x >= 1500){
+            if (this.x >= 1500) {
                 this.Reset();
                 this.alpha = 0;
             }
