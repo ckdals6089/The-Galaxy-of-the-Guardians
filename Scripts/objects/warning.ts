@@ -33,12 +33,13 @@ module objects {
 
         // updates the game object every frame
         public Update(): void {
-            if (this._scoreBoard.Score === 3000) {
-
+            if (this._scoreBoard.Score === 300) {
+                createjs.Sound.play("warningSound");
                 this.alpha = 1;
                 this.Move();
+            } else {
+                this.CheckBounds();
             }
-            this.CheckBounds();
         }
 
         // reset the objects location to some value
@@ -50,16 +51,15 @@ module objects {
 
         // move the object to some new location
         public Move(): void {
-            this.x += 5;
+            this.x += 10;
         }
 
         // check to see if some boundary has been passed
         public CheckBounds(): void {
             // check lower bounds
-            //if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
-            if (this.x >= 1500) {
+            if (this.x >= 640 + managers.Game.currentSceneObject.getBounds().width) {
+            //if (this.x >= 1000) {
                 this.Reset();
-                this.alpha = 0;
             }
         }
     }
