@@ -46,6 +46,7 @@ var scenes;
             this._meteor = new objects.Meteor();
             this._enemyNum = 3;
             this._enemy = new Array();
+            managers.Game.enemies = this._enemy;
             this._boss = new objects.Boss();
             managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();

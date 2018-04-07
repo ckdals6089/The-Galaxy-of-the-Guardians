@@ -28,8 +28,10 @@ var scenes;
         //PRIVATE METHODS
         StageThreeScene.prototype._sucessStage = function () {
             if (this._boss.alpha == 0) {
-                managers.Game.currentScene = config.Scene.GAMEOVER;
-                //TODO: Build a new scene ? or display a congratulation label?
+                this._congratMessage.Update();
+                setTimeout(function () {
+                    managers.Game.currentScene = config.Scene.GAMEOVER;
+                }, 4000);
                 this._backgroundSound.stop();
             }
         };
@@ -44,7 +46,9 @@ var scenes;
             this._meteor = new objects.Meteor();
             this._enemyNum = 4;
             this._enemy = new Array();
+            managers.Game.enemies = this._enemy;
             this._boss = new objects.Boss();
+            managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -57,6 +61,7 @@ var scenes;
             this._scoreBoard = managers.Game.scoreboardManager;
             this._prviousScore = managers.Game.scoreboardManager.Score;
             this._warningMessage = new objects.Warning(this.assetManager);
+            this._congratMessage = new objects.Label("Congratulations!", "40px", "SpaceComic", "#FFFFFF", 320, 600, true);
             this.Main();
         };
         StageThreeScene.prototype.Update = function () {
@@ -112,6 +117,7 @@ var scenes;
             });
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
+            this.addChild(this._congratMessage);
         };
         return StageThreeScene;
     }(objects.Scene));

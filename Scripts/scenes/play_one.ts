@@ -53,6 +53,7 @@ module scenes {
 
             this._enemyNum = 3;
             this._enemy = new Array<objects.Enemy>();
+            managers.Game.enemies = this._enemy;
             
             this._boss = new objects.Boss();
             managers.Game.boss = this._boss;

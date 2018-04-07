@@ -32,6 +32,7 @@ var objects;
             _this.x = x;
             _this.y = y;
             _this._boss = managers.Game.boss;
+            _this._enemy = managers.Game.enemies;
             _this._scoreBoard = managers.Game.scoreboardManager;
             return _this;
         }
@@ -44,6 +45,9 @@ var objects;
                 createjs.Sound.play("tada");
                 this.alpha = 1;
                 this.Move();
+                this._enemy.forEach(function (enemy) {
+                    managers.Game.currentSceneObject.removeChild(enemy);
+                });
             }
             else {
                 this.alpha = 0;
