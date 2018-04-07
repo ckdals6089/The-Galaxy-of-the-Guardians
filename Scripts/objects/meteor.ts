@@ -23,7 +23,7 @@ module objects {
 
     // Initializes variables and creates new objects
     public Start(): void {
-      this._dy = 10;
+      this._dy = 1;
       this.Reset();
     }
 

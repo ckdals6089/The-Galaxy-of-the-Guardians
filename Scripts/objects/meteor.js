@@ -30,7 +30,7 @@ var objects;
         // public methods
         // Initializes variables and creates new objects
         Meteor.prototype.Start = function () {
-            this._dy = 10;
+            this._dy = 1;
             this.Reset();
         };
         // updates the game object every frame
