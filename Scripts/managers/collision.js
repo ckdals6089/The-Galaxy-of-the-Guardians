@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.9
-    Last_modification : April 06, 2018
-    Description : Added explosion with boss
+    Version : v2.0
+    Last_modification : April 07, 2018
+    Description : Modified collision between missile and enemy
 */
 var managers;
 (function (managers) {
@@ -76,9 +76,11 @@ var managers;
             //check to see if object is colliding
             for (var countM = 0; countM < missile.length; countM++) {
                 for (var countE = 0; countE < enemy.length; countE++) {
+                    var onePos = new math.Vector2(missile[countM].x, missile[countM].y);
+                    var otherPos = new math.Vector2(enemy[countE].x, enemy[countE].y);
                     if (enemy[countE].alpha != 0) {
                         if (missile[countM].alpha != 0) {
-                            if (missile[countM].x >= enemy[countE].x && missile[countM].x + 11 < enemy[countE].x + 49 && missile[countM].y < enemy[countE].y) {
+                            if (math.Vector2.distance(onePos, otherPos) < missile[countM].centerY + enemy[countE].centerY) {
                                 //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;
