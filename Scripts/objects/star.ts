@@ -49,7 +49,7 @@ module objects {
     // check to see if some boundary has been passed
     public CheckBounds(): void {
       // check lower bounds
-      if (this.y >= 480 + this.height) {
+      if (this.y >= 1000 + this.height ) {
         this.Reset();
       }
     }
