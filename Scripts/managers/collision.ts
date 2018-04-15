@@ -98,14 +98,22 @@ module managers {
 
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;
-                                    enemy[countE].alpha = 0;
                                     missile[countM].alpha = 0;
                                     //createjs.Sound.play("");  TODO: put proper sound
-                                    managers.Game.scoreboardManager.Score += 100;
+                                    enemy[countE].life -=1;
+
                                     let explosion = new objects.Explosion();
                                     explosion.x = enemy[countE].x;
                                     explosion.y = enemy[countE].y;
                                     managers.Game.currentSceneObject.addChild(explosion);
+                                    
+                                    if(enemy[countE].life == 0){
+                                        enemy[countE].alpha = 0;
+                                        managers.Game.scoreboardManager.Score += 100;
+
+                                    }
+                                    
+
                                 }
                             }
                         }

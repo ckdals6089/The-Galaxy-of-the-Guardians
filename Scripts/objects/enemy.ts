@@ -13,7 +13,6 @@ module objects{
         constructor(){
             super("enemyA");
             this.Start();
-            this.life=1;
         }
         //PRIVATE METHODS
 
@@ -27,6 +26,8 @@ module objects{
         }
         public Reset():void{
             this.alpha = 1;
+            this.life=2;
+
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) +2;

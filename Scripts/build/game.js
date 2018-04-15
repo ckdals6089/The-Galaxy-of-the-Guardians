@@ -576,7 +576,6 @@ var objects;
         function Enemy() {
             var _this = _super.call(this, "enemyA") || this;
             _this.Start();
-            _this.life = 1;
             return _this;
         }
         //PRIVATE METHODS
@@ -590,6 +589,7 @@ var objects;
         };
         Enemy.prototype.Reset = function () {
             this.alpha = 1;
+            this.life = 2;
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) + 2;
@@ -993,14 +993,17 @@ var managers;
                                 //if(math.Vector2.distance(missile[countM].position, enemy[countE].position) > (missile[countM].centerY + enemy[countE].centerY - 30)){
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;
-                                    enemy[countE].alpha = 0;
                                     missile[countM].alpha = 0;
                                     //createjs.Sound.play("");  TODO: put proper sound
-                                    managers.Game.scoreboardManager.Score += 100;
+                                    enemy[countE].life -= 1;
                                     var explosion = new objects.Explosion();
                                     explosion.x = enemy[countE].x;
                                     explosion.y = enemy[countE].y;
                                     managers.Game.currentSceneObject.addChild(explosion);
+                                    if (enemy[countE].life == 0) {
+                                        enemy[countE].alpha = 0;
+                                        managers.Game.scoreboardManager.Score += 100;
+                                    }
                                 }
                             }
                         }
