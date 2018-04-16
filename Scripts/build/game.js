@@ -9,25 +9,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 23, 2018
-    Description : Added 3rd stage scene
-*/
-var config;
-(function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["LOADING"] = 0] = "LOADING";
-        Scene[Scene["OPENING"] = 1] = "OPENING";
-        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
-        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
-        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
-        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
-        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
-    })(Scene = config.Scene || (config.Scene = {}));
-})(config || (config = {}));
-/*
     Name : Dongwan Kim
     Version : v1.0
     Last_modification : Feb 25, 2018
@@ -48,6 +29,25 @@ var config;
         return Keys;
     }());
     config.Keys = Keys;
+})(config || (config = {}));
+/*
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added 3rd stage scene
+*/
+var config;
+(function (config) {
+    var Scene;
+    (function (Scene) {
+        Scene[Scene["LOADING"] = 0] = "LOADING";
+        Scene[Scene["OPENING"] = 1] = "OPENING";
+        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
+        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
+        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
+        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
+        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
+    })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
@@ -278,6 +278,8 @@ var objects;
             _this.y = y;
             _this._boss = managers.Game.boss;
             _this._enemy = managers.Game.enemies;
+            _this._lifeItem = managers.Game.lifeitem;
+            _this._star = managers.Game.star;
             _this._scoreBoard = managers.Game.scoreboardManager;
             return _this;
         }
@@ -286,12 +288,16 @@ var objects;
         // Initializes variables and creates new objects
         // updates the game object every frame
         Label.prototype.Update = function () {
+            var _this = this;
             if (this._boss.alpha === 0) {
                 createjs.Sound.play("tada");
                 this.alpha = 1;
                 this.Move();
                 this._enemy.forEach(function (enemy) {
-                    managers.Game.currentSceneObject.removeChild(enemy);
+                    enemy.alpha = 0;
+                    _this._star.alpha = 0;
+                    _this._lifeItem.alpha = 0;
+                    //managers.Game.currentSceneObject.removeChild(enemy);
                 });
             }
             else {
@@ -1339,7 +1345,9 @@ var scenes;
             this._plane = new objects.Plane();
             managers.Game.plane = this._plane;
             this._star = new objects.Star();
+            managers.Game.star = this._star;
             this._lifeItem = new objects.LifeItem();
+            managers.Game.lifeitem = this._lifeItem;
             this._meteor = new objects.Meteor();
             this._enemyNum = 5;
             this._enemy = new Array();
@@ -1451,7 +1459,9 @@ var scenes;
             this._plane = new objects.Plane();
             this._plane = managers.Game.plane;
             this._star = new objects.Star();
+            managers.Game.star = this._star;
             this._lifeItem = new objects.LifeItem();
+            managers.Game.lifeitem = this._lifeItem;
             this._meteor = new objects.Meteor();
             this._enemyNum = 6;
             this._enemy = new Array();
@@ -1566,7 +1576,9 @@ var scenes;
             this._plane = new objects.Plane();
             this._plane = managers.Game.plane;
             this._star = new objects.Star();
+            managers.Game.star = this._star;
             this._lifeItem = new objects.LifeItem();
+            managers.Game.lifeitem = this._lifeItem;
             this._meteor = new objects.Meteor();
             this._enemyNum = 7;
             this._enemy = new Array();

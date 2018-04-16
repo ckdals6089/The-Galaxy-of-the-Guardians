@@ -52,7 +52,9 @@ module scenes {
             this._plane = managers.Game.plane;
 
             this._star = new objects.Star();
+            managers.Game.star = this._star;
             this._lifeItem = new objects.LifeItem();
+            managers.Game.lifeitem = this._lifeItem;
             this._meteor = new objects.Meteor();
             this._enemyNum = 6;
             this._enemy = new Array<objects.Enemy>();

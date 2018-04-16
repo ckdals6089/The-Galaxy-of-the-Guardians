@@ -16,6 +16,8 @@ module managers{
         public static textureAtlas: createjs.SpriteSheet;
         public static plane:objects.Plane;
         public static enemies:objects.Enemy[];
+        public static lifeitem: objects.LifeItem;
+        public static star: objects.Star;
         public static boss:objects.Boss;
         public static bulletManager: managers.Missile;
     }

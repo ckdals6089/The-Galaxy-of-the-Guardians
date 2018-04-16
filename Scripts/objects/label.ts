@@ -11,6 +11,8 @@ module objects {
         private _boss : objects.Boss;
         private _scoreBoard : managers.ScoreBoard;
         private _enemy : objects.Enemy[];
+        private _lifeItem: objects.LifeItem;
+        private _star: objects.Star;
         // Public Propoerties
 
         // Constructor
@@ -34,6 +36,8 @@ module objects {
 
             this._boss = managers.Game.boss;
             this._enemy = managers.Game.enemies;
+            this._lifeItem = managers.Game.lifeitem;
+            this._star = managers.Game.star;
             this._scoreBoard = managers.Game.scoreboardManager;
         }
 
@@ -50,7 +54,10 @@ module objects {
                 this.alpha = 1;
                 this.Move();
                 this._enemy.forEach(enemy => {
-                     managers.Game.currentSceneObject.removeChild(enemy);
+                    enemy.alpha = 0;
+                    this._star.alpha = 0;
+                    this._lifeItem.alpha = 0;
+                    //managers.Game.currentSceneObject.removeChild(enemy);
                 });
             } else {
                 this.alpha = 0;
