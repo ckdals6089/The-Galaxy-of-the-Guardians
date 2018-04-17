@@ -6,6 +6,8 @@
 */
 module managers {
     export class Collision {
+        //Properties
+        private _attackSound: createjs.AbstractSoundInstance;
         constructor() {
 
             this.start();
@@ -70,6 +72,7 @@ module managers {
                                         explosion.x = (other.x - 30) + Math.random()*50 ;
                                         explosion.y = other.centerY * Math.random();
                                         managers.Game.currentSceneObject.addChild(explosion);   
+                                        createjs.Sound.play("attackSound", {volume: 0.1});                                       
                                     }     
      
                                 
@@ -110,9 +113,9 @@ module managers {
                                     if(enemy[countE].life == 0){
                                         enemy[countE].alpha = 0;
                                         managers.Game.scoreboardManager.Score += 100;
-
+                                        createjs.Sound.play("attackSound", {volume: 0.2});
                                     }
-                                    
+
 
                                 }
                             }

@@ -35,15 +35,14 @@ module objects {
 
         // updates the game object every frame
         public Update(): void {
-            if(this._boss.y < 50) {
-                managers.Game.currentSceneObject.addChild(this);
-                createjs.Sound.play("warningSound");
+            if (this._boss.y < 50) {
+                createjs.Sound.play("warningSound", {volume: 0.7});
                 this.alpha = 1;
                 this.Move();
-            } else if(this._boss.y === 50) {
+            } else if (this._boss.y === 50) {
                 managers.Game.currentSceneObject.removeChild(this);
             }
-           // this.CheckBounds();
+            // this.CheckBounds();
         }
 
         // reset the objects location to some value
