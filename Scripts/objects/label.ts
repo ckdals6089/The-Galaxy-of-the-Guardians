@@ -50,15 +50,17 @@ module objects {
         // updates the game object every frame
         public Update(): void {
             if(this._boss.alpha === 0) {
-                createjs.Sound.play("tada");
+                if(this.y < 480 && this.y > 300){
+                createjs.Sound.play("levelCompleteSound");
+                }
                 this.alpha = 1;
                 this.Move();
                 this._enemy.forEach(enemy => {
                     enemy.alpha = 0;
-                    this._star.alpha = 0;
-                    this._lifeItem.alpha = 0;
                     //managers.Game.currentSceneObject.removeChild(enemy);
                 });
+                this._star.alpha = 0;
+                this._lifeItem.alpha = 0;
             } else {
                 this.alpha = 0;
             }

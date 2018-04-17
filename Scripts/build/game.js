@@ -288,17 +288,18 @@ var objects;
         // Initializes variables and creates new objects
         // updates the game object every frame
         Label.prototype.Update = function () {
-            var _this = this;
             if (this._boss.alpha === 0) {
-                createjs.Sound.play("tada");
+                if (this.y < 480 && this.y > 300) {
+                    createjs.Sound.play("levelCompleteSound");
+                }
                 this.alpha = 1;
                 this.Move();
                 this._enemy.forEach(function (enemy) {
                     enemy.alpha = 0;
-                    _this._star.alpha = 0;
-                    _this._lifeItem.alpha = 0;
                     //managers.Game.currentSceneObject.removeChild(enemy);
                 });
+                this._star.alpha = 0;
+                this._lifeItem.alpha = 0;
             }
             else {
                 this.alpha = 0;
@@ -836,8 +837,7 @@ var objects;
         // updates the game object every frame
         Warning.prototype.Update = function () {
             if (this._boss.y < 50) {
-                managers.Game.currentSceneObject.addChild(this);
-                createjs.Sound.play("warningSound");
+                createjs.Sound.play("warningSound", { volume: 0.7 });
                 this.alpha = 1;
                 this.Move();
             }
@@ -977,6 +977,7 @@ var managers;
                                     explosion.x = (other.x - 30) + Math.random() * 50;
                                     explosion.y = other.centerY * Math.random();
                                     managers.Game.currentSceneObject.addChild(explosion);
+                                    createjs.Sound.play("attackSound", { volume: 0.1 });
                                 }
                                 break;
                         }
@@ -1009,6 +1010,7 @@ var managers;
                                     if (enemy[countE].life == 0) {
                                         enemy[countE].alpha = 0;
                                         managers.Game.scoreboardManager.Score += 100;
+                                        createjs.Sound.play("attackSound", { volume: 0.2 });
                                     }
                                 }
                             }
@@ -1682,6 +1684,7 @@ var scenes;
         };
         //PUBLIC METHODS
         GameOverScene.prototype.Start = function () {
+            this._background = new objects.Background(this.assetManager);
             this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "SpaceComic", "#FF0000", 320, 240, true);
             this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 120, 95, false);
@@ -1692,7 +1695,8 @@ var scenes;
         GameOverScene.prototype.Update = function () {
         };
         GameOverScene.prototype.Main = function () {
-            createjs.Sound.play("tadaSound"); //must be changed
+            createjs.Sound.play("gameOverSound"); //must be changed
+            this.addChild(this._background);
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
             this._scoreboard.HighScore = managers.Game.HighScore;
@@ -1849,7 +1853,10 @@ var scenes;
         { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
         { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" },
         { id: "tadaSound", src: "./Assets/sounds/tada.mp3" },
-        { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" }
+        { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" },
+        { id: "attackSound", src: "./Assets/sounds/attackSound.mp3" },
+        { id: "levelCompleteSound", src: "./Assets/sounds/levelCompleteSound.mp3" },
+        { id: "gameOverSound", src: "./Assets/sounds/gameOverSound.mp3" }
     ];
     //preload Assets
     function Init() {

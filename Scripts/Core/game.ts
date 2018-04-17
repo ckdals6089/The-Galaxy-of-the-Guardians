@@ -123,7 +123,10 @@
         { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
         { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" }, //temporary sound
         { id: "tadaSound", src: "./Assets/sounds/tada.mp3" },
-        { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" }
+        { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" },
+        { id: "attackSound", src: "./Assets/sounds/attackSound.mp3" },
+        { id: "levelCompleteSound", src: "./Assets/sounds/levelCompleteSound.mp3" },
+        { id: "gameOverSound", src: "./Assets/sounds/gameOverSound.mp3" }
     ];
 
     //preload Assets
