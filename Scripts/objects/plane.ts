@@ -72,7 +72,7 @@ module objects{
             this.BulletFire();
         }
         public BulletFire():void{
-            if(this.alpha = 1){
+            if(this.alpha === 1){
                 let ticker:number = createjs.Ticker.getTicks();
                 if(ticker % 10 == 0){
                     this._missileSpawn = new math.Vector2(this.x,this.y-this.centerY);

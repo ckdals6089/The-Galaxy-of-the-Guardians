@@ -25,10 +25,21 @@ module managers{
                 this.Missiles[count] = new objects.Missile_Boss();
                 
             }
+            
         }
         //PUBLIC METHODS
         public Start():void{
-            this._missileCount = 100;
+            switch(managers.Game.currentScene) {
+                case config.Scene.PLAY_ONE:
+                    this._missileCount = 50;
+                break;
+                case config.Scene.PLAY_TWO:
+                    this._missileCount = 100;
+                break;
+                case config.Scene.PLAY_THREE:
+                    this._missileCount = 150;
+                break;
+            }
             this.Missiles = new Array<objects.Missile_Boss>();
             this._missileShoot();
             this.CurrentMissile = 0;
