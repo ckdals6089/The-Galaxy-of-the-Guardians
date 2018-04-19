@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.3
-    Last_modification : Apr 07, 2018
-    Description : Changed the amount of enemy
+    Version : v1.4
+    Last_modification : Apr 17, 2018
+    Description : Added boss missile
 */
 
 module scenes {
@@ -19,6 +19,8 @@ module scenes {
         private _scoreBoard: managers.ScoreBoard;
         private _missileManager: managers.Missile;
         private _boss:objects.Boss;
+        private _bossMissileManager:managers.Missile_Boss;
+
         private _warningMessage:objects.Warning;
         private _prviousScore:number;
         private _congratMessage:objects.Label;
@@ -66,6 +68,9 @@ module scenes {
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
 
+            this._bossMissileManager = new managers.Missile_Boss();
+            managers.Game.BossBulletManager = this._bossMissileManager;
+
             for (let count = 0; count < this._enemyNum; count++) {
                 this._enemy[count] = new objects.Enemy();
             }
@@ -90,7 +95,8 @@ module scenes {
             this._lifeItem.Update();
             this._meteor.Update();
             this._missileManager.Update();
-
+            this._bossMissileManager.Update();
+            
             if(this._scoreBoard.Score >= this._prviousScore + 10000){
                 this._boss.Update();
                 this._warningMessage.Update();
@@ -108,18 +114,19 @@ module scenes {
                 enemy.Dy += 0.07;
                 managers.Collision.Check(this._plane, enemy);
 
-                if (this._plane.Life == 0) {
-                    managers.Game.currentScene = config.Scene.GAMEOVER;
-                    this._backgroundSound.stop();
-                }
+                // if (this._plane.Life == 0) {
+                //     managers.Game.currentScene = config.Scene.GAMEOVER;
+                //     this._backgroundSound.stop();
+                // }
             });
-            //this._collision.check(this._missile,this._enemy);
-
 
             managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
            
             this._missileManager.Missiles.forEach(missile =>{
                 managers.Collision.Check(missile,this._boss);  
+            });
+            this._bossMissileManager.Missiles.forEach(missile =>{
+                managers.Collision.Check(missile,this._plane);
             });
            
             if (this._scoreBoard.Lives <= 0) {
@@ -139,6 +146,9 @@ module scenes {
             this.addChild(this._lifeItem);
             
             this._missileManager.Missiles.forEach(missile => {
+                this.addChild(missile);
+            });
+            this._bossMissileManager.Missiles.forEach(missile =>{
                 this.addChild(missile);
             });
             this.addChild(this._warningMessage);

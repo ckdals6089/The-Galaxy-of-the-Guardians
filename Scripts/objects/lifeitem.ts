@@ -8,7 +8,7 @@ module objects {
     export class LifeItem extends GameObject {
   
       // private instance variables
-  
+
       // public properties
   
       // Constructor

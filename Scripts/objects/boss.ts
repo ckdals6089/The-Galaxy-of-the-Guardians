@@ -7,6 +7,7 @@
 module objects{
     export class Boss extends GameObject{
         //PRIVATE VARIABLES
+        private _missileSpawn:math.Vector2;
         //PUBLIC PROPERTIES
 
         //CONSTRUCTORS
@@ -24,6 +25,7 @@ module objects{
             this._dy = 5;
             this.x = 320;
             this.y = -this.height;
+            this._missileSpawn = new math.Vector2();
             // this.Reset();
         }
 
@@ -42,6 +44,27 @@ module objects{
 
             this.Move();
             this.CheckBounds();
+            this.BulletFire();
+        }
+        public BulletFire():void{
+            if(this.alpha == 1 ){
+                let ticker:number = createjs.Ticker.getTicks();
+                if(ticker % 10 == 0){
+                    this._missileSpawn = new math.Vector2(this.x,this.y);
+    
+                    let currentMissile = managers.Game.BossBulletManager.CurrentMissile;
+                    let missile = managers.Game.BossBulletManager.Missiles[currentMissile];
+                  
+                    missile.x = this._missileSpawn.x;
+                    missile.y = this._missileSpawn.y;                    
+                    console.log(missile.x, missile.y);
+                    
+                    managers.Game.BossBulletManager.CurrentMissile++;
+                    if(managers.Game.BossBulletManager.CurrentMissile > 99){
+                        managers.Game.BossBulletManager.CurrentMissile = 0;
+                    }
+                }
+            }
         }
     }
 }

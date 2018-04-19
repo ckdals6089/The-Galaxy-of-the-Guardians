@@ -22,6 +22,12 @@ module objects{
         public centerY:number;
         public Life:number;
         //public position:createjs.Point;
+        get Dx():number{
+            return this._dx;
+        }
+        set Dx(_dx:number){
+            this._dx = _dx;
+        }
         get Dy():number{
             return this._dy;
         }

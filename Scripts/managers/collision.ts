@@ -74,9 +74,27 @@ module managers {
                                         managers.Game.currentSceneObject.addChild(explosion);   
                                         createjs.Sound.play("attackSound", {volume: 0.1});                                       
                                     }     
-     
-                                
+                                    break;
+                                case "playerShip":
+                                    if( (math.Vector2.distance(onePos, otherPos) < (one.centerY + other.centerY) - 30) ){
+                                        if(one.alpha != 0){
+                                            other.life -= 1;
+                                            managers.Game.scoreboardManager.Lives -= 1;
+                                            console.log(other.life);
+                                            console.log(one.width+ ","+ one.height);
+        
+                                            
+                                            createjs.Sound.play("crashSound");
+                                            one.alpha = 0;
+        
+                                            explosion = new objects.Explosion();
+                                            explosion.x = other.x;
+                                            explosion.y = other.y;
+                                            managers.Game.currentSceneObject.addChild(explosion);
+                                            }
+                                    } 
                                 break;
+
                             }
                         
                     }

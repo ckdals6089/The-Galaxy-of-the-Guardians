@@ -17,18 +17,23 @@
 /// <reference path="../../Scripts/objects/plane.ts"/>
 /// <reference path="../../Scripts/objects/missile.ts"/>
 /// <reference path="../../Scripts/objects/enemy.ts"/>
+/// <reference path="../../Scripts/objects/missile_enemy.ts"/>
 /// <reference path="../../Scripts/objects/star.ts"/>
 /// <reference path="../../Scripts/objects/lifeitem.ts"/>
 /// <reference path="../../Scripts/objects/meteor.ts"/>
 /// <reference path="../../Scripts/objects/explosion.ts"/>
 /// <reference path="../../Scripts/objects/warning.ts"/>
 /// <reference path="../../Scripts/objects/boss.ts"/>
+/// <reference path="../../Scripts/objects/missile_boss.ts"/>
+
 
 
 /// <reference path="../../Scripts/managers/collision.ts"/>
 /// <reference path="../../Scripts/managers/keyboard.ts"/>
 /// <reference path="../../Scripts/managers/scoreboard.ts"/>
 /// <reference path="../../Scripts/managers/missile.ts"/>
+/// <reference path="../../Scripts/managers/missile_enemy.ts"/>
+/// <reference path="../../Scripts/managers/missile_boss.ts"/>
 
 /// <reference path="../../Scripts/scenes/loading.ts"/>
 /// <reference path="../../Scripts/scenes/opening.ts"/>
