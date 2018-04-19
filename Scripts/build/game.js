@@ -1002,7 +1002,7 @@ var objects;
                     missile.x = this._missileSpawn.x;
                     missile.y = this._missileSpawn.y;
                     managers.Game.BossBulletManager.CurrentMissile++;
-                    if (managers.Game.BossBulletManager.CurrentMissile > missileCount + 1) {
+                    if (managers.Game.BossBulletManager.CurrentMissile > missileCount - 1) {
                         managers.Game.BossBulletManager.CurrentMissile = 0;
                     }
                 }
