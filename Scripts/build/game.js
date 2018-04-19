@@ -9,25 +9,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 23, 2018
-    Description : Added 3rd stage scene
-*/
-var config;
-(function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["LOADING"] = 0] = "LOADING";
-        Scene[Scene["OPENING"] = 1] = "OPENING";
-        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
-        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
-        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
-        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
-        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
-    })(Scene = config.Scene || (config.Scene = {}));
-})(config || (config = {}));
-/*
     Name : Dongwan Kim
     Version : v1.0
     Last_modification : Feb 25, 2018
@@ -48,6 +29,25 @@ var config;
         return Keys;
     }());
     config.Keys = Keys;
+})(config || (config = {}));
+/*
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added 3rd stage scene
+*/
+var config;
+(function (config) {
+    var Scene;
+    (function (Scene) {
+        Scene[Scene["LOADING"] = 0] = "LOADING";
+        Scene[Scene["OPENING"] = 1] = "OPENING";
+        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
+        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
+        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
+        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
+        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
+    })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
@@ -287,6 +287,7 @@ var objects;
             _this.x = x;
             _this.y = y;
             _this._boss = managers.Game.boss;
+            _this._bossMissile = managers.Game.BossBulletManager;
             _this._enemy = managers.Game.enemies;
             _this._lifeItem = managers.Game.lifeitem;
             _this._star = managers.Game.star;
@@ -307,6 +308,9 @@ var objects;
                 this._enemy.forEach(function (enemy) {
                     enemy.alpha = 0;
                     //managers.Game.currentSceneObject.removeChild(enemy);
+                });
+                this._bossMissile.Missiles.forEach(function (missile) {
+                    missile.alpha = 0;
                 });
                 this._star.alpha = 0;
                 this._lifeItem.alpha = 0;
@@ -509,7 +513,7 @@ var objects;
             this.BulletFire();
         };
         Plane.prototype.BulletFire = function () {
-            if (this.alpha = 1) {
+            if (this.alpha === 1) {
                 var ticker = createjs.Ticker.getTicks();
                 if (ticker % 10 == 0) {
                     this._missileSpawn = new math.Vector2(this.x, this.y - this.centerY);
@@ -1385,7 +1389,17 @@ var managers;
         };
         //PUBLIC METHODS
         Missile_Boss.prototype.Start = function () {
-            this._missileCount = 100;
+            switch (managers.Game.currentScene) {
+                case config.Scene.PLAY_ONE:
+                    this._missileCount = 50;
+                    break;
+                case config.Scene.PLAY_TWO:
+                    this._missileCount = 100;
+                    break;
+                case config.Scene.PLAY_THREE:
+                    this._missileCount = 150;
+                    break;
+            }
             this.Missiles = new Array();
             this._missileShoot();
             this.CurrentMissile = 0;
