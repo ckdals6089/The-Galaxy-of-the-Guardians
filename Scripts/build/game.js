@@ -583,9 +583,9 @@ var objects;
 })(objects || (objects = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.2
-    Last_modification : Mar 16, 2018
-    Description : Added life value
+    Version : v1.4
+    Last_modification : Apr 19, 2018
+    Description : Added Enemies bullet
 */
 var objects;
 (function (objects) {
@@ -603,16 +603,15 @@ var objects;
         Enemy.prototype.Move = function () {
             this.x += this._dx;
             this.y += this._dy;
+            this.BulletFire();
         };
         Enemy.prototype.Start = function () {
             this.Reset();
             this._missileSpawn = new math.Vector2();
-            this._isShoot = false;
         };
         Enemy.prototype.Reset = function () {
             this.alpha = 1;
             this.life = 2;
-            this._isShoot = false;
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) + 2;
@@ -628,24 +627,23 @@ var objects;
             this.position = new math.Vector2(this.x, this.y);
             this.Move();
             this.CheckBounds();
-            //  this.BulletFire();
         };
         Enemy.prototype.BulletFire = function () {
-            if (this.alpha == 1 && !(this._isShoot)) {
+            if (this.alpha == 1) {
                 var ticker = createjs.Ticker.getTicks();
-                if (ticker % 10 == 0) {
-                    this._missileSpawn = new math.Vector2(this.x, this.y);
-                    var currentMissile = managers.Game.EnemyBulletManager.CurrentMissile;
-                    var missile = managers.Game.EnemyBulletManager.Missiles[currentMissile];
-                    missile.x = this._missileSpawn.x;
-                    missile.y = this._missileSpawn.y;
-                    missile.Dy = this._dy + 3;
-                    missile.Dx = this._dx + 3;
-                    managers.Game.EnemyBulletManager.CurrentMissile++;
-                    if (managers.Game.EnemyBulletManager.CurrentMissile > 2) {
-                        managers.Game.EnemyBulletManager.CurrentMissile = 0;
+                if (ticker % 60 == 0) {
+                    var enemies = managers.Game.enemies;
+                    var _missile = managers.Game.EnemyBulletManager.Missiles;
+                    for (var i = 0; i < enemies.length; i++) {
+                        if (enemies[i].alpha == 1) {
+                            this._missileSpawn = new math.Vector2(enemies[i].x, enemies[i].y);
+                            _missile[i].x = this._missileSpawn.x;
+                            _missile[i].y = this._missileSpawn.y;
+                            _missile[i].Dx = this._dx * 1.5;
+                            _missile[i].Dy = this._dy * 1.5;
+                            _missile[i].Update();
+                        }
                     }
-                    this._isShoot = true;
                 }
             }
         };
@@ -655,9 +653,9 @@ var objects;
 })(objects || (objects = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Apr 18, 2018
-    Description : Created a enemy's missile
+    Version : v1.1
+    Last_modification : Apr 19, 2018
+    Description : Change x, y values
 */
 var objects;
 (function (objects) {
@@ -683,8 +681,8 @@ var objects;
             this.CheckBounds();
         };
         Missile_Enemy.prototype.Reset = function () {
-            this.x = 5000;
-            this.y = 5000;
+            this.x = -100;
+            this.y = -100;
         };
         Missile_Enemy.prototype.CheckBounds = function () {
             if (this.y >= 480 + this.height) {
@@ -1335,9 +1333,9 @@ var managers;
 })(managers || (managers = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : April 18, 2018
-    Description : Created a missile manager class
+    Version : v1.1
+    Last_modification : April 19, 2018
+    Description : Changed the missile count
 */
 var managers;
 (function (managers) {
@@ -1354,10 +1352,19 @@ var managers;
         };
         //PUBLIC METHODS
         Missile_Enemy.prototype.Start = function () {
-            this._missileCount = 1;
+            switch (managers.Game.currentScene) {
+                case config.Scene.PLAY_ONE:
+                    this._missileCount = 5;
+                    break;
+                case config.Scene.PLAY_TWO:
+                    this._missileCount = 6;
+                    break;
+                case config.Scene.PLAY_THREE:
+                    this._missileCount = 7;
+                    break;
+            }
             this.Missiles = new Array();
             this._missileShoot();
-            this.CurrentMissile = 0;
         };
         Missile_Enemy.prototype.Update = function () {
             this.Missiles.forEach(function (missile) {
@@ -1558,9 +1565,9 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Dongwan Kim, Changmin Shin, Jowon Shin
-    Version : v2.6
-    Last_modification : Apr 17, 2018
-    Description : Added boss missile
+    Version : v2.7
+    Last_modification : Apr 18, 2018
+    Description : Added enemies missiles
 */
 var scenes;
 (function (scenes) {
@@ -1601,8 +1608,8 @@ var scenes;
             managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
-            // this._enemyMissileManager = new managers.Missile_Enemy();
-            // managers.Game.EnemyBulletManager = this._enemyMissileManager;
+            this._enemyMissileManager = new managers.Missile_Enemy();
+            managers.Game.EnemyBulletManager = this._enemyMissileManager;
             this._bossMissileManager = new managers.Missile_Boss();
             managers.Game.BossBulletManager = this._bossMissileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -1625,8 +1632,9 @@ var scenes;
             this._lifeItem.Update();
             this._meteor.Update();
             this._missileManager.Update();
-            // this._enemyMissileManager.Update();
+            this._enemyMissileManager.Update();
             this._bossMissileManager.Update();
+            // this.BulletFire();
             if (this._scoreBoard.Score >= 3000) {
                 this._boss.Update();
                 this._warningMessage.Update();
@@ -1638,16 +1646,15 @@ var scenes;
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
                 managers.Collision.Check(_this._plane, enemy);
-                // if (this._plane.Life == 0) {
-                //     managers.Game.currentScene = config.Scene.GAMEOVER;
-                //     this._backgroundSound.stop();
-                // }
             });
             managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
             this._missileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._boss);
             });
             this._bossMissileManager.Missiles.forEach(function (missile) {
+                managers.Collision.Check(missile, _this._plane);
+            });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
             if (this._scoreBoard.Lives <= 0) {
@@ -1665,9 +1672,10 @@ var scenes;
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
-            // this._enemyMissileManager.Missiles.forEach(missile =>{
-            //     this.addChild(missile);
-            // });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
+                _this.addChild(missile);
+            });
+            // this.addChild(this._enemyMissileManager);
             this._bossMissileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
@@ -1687,9 +1695,9 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.5
-    Last_modification : Apr 17, 2018
-    Description : Added boss missile
+    Version : v1.6
+    Last_modification : Apr 18, 2018
+    Description : Added enemies missiles
 */
 var scenes;
 (function (scenes) {
@@ -1730,6 +1738,8 @@ var scenes;
             managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
+            this._enemyMissileManager = new managers.Missile_Enemy();
+            managers.Game.EnemyBulletManager = this._enemyMissileManager;
             this._bossMissileManager = new managers.Missile_Boss();
             managers.Game.BossBulletManager = this._bossMissileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -1753,6 +1763,7 @@ var scenes;
             this._lifeItem.Update();
             this._meteor.Update();
             this._missileManager.Update();
+            this._enemyMissileManager.Update();
             this._bossMissileManager.Update();
             if (this._scoreBoard.Score >= this._prviousScore + 5000) {
                 this._boss.Update();
@@ -1766,16 +1777,15 @@ var scenes;
                 enemy.Update();
                 enemy.Dy += 0.07;
                 managers.Collision.Check(_this._plane, enemy);
-                // if (this._plane.Life == 0) {
-                //     managers.Game.currentScene = config.Scene.GAMEOVER;
-                //     this._backgroundSound.stop();
-                // }
             });
             managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
             this._missileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._boss);
             });
             this._bossMissileManager.Missiles.forEach(function (missile) {
+                managers.Collision.Check(missile, _this._plane);
+            });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
             if (this._scoreBoard.Lives <= 0) {
@@ -1791,6 +1801,9 @@ var scenes;
             this.addChild(this._star);
             this.addChild(this._lifeItem);
             this._missileManager.Missiles.forEach(function (missile) {
+                _this.addChild(missile);
+            });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
             this._bossMissileManager.Missiles.forEach(function (missile) {
@@ -1812,9 +1825,9 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.4
-    Last_modification : Apr 17, 2018
-    Description : Added boss missile
+    Version : v1.5
+    Last_modification : Apr 18, 2018
+    Description : Added enemies missiles
 */
 var scenes;
 (function (scenes) {
@@ -1855,6 +1868,8 @@ var scenes;
             managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
+            this._enemyMissileManager = new managers.Missile_Enemy();
+            managers.Game.EnemyBulletManager = this._enemyMissileManager;
             this._bossMissileManager = new managers.Missile_Boss();
             managers.Game.BossBulletManager = this._bossMissileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -1878,8 +1893,9 @@ var scenes;
             this._lifeItem.Update();
             this._meteor.Update();
             this._missileManager.Update();
+            this._enemyMissileManager.Update();
             this._bossMissileManager.Update();
-            if (this._scoreBoard.Score >= this._prviousScore + 10000) {
+            if (this._scoreBoard.Score >= this._prviousScore + 3000) {
                 this._boss.Update();
                 this._warningMessage.Update();
             }
@@ -1891,16 +1907,15 @@ var scenes;
                 enemy.Update();
                 enemy.Dy += 0.07;
                 managers.Collision.Check(_this._plane, enemy);
-                // if (this._plane.Life == 0) {
-                //     managers.Game.currentScene = config.Scene.GAMEOVER;
-                //     this._backgroundSound.stop();
-                // }
             });
             managers.Collision.Crush(this._missileManager.Missiles, this._enemy);
             this._missileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._boss);
             });
             this._bossMissileManager.Missiles.forEach(function (missile) {
+                managers.Collision.Check(missile, _this._plane);
+            });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
             if (this._scoreBoard.Lives <= 0) {
@@ -1916,6 +1931,9 @@ var scenes;
             this.addChild(this._star);
             this.addChild(this._lifeItem);
             this._missileManager.Missiles.forEach(function (missile) {
+                _this.addChild(missile);
+            });
+            this._enemyMissileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
             this._bossMissileManager.Missiles.forEach(function (missile) {

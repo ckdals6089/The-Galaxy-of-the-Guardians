@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : Apr 18, 2018
-    Description : Created a enemy's missile
+    Version : v1.1
+    Last_modification : Apr 19, 2018
+    Description : Change x, y values
 */
 module objects {
     export class Missile_Enemy extends objects.GameObject {
@@ -29,8 +29,8 @@ module objects {
             this.CheckBounds();
         }
         public Reset(): void {
-            this.x = 5000;
-            this.y = 5000;
+            this.x = -100;
+            this.y = -100;
         }
         public CheckBounds(): void {
             if (this.y >= 480 + this.height) {

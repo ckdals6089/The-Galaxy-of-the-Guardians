@@ -1,14 +1,14 @@
 /*
     Name : Dongwan Kim
-    Version : v1.2
-    Last_modification : Mar 16, 2018
-    Description : Added life value
+    Version : v1.4
+    Last_modification : Apr 19, 2018
+    Description : Added Enemies bullet
 */
 module objects{
     export class Enemy extends GameObject{
         //PRIVATE VARIABLES
         private _missileSpawn:math.Vector2;
-        private _isShoot:boolean;
+
         //PUBLIC PROPERTIES
 
         //CONSTRUCTORS
@@ -22,20 +22,21 @@ module objects{
         public Move():void{
             this.x += this._dx;
             this.y += this._dy;
+            this.BulletFire();
+
         }
         public Start():void{
             this.Reset();
             this._missileSpawn = new math.Vector2();
-            this._isShoot = false;
         }
         public Reset():void{
             this.alpha = 1;
             this.life=2;
-            this._isShoot = false;
             this.x = (Math.random() * (640 - this.width)) + this.centerX;
             this.y = -this.height;
             this._dx = (Math.random() * -4) +2;
             this._dy = (Math.random() * 5) + 5;
+
            
 
         }
@@ -51,30 +52,34 @@ module objects{
             this.Move();
             this.CheckBounds();
 
-          //  this.BulletFire();
 
         }
 
         public BulletFire():void{
-            if(this.alpha == 1 && !(this._isShoot)){
+            if(this.alpha == 1){
                 let ticker:number = createjs.Ticker.getTicks();
-                if(ticker % 10 == 0){
-                    this._missileSpawn = new math.Vector2(this.x,this.y);
-    
-                    let currentMissile = managers.Game.EnemyBulletManager.CurrentMissile;
-                    let missile = managers.Game.EnemyBulletManager.Missiles[currentMissile];
-                  
-                    missile.x = this._missileSpawn.x;
-                    missile.y = this._missileSpawn.y;                    
-                    missile.Dy = this._dy + 3;
-                    missile.Dx = this._dx + 3;
+                if(ticker % 60 == 0){
+                    let enemies:Enemy[] =  managers.Game.enemies;
+                    let _missile:Missile_Enemy[] = managers.Game.EnemyBulletManager.Missiles;
+                    
+                    for(let i=0; i < enemies.length;i++){
+                        if(enemies[i].alpha == 1){
+                            this._missileSpawn = new math.Vector2(enemies[i].x,enemies[i].y);
 
+                            _missile[i].x = this._missileSpawn.x;
+                            _missile[i].y = this._missileSpawn.y;    
+                                _missile[i].Dx = this._dx*1.5;
+                            
+                                _missile[i].Dy = this._dy* 1.5;  
+                                _missile[i].Update();
+                        
+                        }
 
-                    managers.Game.EnemyBulletManager.CurrentMissile++;
-                    if(managers.Game.EnemyBulletManager.CurrentMissile > 2){
-                        managers.Game.EnemyBulletManager.CurrentMissile = 0;
                     }
-                    this._isShoot = true;
+                
+                    
+
+
                 }
             }
         }

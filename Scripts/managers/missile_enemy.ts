@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.0
-    Last_modification : April 18, 2018
-    Description : Created a missile manager class
+    Version : v1.1
+    Last_modification : April 19, 2018
+    Description : Changed the missile count
 */
 
 module managers{
@@ -12,7 +12,6 @@ module managers{
 
         //PUBLIC PROPERTIES
         public Missiles:objects.Missile_Enemy[];
-        public CurrentMissile:number;
 
         //CONSTRUCTOR
         constructor(){
@@ -23,15 +22,24 @@ module managers{
         private _missileShoot():void{
             for(let count = 0; count < this._missileCount;count++){
                 this.Missiles[count] = new objects.Missile_Enemy();
-                
+               
             }
         }
         //PUBLIC METHODS
         public Start():void{
-            this._missileCount=1;
+            switch(managers.Game.currentScene) {
+                case config.Scene.PLAY_ONE:
+                    this._missileCount = 5;
+                break;
+                case config.Scene.PLAY_TWO:
+                    this._missileCount = 6;
+                break;
+                case config.Scene.PLAY_THREE:
+                    this._missileCount = 7;
+                break;
+            }
             this.Missiles = new Array<objects.Missile_Enemy>();
             this._missileShoot();
-            this.CurrentMissile = 0;
         }
 
         public Update():void{
