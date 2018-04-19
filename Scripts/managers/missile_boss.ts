@@ -31,13 +31,13 @@ module managers{
         public Start():void{
             switch(managers.Game.currentScene) {
                 case config.Scene.PLAY_ONE:
-                    this._missileCount = 50;
+                    this._missileCount = 10;
                 break;
                 case config.Scene.PLAY_TWO:
-                    this._missileCount = 100;
+                    this._missileCount = 40;
                 break;
                 case config.Scene.PLAY_THREE:
-                    this._missileCount = 150;
+                    this._missileCount = 100;
                 break;
             }
             this.MissileCount = this._missileCount;

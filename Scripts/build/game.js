@@ -9,25 +9,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 23, 2018
-    Description : Added 3rd stage scene
-*/
-var config;
-(function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["LOADING"] = 0] = "LOADING";
-        Scene[Scene["OPENING"] = 1] = "OPENING";
-        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
-        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
-        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
-        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
-        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
-    })(Scene = config.Scene || (config.Scene = {}));
-})(config || (config = {}));
-/*
     Name : Dongwan Kim
     Version : v1.0
     Last_modification : Feb 25, 2018
@@ -48,6 +29,25 @@ var config;
         return Keys;
     }());
     config.Keys = Keys;
+})(config || (config = {}));
+/*
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added 3rd stage scene
+*/
+var config;
+(function (config) {
+    var Scene;
+    (function (Scene) {
+        Scene[Scene["LOADING"] = 0] = "LOADING";
+        Scene[Scene["OPENING"] = 1] = "OPENING";
+        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
+        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
+        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
+        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
+        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
+    })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
@@ -1114,6 +1114,8 @@ var managers;
                                 other.life -= 1;
                                 if (other.life < 0) {
                                     other.alpha = 0;
+                                    managers.Game.scoreboardManager.Score += 2000;
+                                    createjs.Sound.play("bazookaSound");
                                 }
                                 one.alpha = 0;
                                 if (other.y == 50) {
@@ -1161,7 +1163,6 @@ var managers;
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;
                                     missile[countM].alpha = 0;
-                                    //createjs.Sound.play("");  TODO: put proper sound
                                     enemy[countE].life -= 1;
                                     var explosion = new objects.Explosion();
                                     explosion.x = enemy[countE].x;
@@ -1286,7 +1287,7 @@ var managers;
         // private methods
         ScoreBoard.prototype._initialize = function () {
             this.LivesLabel = new objects.Label("Lives: 0", "20px", "SpaceComic", "#FFFFFF", 10, 10, false);
-            this.ScoreLabel = new objects.Label("Score: 99999", "15px", "SpaceComic", "#FFFF00", 480, 10, false);
+            this.ScoreLabel = new objects.Label("Score: 99999", "15px", "SpaceComic", "#FFFF00", 475, 10, false);
             this.HighScoreLabel = new objects.Label("High Score: 99999", "40px", "SpaceComic", "#FFFFFF", 320, 140, true);
             this.Score = 0;
             this.Lives = 3;
@@ -1398,13 +1399,13 @@ var managers;
         Missile_Boss.prototype.Start = function () {
             switch (managers.Game.currentScene) {
                 case config.Scene.PLAY_ONE:
-                    this._missileCount = 50;
+                    this._missileCount = 10;
                     break;
                 case config.Scene.PLAY_TWO:
-                    this._missileCount = 100;
+                    this._missileCount = 40;
                     break;
                 case config.Scene.PLAY_THREE:
-                    this._missileCount = 150;
+                    this._missileCount = 100;
                     break;
             }
             this.MissileCount = this._missileCount;
@@ -1661,6 +1662,12 @@ var scenes;
             this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
+            if (this._scoreBoard.Lives <= 1) {
+                this._scoreBoard.LivesLabel.color = "#FF0000";
+            }
+            else if (this._scoreBoard.Lives >= 2) {
+                this._scoreBoard.LivesLabel.color = "#FFFFFF";
+            }
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
@@ -1792,6 +1799,12 @@ var scenes;
             this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
+            if (this._scoreBoard.Lives <= 1) {
+                this._scoreBoard.LivesLabel.color = "#FF0000";
+            }
+            else if (this._scoreBoard.Lives >= 2) {
+                this._scoreBoard.LivesLabel.color = "#FFFFFF";
+            }
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
@@ -1922,6 +1935,12 @@ var scenes;
             this._enemyMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
+            if (this._scoreBoard.Lives <= 1) {
+                this._scoreBoard.LivesLabel.color = "#FF0000";
+            }
+            else if (this._scoreBoard.Lives >= 2) {
+                this._scoreBoard.LivesLabel.color = "#FFFFFF";
+            }
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
@@ -1986,7 +2005,7 @@ var scenes;
             this._background = new objects.Background(this.assetManager);
             this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "SpaceComic", "#FF0000", 320, 240, true);
-            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 120, 95, false);
+            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 100, 95, false);
             this._scoreboard = new managers.ScoreBoard;
             this.Main();
             console.log("game over");
@@ -2157,7 +2176,7 @@ var scenes;
         { id: "backgroundSound", src: "./Assets/sounds/background.mp3" },
         { id: "missileSound", src: "./Assets/sounds/missileSound.mp3" },
         { id: "warningSound", src: "./Assets/sounds/warningSound.mp3" },
-        { id: "bazoozaSound", src: "./Assets/sounds/bazookaSound.mp3" },
+        { id: "bazookaSound", src: "./Assets/sounds/bazookaSound.mp3" },
         { id: "crashSound", src: "./Assets/sounds/crashSound.mp3" },
         { id: "tadaSound", src: "./Assets/sounds/tada.mp3" },
         { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" },
