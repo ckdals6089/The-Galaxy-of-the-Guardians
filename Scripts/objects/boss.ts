@@ -54,13 +54,12 @@ module objects{
     
                     let currentMissile = managers.Game.BossBulletManager.CurrentMissile;
                     let missile = managers.Game.BossBulletManager.Missiles[currentMissile];
-                  
+                    let missileCount = managers.Game.BossBulletManager.MissileCount;
                     missile.x = this._missileSpawn.x;
                     missile.y = this._missileSpawn.y;                    
-                    console.log(missile.x, missile.y);
-                    
                     managers.Game.BossBulletManager.CurrentMissile++;
-                    if(managers.Game.BossBulletManager.CurrentMissile > 99){
+
+                    if(managers.Game.BossBulletManager.CurrentMissile > missileCount + 1){
                         managers.Game.BossBulletManager.CurrentMissile = 0;
                     }
                 }

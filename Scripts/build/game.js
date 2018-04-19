@@ -9,6 +9,25 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added 3rd stage scene
+*/
+var config;
+(function (config) {
+    var Scene;
+    (function (Scene) {
+        Scene[Scene["LOADING"] = 0] = "LOADING";
+        Scene[Scene["OPENING"] = 1] = "OPENING";
+        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
+        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
+        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
+        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
+        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
+    })(Scene = config.Scene || (config.Scene = {}));
+})(config || (config = {}));
+/*
     Name : Dongwan Kim
     Version : v1.0
     Last_modification : Feb 25, 2018
@@ -29,25 +48,6 @@ var config;
         return Keys;
     }());
     config.Keys = Keys;
-})(config || (config = {}));
-/*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 23, 2018
-    Description : Added 3rd stage scene
-*/
-var config;
-(function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["LOADING"] = 0] = "LOADING";
-        Scene[Scene["OPENING"] = 1] = "OPENING";
-        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
-        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
-        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
-        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
-        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
-    })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
@@ -998,11 +998,11 @@ var objects;
                     this._missileSpawn = new math.Vector2(this.x, this.y);
                     var currentMissile = managers.Game.BossBulletManager.CurrentMissile;
                     var missile = managers.Game.BossBulletManager.Missiles[currentMissile];
+                    var missileCount = managers.Game.BossBulletManager.MissileCount;
                     missile.x = this._missileSpawn.x;
                     missile.y = this._missileSpawn.y;
-                    console.log(missile.x, missile.y);
                     managers.Game.BossBulletManager.CurrentMissile++;
-                    if (managers.Game.BossBulletManager.CurrentMissile > 99) {
+                    if (managers.Game.BossBulletManager.CurrentMissile > missileCount + 1) {
                         managers.Game.BossBulletManager.CurrentMissile = 0;
                     }
                 }
@@ -1400,6 +1400,7 @@ var managers;
                     this._missileCount = 150;
                     break;
             }
+            this.MissileCount = this._missileCount;
             this.Missiles = new Array();
             this._missileShoot();
             this.CurrentMissile = 0;

@@ -13,7 +13,7 @@ module managers{
         //PUBLIC PROPERTIES
         public Missiles:objects.Missile_Boss[];
         public CurrentMissile:number;
-
+        public MissileCount:number;
         //CONSTRUCTOR
         constructor(){
             this.Start();
@@ -40,6 +40,7 @@ module managers{
                     this._missileCount = 150;
                 break;
             }
+            this.MissileCount = this._missileCount;
             this.Missiles = new Array<objects.Missile_Boss>();
             this._missileShoot();
             this.CurrentMissile = 0;
