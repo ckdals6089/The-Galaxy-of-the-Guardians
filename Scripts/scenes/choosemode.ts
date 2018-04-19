@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.2
-    Last_modification : Feb 25, 2018
-    Description : Added a background image
+    Version : v1.3
+    Last_modification : Apr 19, 2018
+    Description : Implemented selected mode value
 */
 
 module scenes{
@@ -24,10 +24,14 @@ module scenes{
         //PRIVATE METHODS
         private _btnNormalClick():void{
             managers.Game.currentScene = config.Scene.PLAY_ONE;
+            //Selection 0: Normal mode
+            managers.Game.selectedMode = 0;
         }
 
         private _btnHellClick():void{
             managers.Game.currentScene = config.Scene.PLAY_ONE;
+            //Selection 0: Normal mode
+            managers.Game.selectedMode = 1;
         }
 
         private _btnBackClick():void {

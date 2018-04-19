@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.6
-    Last_modification : Apr 18, 2018
-    Description : Added enemy bullet manager
+    Version : v1.7
+    Last_modification : Apr 19, 2018
+    Description : Added mode selection value
 */
 module managers{
     export class Game{
@@ -13,6 +13,7 @@ module managers{
         public static keyboardManager:managers.Keyboard;
         public static scoreboardManager:managers.ScoreBoard;
         public static HighScore: number = 0;
+        public static selectedMode:number;
         public static textureAtlas: createjs.SpriteSheet;
         public static plane:objects.Plane;
         public static enemies:objects.Enemy[];

@@ -51,9 +51,9 @@ var config;
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.6
-    Last_modification : Apr 18, 2018
-    Description : Added enemy bullet manager
+    Version : v1.7
+    Last_modification : Apr 19, 2018
+    Description : Added mode selection value
 */
 var managers;
 (function (managers) {
@@ -1512,9 +1512,9 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
-    Version : v1.2
-    Last_modification : Feb 25, 2018
-    Description : Added a background image
+    Version : v1.3
+    Last_modification : Apr 19, 2018
+    Description : Implemented selected mode value
 */
 var scenes;
 (function (scenes) {
@@ -1530,9 +1530,13 @@ var scenes;
         //PRIVATE METHODS
         chooseModeScene.prototype._btnNormalClick = function () {
             managers.Game.currentScene = config.Scene.PLAY_ONE;
+            //Selection 0: Normal mode
+            managers.Game.selectedMode = 0;
         };
         chooseModeScene.prototype._btnHellClick = function () {
             managers.Game.currentScene = config.Scene.PLAY_ONE;
+            //Selection 0: Normal mode
+            managers.Game.selectedMode = 1;
         };
         chooseModeScene.prototype._btnBackClick = function () {
             managers.Game.currentScene = config.Scene.OPENING;
@@ -1825,9 +1829,9 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Dongwan Kim
-    Version : v1.5
+    Version : v1.6
     Last_modification : Apr 18, 2018
-    Description : Added enemies missiles
+    Description : Modified success condition
 */
 var scenes;
 (function (scenes) {
@@ -1922,7 +1926,10 @@ var scenes;
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
-            this._sucessStage();
+            //Finish the game when boss is dead in normal mode
+            if (managers.Game.selectedMode == 0) {
+                this._sucessStage();
+            }
         };
         StageThreeScene.prototype.Main = function () {
             var _this = this;

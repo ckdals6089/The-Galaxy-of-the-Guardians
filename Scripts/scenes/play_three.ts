@@ -1,8 +1,8 @@
 /*
     Name : Dongwan Kim
-    Version : v1.5
+    Version : v1.6
     Last_modification : Apr 18, 2018
-    Description : Added enemies missiles
+    Description : Modified success condition
 */
 
 module scenes {
@@ -136,7 +136,10 @@ module scenes {
                 this._backgroundSound.stop();
             }
 
-            this._sucessStage();
+            //Finish the game when boss is dead in normal mode
+            if(managers.Game.selectedMode == 0){
+                this._sucessStage();
+            }
 
 
         }

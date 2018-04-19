@@ -45,6 +45,7 @@ module scenes {
 
         //PUBLIC METHODS
         public Start(): void {
+            
             this._background = new objects.Background(this.assetManager);
 
             this._plane = new objects.Plane();
