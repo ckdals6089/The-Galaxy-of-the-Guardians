@@ -32,7 +32,7 @@ module scenes {
             this._background = new objects.Background(this.assetManager);
             this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 360);
             this._lblGameOver = new objects.Label("Game Over", "40px", "SpaceComic", "#FF0000", 320, 240, true);
-            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 120, 95, false);
+            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FF0000", 100, 95, false);
 
             this._scoreboard = new managers.ScoreBoard;
 

@@ -65,6 +65,8 @@ module managers {
                                     other.life -= 1;
                                     if(other.life < 0){
                                         other.alpha = 0;
+                                        managers.Game.scoreboardManager.Score += 2000;
+                                        createjs.Sound.play("bazookaSound");
                                     }                   
                                     one.alpha = 0;
                                     if(other.y == 50){
@@ -82,8 +84,7 @@ module managers {
                                             managers.Game.scoreboardManager.Lives -= 1;
                                             console.log(other.life);
                                             console.log(one.width+ ","+ one.height);
-        
-                                            
+                                                    
                                             createjs.Sound.play("crashSound");
                                             one.alpha = 0;
         
@@ -120,7 +121,6 @@ module managers {
                                 if (!enemy[countE].isColliding) {
                                     enemy[countE].isColliding = true;
                                     missile[countM].alpha = 0;
-                                    //createjs.Sound.play("");  TODO: put proper sound
                                     enemy[countE].life -=1;
 
                                     let explosion = new objects.Explosion();
