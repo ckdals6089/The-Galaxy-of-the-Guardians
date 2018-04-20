@@ -41,7 +41,7 @@ module scenes {
             if (this._boss.alpha ==0) {
                 this._congratMessage.Update();
                  setTimeout(() => {
-                    managers.Game.currentScene = config.Scene.GAMEOVER;
+                    managers.Game.currentScene = config.Scene.COMPLETE;
                  }, 4000);
                 this._backgroundSound.stop();
             }

@@ -12,6 +12,7 @@ module config{
         PLAY_ONE,
         PLAY_TWO,
         PLAY_THREE,
-        GAMEOVER
+        GAMEOVER,
+        COMPLETE
     }
 }
