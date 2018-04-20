@@ -9,25 +9,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
-    Name : Dongwan Kim, Jowon Shin
-    Version : v1.4
-    Last_modification : Feb 23, 2018
-    Description : Added 3rd stage scene
-*/
-var config;
-(function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["LOADING"] = 0] = "LOADING";
-        Scene[Scene["OPENING"] = 1] = "OPENING";
-        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
-        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
-        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
-        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
-        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
-    })(Scene = config.Scene || (config.Scene = {}));
-})(config || (config = {}));
-/*
     Name : Dongwan Kim
     Version : v1.0
     Last_modification : Feb 25, 2018
@@ -48,6 +29,26 @@ var config;
         return Keys;
     }());
     config.Keys = Keys;
+})(config || (config = {}));
+/*
+    Name : Dongwan Kim, Jowon Shin
+    Version : v1.4
+    Last_modification : Feb 23, 2018
+    Description : Added 3rd stage scene
+*/
+var config;
+(function (config) {
+    var Scene;
+    (function (Scene) {
+        Scene[Scene["LOADING"] = 0] = "LOADING";
+        Scene[Scene["OPENING"] = 1] = "OPENING";
+        Scene[Scene["CHOOSEMODE"] = 2] = "CHOOSEMODE";
+        Scene[Scene["PLAY_ONE"] = 3] = "PLAY_ONE";
+        Scene[Scene["PLAY_TWO"] = 4] = "PLAY_TWO";
+        Scene[Scene["PLAY_THREE"] = 5] = "PLAY_THREE";
+        Scene[Scene["GAMEOVER"] = 6] = "GAMEOVER";
+        Scene[Scene["COMPLETE"] = 7] = "COMPLETE";
+    })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 /*
     Name : Dongwan Kim, Jowon Shin
@@ -1881,7 +1882,7 @@ var scenes;
             if (this._boss.alpha == 0) {
                 this._congratMessage.Update();
                 setTimeout(function () {
-                    managers.Game.currentScene = config.Scene.GAMEOVER;
+                    managers.Game.currentScene = config.Scene.COMPLETE;
                 }, 4000);
                 this._backgroundSound.stop();
             }
@@ -2004,6 +2005,53 @@ var scenes;
 })(scenes || (scenes = {}));
 /*
     Name : Jowon Shin
+    Version : v1.0
+    Last_modification : April 20, 2018
+    Description : created game complete
+*/
+var scenes;
+(function (scenes) {
+    var CompleteScene = /** @class */ (function (_super) {
+        __extends(CompleteScene, _super);
+        //PUBLIC PROPERTIES
+        //CONSTRUCTOR
+        function CompleteScene() {
+            var _this = _super.call(this) || this;
+            _this.Start();
+            return _this;
+        }
+        //PRIVATE METHODS
+        CompleteScene.prototype._btnPlayAgainClick = function () {
+            managers.Game.currentScene = config.Scene.OPENING;
+        };
+        //PUBLIC METHODS
+        CompleteScene.prototype.Start = function () {
+            this._background = new objects.Background(this.assetManager);
+            this._btnPlayAgain = new objects.Button("btnPlayAgain", 320, 400);
+            this._lblCongrat = new objects.Label("Congratulations! Game Complete!", "30px", "SpaceComic", "#FFFFFF", 320, 240, true);
+            this._lblScore = new objects.Label("High Score: ", "40px", "SpaceComic", "#FFFFFF", 100, 95, false);
+            this._scoreboard = new managers.ScoreBoard;
+            this.Main();
+            console.log("game complete");
+        };
+        CompleteScene.prototype.Update = function () {
+        };
+        CompleteScene.prototype.Main = function () {
+            createjs.Sound.play("tadaSound");
+            this.addChild(this._background);
+            this.addChild(this._lblCongrat);
+            this.addChild(this._btnPlayAgain);
+            this._scoreboard.HighScore = managers.Game.HighScore;
+            this._lblScore.text += this._scoreboard.HighScore;
+            this.addChild(this._lblScore);
+            this._btnPlayAgain.on("click", this._btnPlayAgainClick);
+        };
+        return CompleteScene;
+    }(objects.Scene));
+    scenes.CompleteScene = CompleteScene;
+})(scenes || (scenes = {}));
+/*
+    Name : Jowon Shin
     Version : v1.2
     Last_modification : Feb 23, 2018
     Description : added High Score Label
@@ -2082,6 +2130,7 @@ var scenes;
 /// <reference path="../../Scripts/scenes/play_one.ts"/>
 /// <reference path="../../Scripts/scenes/play_two.ts"/>
 /// <reference path="../../Scripts/scenes/play_three.ts"/>
+/// <reference path="../../Scripts/scenes/complete.ts"/>
 /// <reference path="../../Scripts/scenes/gameover.ts"/>
 /*
     Name : Dongwan Kim, Jowon Shin, Changmin Shin
@@ -2271,6 +2320,9 @@ var scenes;
                 break;
             case config.Scene.GAMEOVER:
                 currentScene = new scenes.GameOverScene();
+                break;
+            case config.Scene.COMPLETE:
+                currentScene = new scenes.CompleteScene();
                 break;
         }
         currentState = managers.Game.currentScene;

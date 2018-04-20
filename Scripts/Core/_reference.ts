@@ -41,5 +41,6 @@
 /// <reference path="../../Scripts/scenes/play_one.ts"/>
 /// <reference path="../../Scripts/scenes/play_two.ts"/>
 /// <reference path="../../Scripts/scenes/play_three.ts"/>
+/// <reference path="../../Scripts/scenes/complete.ts"/>
 
 /// <reference path="../../Scripts/scenes/gameover.ts"/>
