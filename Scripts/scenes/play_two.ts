@@ -117,6 +117,11 @@ module scenes {
                 enemy.Update();
                 enemy.Dy += 0.07;
                 managers.Collision.Check(this._plane, enemy);
+
+                if (this._plane.Life <= 0) {
+                    managers.Game.currentScene = config.Scene.GAMEOVER;
+                    this._backgroundSound.stop();
+                }
             });
 
 
