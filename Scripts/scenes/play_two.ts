@@ -141,7 +141,7 @@ module scenes {
             } else if(this._scoreBoard.Lives >= 2){
                 this._scoreBoard.LivesLabel.color = "#FFFFFF";
             }
-            if (this._scoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives === 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }

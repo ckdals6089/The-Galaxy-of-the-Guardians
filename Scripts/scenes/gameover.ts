@@ -45,7 +45,7 @@ module scenes {
         }
 
         public Main(): void {
-            createjs.Sound.play("gameOverSound"); //must be changed
+            createjs.Sound.play("gameOverSound");
             this.addChild(this._background);
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
