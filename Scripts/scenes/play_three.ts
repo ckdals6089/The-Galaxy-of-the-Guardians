@@ -41,7 +41,7 @@ module scenes {
             if (this._boss.alpha ==0) {
                 this._congratMessage.Update();
                  setTimeout(() => {
-                    managers.Game.currentScene = config.Scene.GAMEOVER; 
+                    managers.Game.currentScene = config.Scene.GAMEOVER;
                  }, 4000);
                 this._backgroundSound.stop();
             }
@@ -136,7 +136,7 @@ module scenes {
             } else if(this._scoreBoard.Lives >= 2){
                 this._scoreBoard.LivesLabel.color = "#FFFFFF";
             }
-            if (this._scoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives === 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }

@@ -130,6 +130,7 @@
         { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" },
         { id: "attackSound", src: "./Assets/sounds/attackSound.mp3" },
         { id: "levelCompleteSound", src: "./Assets/sounds/levelCompleteSound.mp3" },
+        { id: "storySound", src: "./Assets/sounds/storySound.mp3" }
         { id: "gameOverSound", src: "./Assets/sounds/gameOverSound.mp3" }
     ];
 

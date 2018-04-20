@@ -1442,26 +1442,37 @@ var scenes;
         //PRIVATE METHODS
         loadingScene.prototype.GoStart = function () {
             setTimeout(
-            //Move to Opening scene after 3 seconds
+            //Move to Opening scene after 5 seconds
             function () {
                 managers.Game.currentScene = config.Scene.OPENING;
-            }, 3000);
+            }, 7000);
         };
-        loadingScene.prototype.AnimateLogo = function () {
+        loadingScene.prototype.UpdateLabel = function (label) {
+            label.alpha = 1;
+            label.y -= 2;
         };
         //PUBLIC METHODS
         loadingScene.prototype.Start = function () {
+            createjs.Sound.play("storySound", { loop: 1 });
             this._background = new objects.Background(this.assetManager);
             this._logo = new objects.Logo(this.assetManager, "imgLogo", 320, 220);
+            this._line1 = new objects.Label("In 4444, aliens are invading Earth", "20px", "SpaceComic", "#FFFFFF", 280, 500, true);
+            this._line2 = new objects.Label("It is your job to defend", "20px", "SpaceComic", "#FFFFFF", 280, 550, true);
+            this._line3 = new objects.Label("your home planet, Earth annd the Galaxy!", "20px", "SpaceComic", "#FFFFFF", 280, 600, true);
             this.Main();
             console.log("loading game..");
         };
         loadingScene.prototype.Update = function () {
+            this.UpdateLabel(this._line1);
+            this.UpdateLabel(this._line2);
+            this.UpdateLabel(this._line3);
         };
         loadingScene.prototype.Main = function () {
             this.addChild(this._background);
-            this.addChild(this._logo);
-            this.AnimateLogo();
+            //this.addChild(this._logo);
+            this.addChild(this._line1);
+            this.addChild(this._line2);
+            this.addChild(this._line3);
             this.GoStart();
         };
         return loadingScene;
@@ -1613,8 +1624,8 @@ var scenes;
             managers.Game.boss = this._boss;
             this._missileManager = new managers.Missile();
             managers.Game.bulletManager = this._missileManager;
-            this._enemyMissileManager = new managers.Missile_Enemy();
-            managers.Game.EnemyBulletManager = this._enemyMissileManager;
+            // this._enemyMissileManager = new managers.Missile_Enemy();
+            // managers.Game.EnemyBulletManager = this._enemyMissileManager;
             this._bossMissileManager = new managers.Missile_Boss();
             managers.Game.BossBulletManager = this._bossMissileManager;
             for (var count = 0; count < this._enemyNum; count++) {
@@ -1637,7 +1648,7 @@ var scenes;
             this._lifeItem.Update();
             this._meteor.Update();
             this._missileManager.Update();
-            this._enemyMissileManager.Update();
+            // this._enemyMissileManager.Update();
             this._bossMissileManager.Update();
             // this.BulletFire();
             if (this._scoreBoard.Score >= 3000) {
@@ -1659,16 +1670,16 @@ var scenes;
             this._bossMissileManager.Missiles.forEach(function (missile) {
                 managers.Collision.Check(missile, _this._plane);
             });
-            this._enemyMissileManager.Missiles.forEach(function (missile) {
-                managers.Collision.Check(missile, _this._plane);
-            });
+            // this._enemyMissileManager.Missiles.forEach(missile =>{
+            //     managers.Collision.Check(missile, this._plane);
+            // });
             if (this._scoreBoard.Lives <= 1) {
                 this._scoreBoard.LivesLabel.color = "#FF0000";
             }
             else if (this._scoreBoard.Lives >= 2) {
                 this._scoreBoard.LivesLabel.color = "#FFFFFF";
             }
-            if (this._scoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives === 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
@@ -1683,9 +1694,9 @@ var scenes;
             this._missileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
             });
-            this._enemyMissileManager.Missiles.forEach(function (missile) {
-                _this.addChild(missile);
-            });
+            // this._enemyMissileManager.Missiles.forEach(missile =>{
+            //     this.addChild(missile);
+            // });
             // this.addChild(this._enemyMissileManager);
             this._bossMissileManager.Missiles.forEach(function (missile) {
                 _this.addChild(missile);
@@ -1805,7 +1816,7 @@ var scenes;
             else if (this._scoreBoard.Lives >= 2) {
                 this._scoreBoard.LivesLabel.color = "#FFFFFF";
             }
-            if (this._scoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives === 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
@@ -1941,7 +1952,7 @@ var scenes;
             else if (this._scoreBoard.Lives >= 2) {
                 this._scoreBoard.LivesLabel.color = "#FFFFFF";
             }
-            if (this._scoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives === 0) {
                 managers.Game.currentScene = config.Scene.GAMEOVER;
                 this._backgroundSound.stop();
             }
@@ -2013,7 +2024,7 @@ var scenes;
         GameOverScene.prototype.Update = function () {
         };
         GameOverScene.prototype.Main = function () {
-            createjs.Sound.play("gameOverSound"); //must be changed
+            createjs.Sound.play("gameOverSound");
             this.addChild(this._background);
             this.addChild(this._lblGameOver);
             this.addChild(this._btnPlayAgain);
@@ -2182,6 +2193,7 @@ var scenes;
         { id: "gettingItemSound", src: "./Assets/sounds/gettingItem.wav" },
         { id: "attackSound", src: "./Assets/sounds/attackSound.mp3" },
         { id: "levelCompleteSound", src: "./Assets/sounds/levelCompleteSound.mp3" },
+        { id: "storySound", src: "./Assets/sounds/storySound.mp3" },
         { id: "gameOverSound", src: "./Assets/sounds/gameOverSound.mp3" }
     ];
     //preload Assets
