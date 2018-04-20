@@ -116,6 +116,11 @@ module scenes {
                 enemy.Update();
                 managers.Collision.Check(this._plane, enemy);
 
+                if (this._plane.Life <= 0) {
+                    managers.Game.currentScene = config.Scene.GAMEOVER;
+                    this._backgroundSound.stop();
+                }
+
             });
             
             managers.Collision.Crush(this._missileManager.Missiles,this._enemy);
