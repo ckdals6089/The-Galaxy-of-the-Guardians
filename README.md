@@ -1,6 +1,6 @@
-The-Galaxy-of-the-Guardians
 
-# Neo4jVisualization
+# The-Galaxy-of-the-Guardians
+
 
 ## Quick Start
 ### 1. Basic Setup
