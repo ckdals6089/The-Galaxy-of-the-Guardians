@@ -24,21 +24,21 @@ $ npm install @types/easeljs --save-dev
 ```
 * install yarn package
 ```
-npm install yarn 
-yarn add easeljs --save
-yarn add tweenjs --save
-yarn add soundjs --save
-yarn add preloadjs --save
-yarn add @types/easeljs @types/tweenjs @types/soundjs @types/preloadjs --save
+$ npm install yarn 
+$ yarn add easeljs --save
+$ yarn add tweenjs --save
+$ yarn add soundjs --save
+$ yarn add preloadjs --save
+$ yarn add @types/easeljs @types/tweenjs @types/soundjs @types/preloadjs --save
 ```
 * install lite-server
 ```
-npm install lite-server 
+$ npm install lite-server 
 ```
 
 ### 3. Start Game
 ```
-lite-server
+$ lite-server
 ```
 ### 4. In Game
 ![alt text](Assets/ingameimage/pro2-1.png)
