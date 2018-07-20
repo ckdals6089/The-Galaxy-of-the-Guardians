@@ -8,7 +8,7 @@
     * Node.js
 
 ### 2. Node.js
-#### Clone this project from GitHub, and install necessary modules by running the following command in the project directory. If you already installed below modules, you don't need to follow command
+#### Clone this project from GitHub, and install necessary modules by running the following command in the project directory. If you already installed modules below, you don't need to follow command
 
 * install npm, typescript
 
