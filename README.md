@@ -31,9 +31,9 @@ yarn add soundjs --save
 yarn add preloadjs --save
 yarn add @types/easeljs @types/tweenjs @types/soundjs @types/preloadjs --save
 ```
-* intall lite-server
+* install lite-server
 ```
-npm install lite-server -g
+npm install lite-server 
 ```
 
 ### 3. Start Game
